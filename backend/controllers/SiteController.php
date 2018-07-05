@@ -2,36 +2,28 @@
 namespace backend\controllers;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
-class SiteController extends Controller
+use yii\helpers\ArrayHelper;
+
+class SiteController extends RoleController
 {
     public function behaviors()
     {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
+        define(ROLE_USER,['admin', 'manager']);
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
                     ],
                 ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
+            ]
+        );
     }
+
     public function actions()
     {
         return [
@@ -42,6 +34,11 @@ class SiteController extends Controller
     }
     public function actionIndex()
     {
+//        foreach(\Yii::$app->authManager->getRolesByUser(Yii::$app->user->id) as $k => $v)
+//            foreach($v as $k1 => $v1)
+//                if($k1=='name')
+//                    $oldRole = $v1;
+//        echo $oldRole;
         return $this->render('index');
     }
     public function actionLogin()

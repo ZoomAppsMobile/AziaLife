@@ -75,30 +75,28 @@ class SiteController extends Controller
             'banner4'=>$banner4,
             ]);
     }
-  
+
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect('/cabinet');
         }
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect('/cabinet');
         } else {
+            if(Yii::$app->request->post())
+                Yii::$app->session->setFlash('contactFormSubmitted');
             return $this->render('login', [
                 'model' => $model,
             ]);
         }
     }
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
 
         return $this->goHome();
     }
-  
-    
-  
-
 }

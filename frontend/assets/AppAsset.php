@@ -21,8 +21,10 @@ class AppAsset extends AssetBundle
     'position' => \yii\web\View::POS_HEAD
 );
     public $css = [
+        'css/rstyle.css',
         'css/style.css',
         'css/normalize.css',
+        'css/my.css',
     ];
     public $js = [
         'libs/jquery/dist/jquery.min.js',

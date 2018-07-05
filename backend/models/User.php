@@ -18,7 +18,7 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'email', 'created_at', 'updated_at'], 'required'],
+            [['username', 'auth_key', 'email', 'created_at', 'updated_at', 'role'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['dating'], 'safe'],
             ['new_password', 'string', 'min' => 6],
@@ -46,6 +46,7 @@ class User extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'names' => 'Имя',
+            'role' => 'Роль пользователя',
            // 'dating' => 'Дата регистрации',
         ];
     }

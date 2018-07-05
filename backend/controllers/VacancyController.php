@@ -5,28 +5,32 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Vacancy;
 use backend\models\VacancySearch;
-use yii\web\Controller;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * VacancyController implements the CRUD actions for Vacancy model.
  */
-class VacancyController extends Controller
+class VacancyController extends RoleController
 {
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER,['admin', 'manager']);
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**

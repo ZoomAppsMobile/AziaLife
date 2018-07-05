@@ -6,28 +6,32 @@ use Yii;
 use backend\models\Faqcategory;
 use backend\models\FaqcategorySearch;
 use backend\models\Faq;
-use yii\web\Controller;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * FaqcategoryController implements the CRUD actions for Faqcategory model.
  */
-class FaqcategoryController extends Controller
+class FaqcategoryController extends RoleController
 {
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER,['admin', 'manager']);
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**

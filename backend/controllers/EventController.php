@@ -5,14 +5,14 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Event;
 use backend\models\EventSearch;
-use yii\web\Controller;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * EventController implements the CRUD actions for Event model.
  */
-class EventController extends Controller
+class EventController extends RoleController
 {
     /**
      * @inheritdoc
@@ -24,14 +24,18 @@ class EventController extends Controller
     }
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER,['admin', 'manager']);
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**

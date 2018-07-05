@@ -6,14 +6,14 @@ use Yii;
 use backend\models\Blog;
 use backend\models\Blogtag;
 use backend\models\BlogSearch;
-use yii\web\Controller;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * BlogController implements the CRUD actions for Blog model.
  */
-class BlogController extends Controller
+class BlogController extends RoleController
 {
     /**
      * @inheritdoc
@@ -25,14 +25,18 @@ class BlogController extends Controller
     }
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER,['admin', 'manager']);
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**
