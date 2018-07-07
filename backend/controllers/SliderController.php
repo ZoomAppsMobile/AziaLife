@@ -8,9 +8,10 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 class SliderController extends RoleController
 {
+    const ROLE_USER = ['admin', 'manager'];
+
     public function behaviors()
     {
-        define(ROLE_USER,['admin', 'manager']);
         return ArrayHelper::merge(
             parent::behaviors(),
             [

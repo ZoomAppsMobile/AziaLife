@@ -15,9 +15,8 @@ use yii\filters\VerbFilter;
  */
 class FaqController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
+    const ROLE_USER = ['admin', 'manager'];
+
     public function behaviors()
     {
         return [

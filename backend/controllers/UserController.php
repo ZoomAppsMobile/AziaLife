@@ -15,9 +15,10 @@ use yii\filters\VerbFilter;
  */
 class UserController extends RoleController
 {
+    const ROLE_USER = ['admin', 'manager'];
+
     public function behaviors()
     {
-        define(ROLE_USER,['admin']);
         return ArrayHelper::merge(
             parent::behaviors(),
             [

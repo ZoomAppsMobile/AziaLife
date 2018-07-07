@@ -14,9 +14,8 @@ use yii\filters\VerbFilter;
  */
 class DocumentController extends RoleController
 {
-    /**
-     * @inheritdoc
-     */
+    const ROLE_USER = ['admin', 'manager'];
+
     public function beforeAction($action) 
     { 
         $this->enableCsrfValidation = false; 
@@ -24,7 +23,6 @@ class DocumentController extends RoleController
     }
     public function behaviors()
     {
-        define(ROLE_USER,['admin', 'manager']);
         return ArrayHelper::merge(
             parent::behaviors(),
             [
