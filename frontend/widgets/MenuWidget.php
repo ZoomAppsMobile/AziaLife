@@ -7,7 +7,7 @@ use yii\base\Widget;
 
 class MenuWidget extends Widget
 {
-    public function run(): string
+    public function run()
     {
         $model = Menu::find()->where('top = 1')->all();
 

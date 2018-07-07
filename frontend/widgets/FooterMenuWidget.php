@@ -7,7 +7,7 @@ use yii\base\Widget;
 
 class FooterMenuWidget extends Widget
 {
-    public function run(): string
+    public function run()
     {
         $model = Menu::find()->where('footer = 1')->all();
 
