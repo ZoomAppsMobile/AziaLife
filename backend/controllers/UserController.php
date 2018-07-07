@@ -17,7 +17,7 @@ class UserController extends RoleController
 {
     public function behaviors()
     {
-        define(ROLE_USER, 'admin, manager');
+        define(ROLE_USER, 'admin');
         return ArrayHelper::merge(
             parent::behaviors(),
             [
