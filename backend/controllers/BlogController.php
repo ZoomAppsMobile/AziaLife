@@ -15,15 +15,14 @@ use yii\filters\VerbFilter;
  */
 class BlogController extends RoleController
 {
-    const ROLE_USER = ['admin', 'manager'];
-
-    public function beforeAction($action) 
+    public function beforeAction($action)
     { 
         $this->enableCsrfValidation = false; 
         return parent::beforeAction($action); 
     }
     public function behaviors()
     {
+        define(ROLE_USER, 'admin, manager');
         return ArrayHelper::merge(
             parent::behaviors(),
             [

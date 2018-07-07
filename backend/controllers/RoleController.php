@@ -14,6 +14,7 @@ class RoleController extends Controller
 {
     public function behaviors()
     {
+        $array = explode(", ", ROLE_USER);
         return [
             'access' => [
                 'class' => 'yii\filters\AccessControl',
@@ -21,7 +22,7 @@ class RoleController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'roles' => ROLE_USER,
+                        'roles' => $array,
                     ],
                 ],
             ],
