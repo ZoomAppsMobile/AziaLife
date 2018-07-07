@@ -68,10 +68,8 @@ class UserController extends BackendController
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                $this->getRole($user->role, $user->id, 1);
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(['view', 'id' => $user->id]);
-                }
+                $model->getRole($user->role, $user->id, 1);
+                return $this->redirect(['view', 'id' => $user->id]);
             }
         }
 
@@ -105,26 +103,6 @@ class UserController extends BackendController
         }
     }
 
-
-    public function getRole($role, $user_id, $new){
-        $auth = Yii::$app->authManager;
-
-        if(!$new){
-            foreach(\Yii::$app->authManager->getRolesByUser($user_id) as $k => $v)
-                foreach($v as $k1 => $v1)
-                    if($k1=='name')
-                        $oldRole = $v1;
-
-            $auth->revoke($auth->getRole($oldRole), $user_id);
-        }
-
-        if($role == 1)
-            $auth->assign($auth->getRole('admin'), $user_id);
-        if($role == 2)
-            $auth->assign($auth->getRole('manager'), $user_id);
-        if($role == 3)
-            $auth->assign($auth->getRole('client'), $user_id);
-    }
     /**
      * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

@@ -55,7 +55,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            
+
             [['currentPassword'], 'validateCurrentPassword'],
             [['newPassword','newPasswordConfirm'], 'string', 'min'=>'6','tooShort'=>'Пароль должен содержать не менее 6 символов.'],
             [['newPassword','newPasswordConfirm'], 'filter', 'filter' => 'trim'],

@@ -1,12 +1,14 @@
 <?php
 namespace frontend\controllers;
 
+use backend\controllers\UserController;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use yii\base\InvalidParamException;
+use yii\helpers\VarDumper;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -82,15 +84,31 @@ class SiteController extends Controller
             return $this->redirect('/cabinet');
         }
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        $signup = new SignupForm();
+        $array = Yii::$app->request->post();
+        if ($array['LoginForm']&&$model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect('/cabinet');
-        } else {
-            if(Yii::$app->request->post())
-                Yii::$app->session->setFlash('contactFormSubmitted');
+        } elseif($array['LoginForm']) {
+            Yii::$app->session->setFlash('contactFormLogin');
             return $this->render('login', [
-                'model' => $model,
+                'model' => $model, 'signup' => $signup
             ]);
         }
+
+        if ($array['SignupForm']&&$signup->load(Yii::$app->request->post())) {
+            if ($user = $signup->signup()) {
+                $backend_user = new \backend\models\SignupForm();
+                $backend_user->getRole($user->role, $user->id, 1);
+                return $this->goHome();
+            }else{
+                return $this->render('login', [
+                    'model' => $model, 'signup' => $signup, 'error_signup' => 1
+                ]);
+            }
+        }
+        return $this->render('login', [
+            'model' => $model, 'signup' => $signup
+        ]);
     }
 
     public function actionLogout()

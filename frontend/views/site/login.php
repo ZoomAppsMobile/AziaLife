@@ -9,17 +9,17 @@
     <div id="exTab1" class="">
         <ul  class="nav nav-pills">
             <li>
-                <a  href="#1a" data-toggle="tab" class="active">Вход</a>
+                <a  href="#1a" data-toggle="tab" class="<?if(!$error_signup){?>active<?}?>">Вход</a>
             </li>
-            <li><a href="#2a" data-toggle="tab">Регистрация</a>
+            <li><a href="#2a" data-toggle="tab" <?if($error_signup){?>class="active"<?}?>>Регистрация</a>
             </li>
 
         </ul>
 
         <div class="tab-content clearfix">
-            <div class="tab-pane active" id="1a">
+            <div class="tab-pane <?if(!$error_signup){?>active<?}?>" id="1a">
                 <?php $form = \yii\bootstrap\ActiveForm::begin(); ?>
-                <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
+                <?php if (Yii::$app->session->hasFlash('contactFormLogin')): ?>
                     <div class="alert alert-danger">
                         Неправильный логин или пароль.
                     </div>
@@ -33,11 +33,24 @@
                 <?php \yii\bootstrap\ActiveForm::end(); ?>
                 <a href=""><span>Забыли пароль</span></a>
             </div>
-            <div class="tab-pane" id="2a">
-                <form action="">
-                    <input type="text" placeholder="Код"> <br>
-                    <input type="submit" value="ПОЛУЧИТЬ ДОСТУП">
-                </form>
+            <div class="tab-pane <?if($error_signup){?>active<?}?>" id="2a">
+                <?php $form = \yii\bootstrap\ActiveForm::begin(['id' => 'form-signup']); ?>
+
+                    <?= $form->field($signup, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Имя пользователя'])->label(false); ?>
+
+                    <?= $form->field($signup, 'email')->textInput(['placeholder' => 'E-mail'])->label(false);  ?>
+
+                    <?= $form->field($signup, 'password')->passwordInput(['placeholder' => 'Пароль'])->label(false);  ?>
+
+                    <div class="form-group">
+                        <?= \yii\helpers\Html::submitButton('ПОЛУЧИТЬ ДОСТУП', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    </div>
+
+                <?php \yii\bootstrap\ActiveForm::end(); ?>
+<!--                <form action="">-->
+<!--                    <input type="text" placeholder="Код"> <br>-->
+<!--                    <input type="submit" value="ПОЛУЧИТЬ ДОСТУП">-->
+<!--                </form>-->
                 <div class="litletext">
                     <span> Получить код <a href="">онлайн оплата</a></span>
                     <br><br>

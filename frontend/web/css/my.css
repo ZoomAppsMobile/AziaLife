@@ -9,3 +9,6 @@
 @media (max-width: 768px) {
     .tab-pane input[type=password] {
         width: 90%; } }
+#exTab1 .tab-content .help-block.help-block-error{
+    color: red;
+}
