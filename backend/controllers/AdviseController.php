@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * AdviseController implements the CRUD actions for Advise model.
  */
-class AdviseController extends RoleController
+class AdviseController extends BackendController
 {
     public function behaviors()
     {

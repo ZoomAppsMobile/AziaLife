@@ -10,7 +10,7 @@ namespace backend\controllers;
 
 use yii\web\Controller;
 
-class RoleController extends Controller
+class BackendController extends Controller
 {
     public function behaviors()
     {

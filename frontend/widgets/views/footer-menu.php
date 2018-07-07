@@ -4,7 +4,7 @@
             if($i==3) echo '<div class="links d-flex flex-column mx-md-3 mx-0">';
             else if($i==0||$i%3==0) echo '<div class="links d-flex flex-column">';
         ?>
-            <a href="<?=$v['url']?>"><?=$v['name']?></a>
+            <a href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to(['/'.$v['url']]))?>"><?=$v['name']?></a>
         <? if(($i+1)%3==0) echo '</div>'; ?>
     <? $i++;} ?>
     <div class="contacts my-4 my-md-0">

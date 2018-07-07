@@ -6,7 +6,7 @@ use backend\models\NewsSearch;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-class NewsController extends RoleController
+class NewsController extends BackendController
 {
     public function behaviors()
     {

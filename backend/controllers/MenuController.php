@@ -2,9 +2,10 @@
 
 namespace backend\controllers;
 
+use backend\models\search\MenuSearchFooter;
 use Yii;
 use common\models\Menu;
-use backend\models\search\MenuSearch;
+use backend\models\search\MenuSearchTop;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -13,7 +14,7 @@ use yii\filters\VerbFilter;
 /**
  * MenuController implements the CRUD actions for Menu model.
  */
-class MenuController extends RoleController
+class MenuController extends BackendController
 {
     public function behaviors()
     {
@@ -35,17 +36,27 @@ class MenuController extends RoleController
      * Lists all Menu models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionTop()
     {
-        $searchModel = new MenuSearch();
+        $searchModel = new MenuSearchTop();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('top', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
+    public function actionFooter()
+    {
+        $searchModel = new MenuSearchFooter();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('footer', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     /**
      * Displays a single Menu model.
      * @param integer $id
@@ -63,18 +74,18 @@ class MenuController extends RoleController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
-        $model = new Menu();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
-    }
+//    public function actionCreate()
+//    {
+//        $model = new Menu();
+//
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->render('create', [
+//                'model' => $model,
+//            ]);
+//        }
+//    }
 
     /**
      * Updates an existing Menu model.
@@ -101,12 +112,12 @@ class MenuController extends RoleController
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
+//    public function actionDelete($id)
+//    {
+//        $this->findModel($id)->delete();
+//
+//        return $this->redirect(['index']);
+//    }
 
     /**
      * Finds the Menu model based on its primary key value.
@@ -122,5 +133,38 @@ class MenuController extends RoleController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionMoveUp($id, $where)
+    {
+        $model = Menu::findOne($id);
+        $sort_where = "sort_".$where;
+        if ($model->$sort_where != 1) {
+            $sort = $model->$sort_where - 1;
+            $model_down = Menu::find()->where("$sort_where = $sort")->one();
+            $model_down->$sort_where += 1;
+            $model_down->save();
+
+            $model->$sort_where -= 1;
+            $model->save();
+        }
+        return $this->redirect([$where]);
+    }
+
+    public function actionMoveDown($id, $where)
+    {
+        $model = Menu::findOne($id);
+        $model_max_sort = Menu::find()->orderBy("sort_$where DESC")->one();
+        $sort_where = "sort_".$where;
+        if ($model->id != $model_max_sort->id) {
+            $sort = $model->$sort_where + 1;
+            $model_up = Menu::find()->where("$sort_where = $sort")->one();
+            $model_up->$sort_where -= 1;
+            $model_up->save();
+
+            $model->$sort_where += 1;
+            $model->save();
+        }
+        return $this->redirect([$where]);
     }
 }

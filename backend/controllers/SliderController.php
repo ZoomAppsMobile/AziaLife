@@ -6,7 +6,7 @@ use backend\models\SliderSearch;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-class SliderController extends RoleController
+class SliderController extends BackendController
 {
     public function behaviors()
     {

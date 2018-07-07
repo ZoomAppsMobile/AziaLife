@@ -13,7 +13,7 @@ use yii\filters\VerbFilter;
 /**
  * FaqcategoryController implements the CRUD actions for Faqcategory model.
  */
-class FaqcategoryController extends RoleController
+class FaqcategoryController extends BackendController
 {
     public function behaviors()
     {

@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * TermController implements the CRUD actions for Term model.
  */
-class TermController extends RoleController
+class TermController extends BackendController
 {
     public function behaviors()
     {

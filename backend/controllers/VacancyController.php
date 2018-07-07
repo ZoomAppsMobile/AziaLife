@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * VacancyController implements the CRUD actions for Vacancy model.
  */
-class VacancyController extends RoleController
+class VacancyController extends BackendController
 {
     public function behaviors()
     {

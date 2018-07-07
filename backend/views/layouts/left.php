@@ -20,121 +20,72 @@
               </span>
             </div>
         </form>
-        <ul class="sidebar-menu">
-            <li>
-                <a href="#"><i class="fa fa-home" aria-hidden="true"></i>
-                    <span>Главная страница</span></a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/slider']) ?>">
-                            <i class="fa fa-sliders" aria-hidden="true"></i><span>Слайдеры</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/news']) ?>">
-                            <i class="fa fa-newspaper-o" aria-hidden="true"></i><span>Новости</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/banner']) ?>">
-                            <i class="fa fa-picture-o" aria-hidden="true"></i><span>Баннера</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/admin/user"><i class="fa fa-home" aria-hidden="true"></i>
-                    <span>Пользователи</span>
-                </a>
-            </li>
-            <li>
-                <a href="/admin/menu"><i class="fa fa-home" aria-hidden="true"></i>
-                    <span>Меню</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bank" aria-hidden="true"></i>
-                    <span>О компании</span></a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/document']) ?>">
-                            <i class="fa fa-file-zip-o" aria-hidden="true"></i><span>Документы и публикации </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-address-card-o" aria-hidden="true"></i>
-                    <span>Частным клиентам</span></a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/blogcategory']) ?>">
-                            <i class="fa fa-tag" aria-hidden="true"></i><span>
-                                Категории
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/blog']) ?>">
-                            <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                                Блог
-                            </span>
-                        </a>
-                    </li>
-
-                    
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bullhorn" aria-hidden="true"></i>
-                    <span>Вакансии</span></a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/vacancy']) ?>">
-                            <i class="fa fa-user" aria-hidden="true"></i><span>Список вакансии</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['#']) ?>">
-                            <i class="fa fa-bookmark" aria-hidden="true"></i><span>Отклики</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-life-ring" aria-hidden="true"></i>
-                    <span>Клиентская поддержка</span></a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/faqcategory']) ?>">
-                            <i class="fa fa-question-circle" aria-hidden="true"></i><span>FAQ</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/advise']) ?>">
-                            <i class="fa fa-lightbulb-o" aria-hidden="true"></i><span>Полезные советы</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/term']) ?>">
-                            <i class="fa fa-trademark" aria-hidden="true"></i><span>Термины</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/statement']) ?>">
-                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i><span>Заявление</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['/event']) ?>">
-                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i><span> Действие при наступлении <br/>страхового случая</span>
-                        </a>
-                    </li>
-
-
-                </ul>
-            </li>
-        </ul>
+        <?= dmstr\widgets\Menu::widget(
+            [
+                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
+                'items' => [
+                    [
+                        'label' => 'Главная страница',
+                        'icon' => 'fa fa-home',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Слайдеры', 'icon' => 'fa fa-sliders', 'url' => ['/slider']],
+                            ['label' => 'Новости', 'icon' => 'fa fa-newspaper-o', 'url' => ['/news']],
+                            ['label' => 'Баннера', 'icon' => 'fa fa-picture-o', 'url' => ['/banner']],
+                        ],
+                    ],
+                    ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => ['/user']],
+                    [
+                        'label' => 'Меню',
+                        'icon' => 'fa fa-home',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Верхнее меню', 'icon' => 'fa fa-file-zip-o', 'url' => ['/menu/top']],
+                            ['label' => 'Нижнее меню', 'icon' => 'fa fa-file-zip-o', 'url' => ['/menu/footer']],
+                        ],
+                    ],
+                    [
+                        'label' => 'О компании',
+                        'icon' => 'fa fa-bank',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Документы и публикации', 'icon' => 'fa fa-file-zip-o', 'url' => ['/document']],
+                        ],
+                    ],
+                    [
+                        'label' => 'Частным клиентам',
+                        'icon' => 'fa fa-address-card-o',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Категории', 'icon' => 'fa fa-tag', 'url' => ['/blogcategory']],
+                            ['label' => 'Блог', 'icon' => 'fa fa-pencil-square', 'url' => ['/blog']],
+                        ],
+                    ],
+                    [
+                        'label' => 'Вакансии',
+                        'icon' => 'fa fa-bullhorn',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Список вакансий', 'icon' => 'fa fa-user', 'url' => ['/vacancy']],
+                            ['label' => 'Отклики', 'icon' => 'fa fa-bookmark', 'url' => '#'],
+                        ],
+                    ],
+                    [
+                        'label' => 'Клиентская поддержка',
+                        'icon' => 'fa fa-life-ring',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'FAQ', 'icon' => 'fa fa-question-circle', 'url' => ['/faqcategory']],
+                            ['label' => 'Полезные советы', 'icon' => 'fa fa-lightbulb-o', 'url' => ['/advise']],
+                            ['label' => 'Термины', 'icon' => 'fa fa-trademark', 'url' => ['/term']],
+                            ['label' => 'Заявление', 'icon' => 'fa fa-file-pdf-o', 'url' => ['/statement']],
+                            ['label' => '', 'icon' => 'fa fa-file-pdf-o', 'url' => ['/event'],
+                                'template'=> '<li><a href="{url}"><i class="fa fa-file-pdf-o"></i><span> Действие при наступлении <br/>страхового случая</span></a></li>'],
+                        ],
+                    ],
+                ],
+            ]
+        ) ?>
     </section>
 
 </aside>

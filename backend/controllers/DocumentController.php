@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * DocumentController implements the CRUD actions for Document model.
  */
-class DocumentController extends RoleController
+class DocumentController extends BackendController
 {
     public function beforeAction($action)
     { 

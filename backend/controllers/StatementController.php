@@ -13,7 +13,7 @@ use yii\filters\VerbFilter;
 /**
  * StatementController implements the CRUD actions for Statement model.
  */
-class StatementController extends RoleController
+class StatementController extends BackendController
 {
     public function behaviors()
     {

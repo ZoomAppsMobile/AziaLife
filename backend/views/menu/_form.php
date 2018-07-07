@@ -27,8 +27,6 @@ use common\models\Menu;
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'sort')->textInput(['maxlength' => true]) ?>
-
     <?
         if(!$model->id)
             $items = ArrayHelper::map(Menu::find()->where("parent_id = 0")->all(), 'id', 'name');
@@ -45,6 +43,8 @@ use common\models\Menu;
     <?= $form->field($model, 'footer')->checkbox() ?>
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'status')->dropDownList(['0' => 'Не активно', '1' => 'Ативно'], ['prompt' => '']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -9,7 +9,7 @@ use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class BannerController extends RoleController
+class BannerController extends BackendController
 {
     public function beforeAction($action) 
     { 

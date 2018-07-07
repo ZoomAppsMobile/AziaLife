@@ -68,15 +68,15 @@ return [
 //             ],
 //         ],
     ],
-    'as access' => [
-        'class' => 'yii\filters\AccessControl',
-        'except' => ['site/login', 'site/error', 'site/logout'],
-        'rules' => [
-            [
-                'allow' => true,
-                'roles' => ['admin', 'manager'],
-            ],
-        ],
-    ],
+//    'as access' => [
+//        'class' => 'yii\filters\AccessControl',
+//        'except' => ['site/login', 'site/error', 'site/logout'],
+//        'rules' => [
+//            [
+//                'allow' => true,
+//                'roles' => ['admin', 'manager'],
+//            ],
+//        ],
+//    ],
     'params' => $params,
 ];

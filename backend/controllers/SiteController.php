@@ -6,7 +6,7 @@ use common\models\LoginForm;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 
-class SiteController extends RoleController
+class SiteController extends BackendController
 {
     public function behaviors()
     {

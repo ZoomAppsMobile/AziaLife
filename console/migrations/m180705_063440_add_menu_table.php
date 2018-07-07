@@ -19,9 +19,11 @@ class m180705_063440_add_menu_table extends Migration
             'keywords' => $this->string(),
             'url' => $this->string()->notNull(),
             'parent_id' => $this->integer()->null(),
-            'sort' => $this->integer()->null(),
+            'sort_top' => $this->integer()->null(),
+            'sort_footer' => $this->integer()->null(),
             'footer' => $this->integer()->null(),
             'top' => $this->integer()->null(),
+            'status' => $this->integer()->null(),
         ], $tableOptions);
     }
 

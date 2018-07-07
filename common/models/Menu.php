@@ -33,7 +33,7 @@ class Menu extends \yii\db\ActiveRecord
         return [
             [['name', 'name_en', 'name_kz'], 'required'],
             [['text', 'description'], 'string'],
-            [['sort', 'parent_id', 'footer', 'top'], 'integer'],
+            [['sort_top', 'sort_footer', 'parent_id', 'footer', 'top', 'status'], 'integer'],
             [['name', 'name_en', 'name_kz', 'title', 'keywords', 'url'], 'string', 'max' => 255],
         ];
     }
@@ -45,14 +45,25 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'name_en' => 'Name En',
-            'name_kz' => 'Name Kz',
-            'text' => 'Text',
-            'title' => 'Title',
-            'description' => 'Description',
-            'keywords' => 'Keywords',
+            'name' => 'Название',
+            'name_en' => 'Название En',
+            'name_kz' => 'Название Kz',
+            'text' => 'Текст',
+            'title' => 'Заголовок',
+            'description' => 'Описание',
+            'keywords' => 'Ключевые слова',
             'url' => 'Url',
+            'status' => 'Статус',
         ];
     }
+
+//    public function beforeSave($insert){
+//        if($this->isNewRecord) {
+//            $model = Menu::find()->orderBy('sort DESC')->one();
+//            if ($this->id != $model->id) {
+//                $this->sort = $model->sort + 1;
+//            }
+//        }
+//        return parent::beforeSave($insert);
+//    }
 }

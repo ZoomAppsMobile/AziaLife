@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * EventController implements the CRUD actions for Event model.
  */
-class EventController extends RoleController
+class EventController extends BackendController
 {
     public function beforeAction($action)
     { 

@@ -13,7 +13,7 @@ use yii\filters\VerbFilter;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends RoleController
+class UserController extends BackendController
 {
     public function behaviors()
     {
