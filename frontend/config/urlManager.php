@@ -4,7 +4,7 @@
 
 return [
     'class' => 'yii\web\UrlManager',
-    'hostInfo' => 'http://www.com',
+    'hostInfo' => 'http://a-life.movefocus.kz',
     'baseUrl' => '',
     'enablePrettyUrl' => true,
     'showScriptName' => false,

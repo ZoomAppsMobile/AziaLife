@@ -31,7 +31,7 @@
                 </div>
 
                 <?php \yii\bootstrap\ActiveForm::end(); ?>
-                <a href=""><span>Забыли пароль</span></a>
+                <a href="<?=\yii\helpers\Url::to(['site/request-password-reset']);?>"><span>Забыли пароль</span></a>
             </div>
             <div class="tab-pane <?if($error_signup){?>active<?}?>" id="2a">
                 <?php $form = \yii\bootstrap\ActiveForm::begin(['id' => 'form-signup']); ?>
