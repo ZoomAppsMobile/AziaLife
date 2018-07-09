@@ -21,9 +21,12 @@ use Yii;
  */
 class Document extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
+    const URL_DOCUMENT = "insurance-rules, register-of-insurance-agents, insurance-tariffs, financial-indicators";
+//    const INSURANCE_RULES = "0, insurance-rules";
+//    const REGISTER_OF_INSURANCE_AGENTS = "1, register-of-insurance-agents";
+//    const INSURANCE_TARIFFS = "2, insurance-tariffs";
+//    const FINANCIAL_INDICATORS = "3, financial-indicators";
+
     public static function tableName()
     {
         return 'document';

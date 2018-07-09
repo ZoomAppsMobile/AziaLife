@@ -8,36 +8,95 @@
 
 namespace frontend\controllers;
 
+use backend\models\Document;
+use backend\models\Statement;
+use backend\models\Term;
 use common\models\Menu;
+use common\models\PartnersAndCustomers;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
+use yii\web\HttpException;
 
 class MenuController extends Controller
 {
     //////////////////Top menu
+
+    /// О компании
     public function actionAboutTheCompany(){
         $model = Menu::findOne(['url' => 'about-the-company']);
 
         return $this->render('about-the-company', compact('model'));
     }
 
+    public function actionAboutTheCompanyChild($url){
+        if($url=="documents-and-publications")
+            $model = Document::find()->all();
+        elseif($url=="partners-and-customers")
+            $model = PartnersAndCustomers::find()->all();
+        else
+            throw new HttpException(404 ,'Not found');
+
+        return $this->render("about-the-company/$url", compact('model'));
+    }
+
+    public function actionAboutTheCompanyChildChild($url, $url1){
+        if($url=='documents-and-publications') {
+            $url_document = explode(', ', Document::URL_DOCUMENT);
+            $empty = 0;
+
+            foreach($url_document as $k => $v){
+                if($v==$url1){
+                    $id = $k;
+                    $empty = 1;
+                    break;
+                }
+
+            }
+
+            if(!$empty)
+                throw new HttpException(404 ,'Not found');
+
+            $model = Document::find()->where('category = "'.$id.'"')->all();
+        }
+        elseif($url=='partners-and-customers'){
+            $model = PartnersAndCustomers::find()->where("url = '$url1'")->one();
+            $url1 = "partners-and-customers-one";
+        }
+        else
+            throw new HttpException(404 ,'Not found');
+
+        return $this->render("about-the-company/$url1", compact('model'));
+    }
+
+    ///Частным клиентам
     public function actionPrivateClients(){
         $model = Menu::findOne(['url' => 'private-clients']);
 
         return $this->render('private-clients', compact('model'));
     }
 
+    ///Тех. поддержка
     public function actionClientSupport(){
         $model = Menu::findOne(['url' => 'client-support']);
 
         return $this->render('client-support', compact('model'));
     }
 
-    public function actionBusiness(){//Готово
+    public function actionClientSupportChild($url){
+        if($url=="statement")
+            $model = Statement::find()->with('docs')->all();
+
+        return $this->render("client-support/$url", compact('model'));
+    }
+
+    ///Бизнесу
+    public function actionBusiness(){
         $model = Menu::findOne(['url' => 'business']);
 
         return $this->render('business', compact('model'));
     }
 
+    ///Онлайн оплата
     public function actionOnlinePayment(){
         $model = Menu::findOne(['url' => 'online-payment']);
 

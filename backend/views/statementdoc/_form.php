@@ -23,7 +23,7 @@ use iutbay\yii2kcfinder\KCFinderInputWidget;
     ]); ?>
 
     <?= $form->field($model, 'doc_kz')->widget(KCFinderInputWidget::className(), [
-        'multiple' => false,
+        'multiple' => true,
     ]); ?>
 
     <?= $form->field($model, 'doc_en')->widget(KCFinderInputWidget::className(), [
