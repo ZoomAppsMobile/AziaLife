@@ -6,7 +6,8 @@ use Yii;
 use backend\models\Blog;
 use backend\models\Blogtag;
 use backend\models\BlogSearch;
-use yii\helpers\ArrayHelper;
+use backend\models\Privatewidget;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -15,12 +16,15 @@ use yii\filters\VerbFilter;
  */
 class BlogController extends BackendController
 {
-    public function beforeAction($action)
+    /**
+     * @inheritdoc
+     */
+    public function beforeAction($action) 
     { 
         $this->enableCsrfValidation = false; 
         return parent::beforeAction($action); 
     }
-    public function behaviors()
+	public function behaviors()
     {
         define(ROLE_USER, 'admin, manager');
         return ArrayHelper::merge(
@@ -59,9 +63,11 @@ class BlogController extends BackendController
     public function actionView($id)
     {
         $blogtags=Blogtag::find()->where(['blogid'=>$id])->all();
+        $privatewidget=Privatewidget::find()->where(['pid'=>$id])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
             'blogtags' => $blogtags,
+            'privatewidget'=>$privatewidget,
         ]);
     }
 
@@ -114,7 +120,20 @@ class BlogController extends BackendController
 
         return $this->redirect(['index']);
     }
+    public function actionDeleteblogtag($id)
+    {
+        $modelid=$this->findBlogTag($id)->blogid;
+        $this->findBlogTag($id)->delete();
 
+        return $this->redirect(['view', 'id' => $modelid]);
+    }
+    public function actionDeletepw($id)
+    {
+        $modelid=$this->findPw($id)->pid;
+        $this->findPw($id)->delete();
+
+        return $this->redirect(['view', 'id' => $modelid]);
+    }
     /**
      * Finds the Blog model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -130,4 +149,21 @@ class BlogController extends BackendController
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+    protected function findBlogTag($id)
+    {
+        if (($model = Blogtag::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    protected function findPw($id)
+    {
+        if (($model = Privatewidget::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 }
+

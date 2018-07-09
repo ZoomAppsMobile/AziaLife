@@ -12,8 +12,7 @@ class TermsController extends Controller
         	$terms=Term::find()->where(['status'=>'1'])->orderBy(['title_en' => SORT_ASC])->all();
         } else if(\Yii::$app->session->get('lang')=='kz'){
         	$terms=Term::find()->where(['status'=>'1'])->orderBy(['title_kz' => SORT_ASC])->all();
-        }
-    	
+        }    	
         return $this->render('index',['terms'=>$terms]);
     }
 }
