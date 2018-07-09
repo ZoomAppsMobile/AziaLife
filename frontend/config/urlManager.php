@@ -15,6 +15,8 @@ return [
 
         /////Меню верхнее
         'about-the-company'=>'menu/about-the-company',
+        'about-the-company/<url:[\w-]+>'=>'menu/about-the-company-child',
+        'about-the-company/<url:[\w-]+>/<url1:[\w-]+>'=>'menu/about-the-company-child-child',
         'private-clients'=>'menu/private-clients',
         'client-support'=>'menu/client-support',
         'client-support/<url:[\w-]+>'=>'menu/client-support-child',

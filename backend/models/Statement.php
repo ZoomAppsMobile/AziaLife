@@ -51,4 +51,8 @@ class Statement extends \yii\db\ActiveRecord
             'order' => 'Порядок',
         ];
     }
+
+    public function getDocs(){
+        return $this->hasMany(Statementdoc::className(), ['state_id' => 'id']);
+    }
 }

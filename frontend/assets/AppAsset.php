@@ -17,6 +17,9 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/rstyle.css',
         'stylesheets/style.css',
+        'stylesheets1/style.css',
+        'stylesheets2/style.css',
+        'stylesheets3/style.css',
         'css/style.css',
         'css/normalize.css',
         'css/my.css',

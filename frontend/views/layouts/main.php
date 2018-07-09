@@ -102,6 +102,10 @@ $banner=Banner::find()
     ©2018. Все права защищены. Перепечатка и использование материалов данного сайта допускается только при условии
     активной гиперссылки на источник и только с письменного разрешения АО «КСЖ «Азия Life»
 </p>
+        <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.0/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://use.fontawesome.com/826a7e3dce.js"></script>
     <?php $this->endBody() ?>
 </body>
 </html>

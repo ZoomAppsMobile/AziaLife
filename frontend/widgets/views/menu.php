@@ -14,7 +14,7 @@
 </div>
 <div class="bottom-bar d-flex">
     <? foreach($model as $v){ ?>
-        <a class="text-uppercase" href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to($v['url']))?>">
+        <a class="text-uppercase" href="/<?=\yii\helpers\Html::encode(\yii\helpers\Url::to($v['url']))?>">
             <?php
                 if(\Yii::$app->session->get('lang')=='ru'){
                     echo $v['name'];

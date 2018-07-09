@@ -50,6 +50,7 @@
                         'url' => '#',
                         'items' => [
                             ['label' => 'Документы и публикации', 'icon' => 'fa fa-file-zip-o', 'url' => ['/document']],
+                            ['label' => 'Партнеры и клиенты', 'icon' => 'fa fa-file-zip-o', 'url' => ['/partners-and-customers']],
                         ],
                     ],
                     [
