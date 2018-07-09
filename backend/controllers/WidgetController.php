@@ -3,15 +3,20 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Term;
-use backend\models\TermSearch;
+use backend\models\Widget;
+use backend\models\WidgetSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
-class TermController extends Controller
+use backend\models\Widgetitem;
+/**
+ * WidgetController implements the CRUD actions for Widget model.
+ */
+class WidgetController extends Controller
 {
-
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
@@ -25,12 +30,12 @@ class TermController extends Controller
     }
 
     /**
-     * Lists all Term models.
+     * Lists all Widget models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TermSearch();
+        $searchModel = new WidgetSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -40,25 +45,27 @@ class TermController extends Controller
     }
 
     /**
-     * Displays a single Term model.
+     * Displays a single Widget model.
      * @param integer $id
      * @return mixed
      */
     public function actionView($id)
     {
+        $widgetitem=Widgetitem::find()->where(['wid'=>$id])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'widgetitem' => $widgetitem
         ]);
     }
 
     /**
-     * Creates a new Term model.
+     * Creates a new Widget model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Term();
+        $model = new Widget();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -70,7 +77,7 @@ class TermController extends Controller
     }
 
     /**
-     * Updates an existing Term model.
+     * Updates an existing Widget model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -89,7 +96,7 @@ class TermController extends Controller
     }
 
     /**
-     * Deletes an existing Term model.
+     * Deletes an existing Widget model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -102,15 +109,15 @@ class TermController extends Controller
     }
 
     /**
-     * Finds the Term model based on its primary key value.
+     * Finds the Widget model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Term the loaded model
+     * @return Widget the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Term::findOne($id)) !== null) {
+        if (($model = Widget::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
