@@ -8,7 +8,9 @@
 
 namespace frontend\controllers;
 
+use backend\models\Term;
 use common\models\Menu;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 
 class MenuController extends Controller
@@ -30,6 +32,13 @@ class MenuController extends Controller
         $model = Menu::findOne(['url' => 'client-support']);
 
         return $this->render('client-support', compact('model'));
+    }
+
+    public function actionClientSupportChild($url){
+        if($url=="statement")
+            $model = Term::find()->all();
+
+        return $this->render("client-support/statement", compact('model'));
     }
 
     public function actionBusiness(){//Готово

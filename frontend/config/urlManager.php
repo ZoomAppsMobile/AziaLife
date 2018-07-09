@@ -17,6 +17,7 @@ return [
         'about-the-company'=>'menu/about-the-company',
         'private-clients'=>'menu/private-clients',
         'client-support'=>'menu/client-support',
+        'client-support/<url:[\w-]+>'=>'menu/client-support-child',
         'business'=>'menu/business',
         'online-payment'=>'menu/online-payment',
 
