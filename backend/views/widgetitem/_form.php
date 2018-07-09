@@ -40,6 +40,15 @@ $widget=Widget::findOne($id);
 
             <?= $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
 
+            <label>Второй заголовок</label>
+            <?= $form->field($model, 'description')->textInput(['maxlength' => true])->label(false); ?>
+
+            <label>Второй заголовок KZ</label>
+            <?= $form->field($model, 'description_kz')->textInput(['maxlength' => true])->label(false); ?>
+
+            <label>Второй заголовок EN</label>
+            <?= $form->field($model, 'description_en')->textInput(['maxlength' => true])->label(false); ?>
+
             <?= $form->field($model, 'order')->textInput() ?>
             <div class="row">
         <div class="panel panel-default">

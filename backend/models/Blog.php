@@ -23,7 +23,9 @@ class Blog extends \yii\db\ActiveRecord
             [['title', 'title_kz', 'title_en', 'thumb', 'image', 'content', 'content_kz', 'content_en', 'url', 'order', 'status', 'category'], 'required'],
             [['content', 'content_kz', 'content_en', 'status'], 'string'],
             [['order', 'category'], 'integer'],
-            [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'thumb', 'image', 'note', 'note_kz', 'note_en', 'url'], 'string', 'max' => 512],
+            [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'thumb', 'image', 'note', 'note_kz', 'note_en'], 'string', 'max' => 512],
+            [['url'], 'string', 'max' => 200],
+            [['url'], 'unique'],
         ];
     }
 

@@ -24,7 +24,7 @@ class BlogController extends BackendController
         $this->enableCsrfValidation = false; 
         return parent::beforeAction($action); 
     }
-	public function behaviors()
+    public function behaviors()
     {
         define(ROLE_USER, 'admin, manager');
         return ArrayHelper::merge(
@@ -39,7 +39,6 @@ class BlogController extends BackendController
             ]
         );
     }
-
     /**
      * Lists all Blog models.
      * @return mixed
@@ -63,7 +62,7 @@ class BlogController extends BackendController
     public function actionView($id)
     {
         $blogtags=Blogtag::find()->where(['blogid'=>$id])->all();
-        $privatewidget=Privatewidget::find()->where(['pid'=>$id])->all();
+        $privatewidget=Privatewidget::find()->where(['pid'=>$id])->orderBy(['order'=>SORT_ASC])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
             'blogtags' => $blogtags,
@@ -166,4 +165,3 @@ class BlogController extends BackendController
         }
     }
 }
-

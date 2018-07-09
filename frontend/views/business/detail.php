@@ -14,13 +14,13 @@ $this->registerCssFile('/frontend/web/css/privatedetail/style.css');
                 echo "Басты бет";
             }
             ?> <img src="/image/link-arrow-right.png" alt=""></a>
-    <a href="/private"><?php
+    <a href="/business"><?php
              if(\Yii::$app->session->get('lang')=='ru'){
-                echo "Частным клиентам";
+                echo "Бизнесу";
             } else if(\Yii::$app->session->get('lang')=='en'){
-                echo "Private clients";
+                echo "Business";
             } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo "Жеке клиент";
+                echo "Бизнес";
             }
             ?> <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="">

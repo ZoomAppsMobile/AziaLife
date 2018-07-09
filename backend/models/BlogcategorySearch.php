@@ -62,6 +62,8 @@ class BlogcategorySearch extends Blogcategory
             'id' => $this->id,
             'order' => $this->order,
         ]);
+        $myarray=['0','1'];
+        $query->andFilterWhere(['in', 'status', $myarray]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'title_kz', $this->title_kz])
