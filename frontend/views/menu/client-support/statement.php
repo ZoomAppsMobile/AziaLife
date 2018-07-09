@@ -1,8 +1,9 @@
-<div class="link-anchors d-flex mt-4">
-    <a href="">Главная <img src="public/images/link-arrow-right.png" alt=""></a>
-    <a href="">Клиентская поддержка <img src="public/images/link-arrow-right.png" alt=""></a>
-    <a href="">Заявления <img src="public/images/link-arrow-right.png" alt=""></a>
+<div class="link-anchors d-flex flex-md-row flex-column mt-4">
+    <a href="/">Главная <img src="/image/link-arrow-right.png" alt=""></a>
+    <a href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to(['/client-support']))?>">Клиентская поддержка<img src="/image/link-arrow-right.png" alt=""></a>
+    <a href="">Заявления</a>
 </div>
+
 
 <h3 class="text-uppercase my-1 my-md-5 main-text font-weight-bold">заявления </h3>
 <div class="accordion accordion-first2" id="accordion2">
