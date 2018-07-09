@@ -14,7 +14,7 @@ use yii\filters\VerbFilter;
 /**
  * BlogController implements the CRUD actions for Blog model.
  */
-class BlogController extends Controller
+class BlogController extends BackendController
 {
     /**
      * @inheritdoc
@@ -24,16 +24,20 @@ class BlogController extends Controller
         $this->enableCsrfValidation = false; 
         return parent::beforeAction($action); 
     }
-    public function behaviors()
+	public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER, 'admin, manager');
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**
@@ -162,3 +166,4 @@ class BlogController extends Controller
         }
     }
 }
+

@@ -91,9 +91,9 @@ a.btn.btn-success.btn-flat {
     border-left-color: #fff !important;
     background: #00541D !important;
 }
-.skin-blue .treeview-menu>li>a {
-    color: #EBEFF5 !important;
-}
+/*.skin-blue .treeview-menu>li>a {*/
+    /*color: #EBEFF5 !important;*/
+/*}*/
 .skin-blue .treeview-menu>li li>a {
     color: white !important;
 }

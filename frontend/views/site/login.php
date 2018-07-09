@@ -1,45 +1,63 @@
-<?php
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-$this->title = 'Вход в личный кабинет';
-?>
-<div class="container request-container">
-    <div id="login" class="site-login request">
-        <div class="row">
-            <div class="col-sm-6 form-cover">
-                <label>Введите ваш логин и пароль</label>
-                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                    <label class="fontsize12">Логин</label>
-                    <?= $form->field($model, 'username')->label(false) ?>
-                    <label class="fontsize12">Пароль</label>    
-                    <?= $form->field($model, 'password')->passwordInput()->label(false) ?>
-                    <div class="clear"></div>
-                    
-                    <div class="form-group">
-                        <?= Html::submitButton('Войти в систему', [ 'name' => 'login-button']) ?>
+<div class="link-anchors d-flex mt-4">
+    <a href="/">Главная <img src="image/link-arrow-right.png" alt=""></a>
+    <a href="">Личный кабинет <img src="image/link-arrow-right.png" alt=""></a>
+</div>
+
+<h3 class="text-uppercase my-1 my-md-5 main-text font-weight-bold">ЛИЧНЫЙ КАБИНЕТ</h3>
+
+<div class="d-flex justify-content-center my-5">
+    <div id="exTab1" class="">
+        <ul  class="nav nav-pills">
+            <li>
+                <a  href="#1a" data-toggle="tab" class="<?if(!$error_signup){?>active<?}?>">Вход</a>
+            </li>
+            <li><a href="#2a" data-toggle="tab" <?if($error_signup){?>class="active"<?}?>>Регистрация</a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content clearfix">
+            <div class="tab-pane <?if(!$error_signup){?>active<?}?>" id="1a">
+                <?php $form = \yii\bootstrap\ActiveForm::begin(); ?>
+                <?php if (Yii::$app->session->hasFlash('contactFormLogin')): ?>
+                    <div class="alert alert-danger">
+                        Неправильный логин или пароль.
                     </div>
-                <?php ActiveForm::end(); ?>
+                <?php endif; ?>
+                <input type="text" id="" class="" name="LoginForm[username]" autofocus="" placeholder="Email">
+                <input type="password" name="LoginForm[password]" placeholder="Пароль">
+                <div class="form-group">
+                    <input type="submit" value="ВОЙТИ В ЛИЧНЫЙ КАБИНЕТ">
+                </div>
+
+                <?php \yii\bootstrap\ActiveForm::end(); ?>
+                <a href="<?=\yii\helpers\Url::to(['site/request-password-reset']);?>"><span>Забыли пароль</span></a>
             </div>
-            <div class="col-sm-6">
-                <p><b>Уважаемый пользователь системы «Web Rating»</b></p>
-                <p>
-                <b> Где взять логин и пароль для входа в систему?</b></p>
-                <ol>
-                <li>Если Вы студент, то логин и пароль Вам может сообщить ваш эдвайзер.</li>
-                <li>Если вы преподаватель, то ваши логин и пароль Вы можете получить в Офисе регистратора.</li>
-                <li>Если вы родитель студента, то для получения логина и пароля вам необходимо лично обратиться к эдвайзеру Вашего студента.</li>
-                </ol>
-                <p><b>Что делать, если Вы забыли логин или пароль?</b></p>
-                <ol>
-                <li>Если Вы студент или родитель студента, то Вам необходимо обратиться к своему эдвайзеру с просьбой сбросить пароль. Эдвайзер выдаст Вам новый пароль.</li>
-                <li>Если вы преподаватель (а также эдвайзер или заведующий кафедрой), то Вам необходимо обратиться в Офис регистратора. Офис-регистратора сможет сбросить Ваш пароль и выдать вам новый.</li>
-                <li>Сотрудникам Офиса регистратора и сотрудникам других структурных подразделений необходимо обратиться в отдел программного сопровождения ДИТ, где Вам необходимо будет предъявить документ удостоверяющий личность и Вам будет выдан новый пароль.</li>
-                </ol>
-                <p>
-                <b>После получения нового пароля, Вам, обязательно, необходимо будет его сменить!</b>
-                </p>
+            <div class="tab-pane <?if($error_signup){?>active<?}?>" id="2a">
+                <?php $form = \yii\bootstrap\ActiveForm::begin(['id' => 'form-signup']); ?>
+
+                    <?= $form->field($signup, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Имя пользователя'])->label(false); ?>
+
+                    <?= $form->field($signup, 'email')->textInput(['placeholder' => 'E-mail'])->label(false);  ?>
+
+                    <?= $form->field($signup, 'password')->passwordInput(['placeholder' => 'Пароль'])->label(false);  ?>
+
+                    <div class="form-group">
+                        <?= \yii\helpers\Html::submitButton('ПОЛУЧИТЬ ДОСТУП', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    </div>
+
+                <?php \yii\bootstrap\ActiveForm::end(); ?>
+<!--                <form action="">-->
+<!--                    <input type="text" placeholder="Код"> <br>-->
+<!--                    <input type="submit" value="ПОЛУЧИТЬ ДОСТУП">-->
+<!--                </form>-->
+                <div class="litletext">
+                    <span> Получить код <a href="">онлайн оплата</a></span>
+                    <br><br>
+                    <span>Регистрация возможна только для клиентов “Азия  Life”, заключившим договор страхования оффлайн</span>
+                </div>
             </div>
-            <div class="clear"></div>
+
         </div>
     </div>
 </div>

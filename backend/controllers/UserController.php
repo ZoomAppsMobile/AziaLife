@@ -6,25 +6,29 @@ use Yii;
 use backend\models\User;
 use backend\models\UserSearch;
 use backend\models\SignupForm;
-use yii\web\Controller;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends Controller
+class UserController extends BackendController
 {
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
+        define(ROLE_USER, 'admin');
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**
@@ -64,9 +68,8 @@ class UserController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(['view', 'id' => $user->id]);
-                }
+                $model->getRole($user->role, $user->id, 1);
+                return $this->redirect(['view', 'id' => $user->id]);
             }
         }
 
@@ -90,6 +93,7 @@ class UserController extends Controller
                 $model->updatePassword($model->new_password);
             }
             if($model->save()){
+                $this->getRole($model->role, $model->id, 0);
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {

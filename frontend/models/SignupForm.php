@@ -33,7 +33,6 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
-            ['status', 'required'],
         ];
     }
 
@@ -48,7 +47,7 @@ class SignupForm extends Model
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->type = $this->status;
+            $user->role = 3;
             $user->setPassword($this->password);
             $user->generateAuthKey();
             if ($user->save()) {

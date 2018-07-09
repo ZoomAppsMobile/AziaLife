@@ -88,120 +88,16 @@ $banner=Banner::find()
                 <input type="text">
                 <button><img src="/image/header-search.png" alt=""></button>
             </form>
-            <a class="cabinet" href=""><img src="/image/header-cabinet.png" alt=""><span>
-            <?php
-                            if(\Yii::$app->session->get('lang')=='ru'){
-                                echo "Личный кабинет";
-                            } else if(\Yii::$app->session->get('lang')=='kz'){
-                                echo "Жеке кабинет";
-                            } else if(\Yii::$app->session->get('lang')=='en'){
-                                echo "Personal account";
-                            }
-                        ?></span></a>
-        </div>
-        <div class="bottom-bar d-flex">
-            <a class="text-uppercase" href=""><?php
-                            if(\Yii::$app->session->get('lang')=='ru'){
-                                echo "о компании";
-                            } else if(\Yii::$app->session->get('lang')=='kz'){
-                                echo "Компания туралы";
-                            } else if(\Yii::$app->session->get('lang')=='en'){
-                                echo "about the company";
-                            }
-                        ?></a>
-            <a class="text-uppercase" href=""><?php
-                            if(\Yii::$app->session->get('lang')=='ru'){
-                                echo "Частным клиентам";
-                            } else if(\Yii::$app->session->get('lang')=='kz'){
-                                echo "Жеке клиенттерге";
-                            } else if(\Yii::$app->session->get('lang')=='en'){
-                                echo "Private clients";
-                            }
-                        ?></a>
-            <a class="text-uppercase" href=""><?php
-                            if(\Yii::$app->session->get('lang')=='ru'){
-                                echo "Бизнесу";
-                            } else if(\Yii::$app->session->get('lang')=='kz'){
-                                echo "Бизнес үшін";
-                            } else if(\Yii::$app->session->get('lang')=='en'){
-                                echo "business";
-                            }
-                        ?> </a>
-            <a class="text-uppercase" href=""><?php
-                            if(\Yii::$app->session->get('lang')=='ru'){
-                                echo "Онлайн оплата";
-                            } else if(\Yii::$app->session->get('lang')=='kz'){
-                                echo "Онлайн төлеу";
-                            } else if(\Yii::$app->session->get('lang')=='en'){
-                                echo "Online payment";
-                            }
-                        ?></a>
-            <a class="text-uppercase" href="">
-            <?php
-                            if(\Yii::$app->session->get('lang')=='ru'){
-                                echo "Клиентская поддержка";
-                            } else if(\Yii::$app->session->get('lang')=='kz'){
-                                echo "Клиенттік қолдау";
-                            } else if(\Yii::$app->session->get('lang')=='en'){
-                                echo "Client support";
-                            }
-                        ?></a>
-        </div>
+            <?= \frontend\widgets\MenuWidget::widget() ?>
     </div>
 </div>
         <?= Alert::widget() ?>
         <?= $content ?> 
-        <div data-aos="fade-up" class="banners d-flex justify-content-center my-5">
+<div data-aos="fade-up" class="banners d-flex justify-content-center my-5">
     <img class="banner" src="<?=$banner->image?>" alt="">
 </div>
-        <div data-aos="fade-up" class="footer d-flex flex-md-row flex-column align-items-center align-items-md-start text-center text-md-left justify-content-between">
-    <div class="links d-flex flex-column">
-        <a href="">Медиа информация</a>
-        <a href="">Вакансии</a>
-        <a href="">Вопросы и ответы</a>
-    </div>
-    <div class="links d-flex flex-column mx-md-3 mx-0">
-        <a href="">О компании</a>
-        <a href="">Реквизиты компании</a>
-        <a href="">Финансовые показатели</a>
-    </div>
-    <div class="links d-flex flex-column">
-        <a href="">Кабинет агента</a>
-        <a href="">Книга предложений</a>
-        <a href="">Спецпредложения</a>
-    </div>
-    <div class="contacts my-4 my-md-0">
-        <div class="mobile-phone d-flex align-items-center">
-            <img src="/image/footer-phone.png" alt="">
-            <a href="tel:+77712280607">+7 (771) 228 06 07</a>
-        </div>
-        <p>заказать звонок</p>
-        <div class="email d-flex align-items-center">
-            <img src="/image/footer-email.png" alt="">
-            <a href="mailto:Info@mail.com">Info@mail.com</a>
-        </div>
-        <div class="mobile-app d-flex">
-            <img src="/image/footer-mobile-app.png" alt="">
-            <a href="">Мобильное приложение</a>
-        </div>
-    </div>
 
-    <div class="social-media d-flex flex-column align-items-center align-items-md-start justify-content-between">
-        <div class="social d-flex align-items-center mb-4 mb-md-0">
-            <a href=""><img src="/image/footer-social1.png" alt=""></a>
-            <a href=""><img src="/image/footer-social2.png" alt=""></a>
-            <a href=""><img src="/image/footer-social3.png" alt=""></a>
-            <a href=""><img src="/image/footer-social4.png" alt=""></a>
-            <a href=""><img src="/image/footer-social5.png" alt=""></a>
-            <a href=""><img src="/image/footer-social6.png" alt=""></a>
-            <a href=""><img src="/image/footer-social7.png" alt=""></a>
-        </div>
-        <div class="second-row d-flex">
-            <a href=""><img src="/image/footer-social8.png" alt=""></a>
-            <a href=""><img src="/image/footer-social9.png" alt=""></a>
-        </div>
-    </div>
-</div>
+<?= \frontend\widgets\FooterMenuWidget::widget() ?>
 <p class="footer-copyright text-center">
     ©2018. Все права защищены. Перепечатка и использование материалов данного сайта допускается только при условии
     активной гиперссылки на источник и только с письменного разрешения АО «КСЖ «Азия Life»

@@ -22,6 +22,9 @@ use yii\widgets\ActiveForm;
     
     <?= $form->field($model, 'new_password')->passwordInput() ?>
 
+    <?= $form->field($model, 'role')->dropDownList(['' => '',  '3' => 'Клиент',  '2' => 'Контент менеджер', '1' => 'Администратор']); ?>
+
+    <?= $form->field($model, 'status')->dropDownList(['0' => 'Не активен', '10' => 'Ативен'], ['prompt' => '']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' =>'btn btn-success']) ?>

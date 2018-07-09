@@ -5,28 +5,29 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Advise;
 use backend\models\AdviseSearch;
-use yii\web\Controller;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * AdviseController implements the CRUD actions for Advise model.
  */
-class AdviseController extends Controller
+class AdviseController extends BackendController
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER, 'admin, manager');
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**

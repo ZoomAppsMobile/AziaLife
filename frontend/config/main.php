@@ -14,20 +14,16 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-	  'request' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+	    'request' => [
             'baseUrl' => '',
         ],
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules'=>array( 
-                'lang/<url:\w+>'=>'lang/index',
-                'vacancy/<id:\d+>'=>'vacancy/detail', 
-                '<controller:\w+>/<id:\d+>'=>'<controller>/view', 
-                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>', 
-                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>', 
-                ),
-        ],
+        'frontendUrlManager' => require __DIR__ . '/urlManager.php',
+        'urlManager' => function () {
+            return Yii::$app->get('frontendUrlManager');
+        },
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

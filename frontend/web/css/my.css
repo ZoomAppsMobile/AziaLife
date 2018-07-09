@@ -1,0 +1,14 @@
+.tab-pane input[type=password] {
+    width: 39rem;
+    padding: 1rem;
+    color: #474747;
+    font-size: 1.2rem;
+    margin: 1.2rem;
+    outline: none;
+    border: 2px solid #d9dde1; }
+@media (max-width: 768px) {
+    .tab-pane input[type=password] {
+        width: 90%; } }
+#exTab1 .tab-content .help-block.help-block-error{
+    color: red;
+}

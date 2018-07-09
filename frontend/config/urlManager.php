@@ -1,0 +1,37 @@
+<?php
+
+/** @var array $params */
+
+return [
+    'class' => 'yii\web\UrlManager',
+//    'hostInfo' => 'http://azialife',
+    'baseUrl' => '',
+    'enablePrettyUrl' => true,
+    'showScriptName' => false,
+    'cache' => false,
+    'rules' => [
+        'login'=>'site/login',
+        'lang/<url:\w+>'=>'lang/index',
+
+        /////Меню верхнее
+        'about-the-company'=>'menu/about-the-company',
+        'private-clients'=>'menu/private-clients',
+        'client-support'=>'menu/client-support',
+        'business'=>'menu/business',
+        'online-payment'=>'menu/online-payment',
+
+        /////Меню в футере
+        'media-information' => 'menu/media-information',
+        'careers' => 'menu/careers',
+        'questions-and-answers' => 'menu/questions-and-answers',
+        'company-details' => 'menu/company-details',
+        'financial-indicators' => 'menu/financial-indicators',
+        'offer-book' => 'menu/offer-book',
+        'special-offers' => 'menu/special-offers',
+
+        'vacancy/<id:\d+>'=>'vacancy/detail',
+        '<controller:\w+>/<id:\d+>'=>'<controller>/view',
+        '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+        '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+    ],
+];

@@ -5,33 +5,34 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Document;
 use backend\models\DocumentSearch;
-use yii\web\Controller;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * DocumentController implements the CRUD actions for Document model.
  */
-class DocumentController extends Controller
+class DocumentController extends BackendController
 {
-    /**
-     * @inheritdoc
-     */
-    public function beforeAction($action) 
+    public function beforeAction($action)
     { 
         $this->enableCsrfValidation = false; 
         return parent::beforeAction($action); 
     }
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER, 'admin, manager');
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**

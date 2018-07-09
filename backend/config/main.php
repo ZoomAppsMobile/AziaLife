@@ -22,17 +22,20 @@ return [
 			],
 	],
     'components' => [
-		 'request' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+		'request' => [
             'baseUrl' => '/admin',
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules'=>array( 
+            'rules'=>array(
                 //'api/<version:\w+>/<method:\w+>'=>'api/index',
-                '<controller:\w+>/<id:\d+>'=>'<controller>/view', 
-                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>', 
-                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>', 
+                '<controller:\w+>/<id:\d+>'=>'<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                 ),
         ],
          'urlManagerFrontEnd' => [
@@ -57,13 +60,23 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-         'view' => [
-         'theme' => [
-             'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
-             ],
-         ],
+//         'view' => [
+//             'theme' => [
+//                 'pathMap' => [
+//                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+//                 ],
+//             ],
+//         ],
     ],
-    ],
+//    'as access' => [
+//        'class' => 'yii\filters\AccessControl',
+//        'except' => ['site/login', 'site/error', 'site/logout'],
+//        'rules' => [
+//            [
+//                'allow' => true,
+//                'roles' => ['admin', 'manager'],
+//            ],
+//        ],
+//    ],
     'params' => $params,
 ];

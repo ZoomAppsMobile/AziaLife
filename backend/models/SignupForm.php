@@ -15,6 +15,8 @@ class SignupForm extends Model
     public $names;
 	public $surname;
     public $password;
+    public $role;
+    public $status;
 
     /**
      * @inheritdoc
@@ -24,13 +26,13 @@ class SignupForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => User::className(), 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['names', 'required'],
             ['names', 'string', 'min' => 2, 'max' => 255],
-			
-			 ['surname', 'required'],
+
+			['surname', 'required'],
             ['surname', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'filter', 'filter' => 'trim'],
@@ -40,6 +42,10 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            ['role', 'required'],
+
+            ['status', 'required'],
         ];
     }
     public function signup()
@@ -50,6 +56,8 @@ class SignupForm extends Model
             $user->email = $this->email;
             $user->names = $this->names;
 			$user->surname = $this->surname;
+            $user->role = $this->role;
+            $user->status = $this->status;
             $user->setPassword($this->password);
             $user->generateAuthKey();
             if ($user->save()) {
@@ -59,6 +67,27 @@ class SignupForm extends Model
 
         return null;
     }
+
+    public function getRole($role, $user_id, $new){
+        $auth = Yii::$app->authManager;
+
+        if(!$new){
+            foreach(\Yii::$app->authManager->getRolesByUser($user_id) as $k => $v)
+                foreach($v as $k1 => $v1)
+                    if($k1=='name')
+                        $oldRole = $v1;
+
+            $auth->revoke($auth->getRole($oldRole), $user_id);
+        }
+
+        if($role == 1)
+            $auth->assign($auth->getRole('admin'), $user_id);
+        if($role == 2)
+            $auth->assign($auth->getRole('manager'), $user_id);
+        if($role == 3)
+            $auth->assign($auth->getRole('client'), $user_id);
+    }
+
     public function attributeLabels()
     {
         return [

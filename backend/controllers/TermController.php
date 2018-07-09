@@ -9,19 +9,23 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class TermController extends Controller
+class TermController extends BackendController
 {
 
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER, 'admin, manager');
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**
