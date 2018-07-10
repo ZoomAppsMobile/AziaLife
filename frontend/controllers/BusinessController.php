@@ -8,7 +8,7 @@ use backend\models\Privatewidget;
 class BusinessController extends Controller
 {
 	public function actionIndex()
-    {	
+    {
     	$blogs=Blog::find()->where(['status'=>'1', 'category'=>4])->all();
         return $this->render('index',['blogs'=>$blogs]);
     }

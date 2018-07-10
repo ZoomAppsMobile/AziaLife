@@ -20,6 +20,8 @@ class AppAsset extends AssetBundle
         'stylesheets1/style.css',
         'stylesheets2/style.css',
         'stylesheets3/style.css',
+        'stylesheets4/style.css',
+        'stylesheets5/style.css',
         'css/style.css',
         'css/normalize.css',
         'css/my.css',
