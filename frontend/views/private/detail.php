@@ -14,7 +14,7 @@ $this->registerCssFile('/frontend/web/css/privatedetail/style.css');
                 echo "Басты бет";
             }
             ?> <img src="/image/link-arrow-right.png" alt=""></a>
-    <a href="/private"><?php
+    <a href="/private-clients"><?php
              if(\Yii::$app->session->get('lang')=='ru'){
                 echo "Частным клиентам";
             } else if(\Yii::$app->session->get('lang')=='en'){

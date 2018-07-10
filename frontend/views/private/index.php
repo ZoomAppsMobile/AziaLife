@@ -32,7 +32,7 @@ if(count($blogcategory)>0){
                             $valdescription=$val->description_kz;
                         }
                         echo '<div class="private-customers-wrap">
-                            <a href="/private/'.$val->url.'">
+                            <a href="/private-clients/'.$val->url.'">
                                 <img src="'.$val->thumb.'" alt="">
                                 <h4 class="text-uppercase font-weight-bold">'.$valtitle.'</h4>
                                 <span>'.$valdescription.'</span>
