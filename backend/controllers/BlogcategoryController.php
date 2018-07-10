@@ -5,7 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Blogcategory;
 use backend\models\BlogcategorySearch;
-use yii\helpers\ArrayHelper;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -14,6 +14,9 @@ use yii\filters\VerbFilter;
  */
 class BlogcategoryController extends BackendController
 {
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         define(ROLE_USER, 'admin, manager');
@@ -37,7 +40,6 @@ class BlogcategoryController extends BackendController
     public function actionIndex()
     {
         $searchModel = new BlogcategorySearch();
-        $searchModel->type='0';
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

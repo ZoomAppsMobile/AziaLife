@@ -4,35 +4,29 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Widget;
+use backend\models\Widgetitem;
 use backend\models\WidgetSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\Widgetitem;
-/**
- * WidgetController implements the CRUD actions for Widget model.
- */
-class WidgetController extends Controller
+class WidgetController extends BackendController
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER, 'admin, manager');
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
-    /**
-     * Lists all Widget models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new WidgetSearch();
@@ -44,11 +38,6 @@ class WidgetController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Widget model.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionView($id)
     {
         $widgetitem=Widgetitem::find()->where(['wid'=>$id])->all();
@@ -58,11 +47,6 @@ class WidgetController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Widget model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         $model = new Widget();
@@ -76,12 +60,6 @@ class WidgetController extends Controller
         }
     }
 
-    /**
-     * Updates an existing Widget model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -94,30 +72,30 @@ class WidgetController extends Controller
             ]);
         }
     }
-
-    /**
-     * Deletes an existing Widget model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
+    public function actionDeleteitem($id)
+    {
+        $modelid=$this->findModelitem($id)->wid;
+        $this->findModelitem($id)->delete();
 
-    /**
-     * Finds the Widget model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Widget the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+        return $this->redirect(['view', 'id' => $modelid]);
+    }
     protected function findModel($id)
     {
         if (($model = Widget::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    protected function findModelitem($id)
+    {
+        if (($model = Widgetitem::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -75,7 +75,7 @@ echo '<table class="table table-striped table-bordered">
                                         </td>
                                         <td>
                                             '.Html::button('<span class="glyphicon glyphicon-pencil"></span>' , ['value'=>Url::to('/admin/widgetitem/update?id='.$key->id),'class'=>'btn btn-success blogtagajax']).'
-                                            <a href="/admin/blog/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
+                                            <a href="/admin/widget/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </a>
                                         </td>
@@ -105,7 +105,7 @@ echo '<table class="table table-striped table-bordered">
                                         </td>
                                         <td>
                                             '.Html::button('<span class="glyphicon glyphicon-pencil"></span>' , ['value'=>Url::to('/admin/widgetitem/update?id='.$key->id),'class'=>'btn btn-success blogtagajax']).'
-                                            <a href="/admin/blog/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
+                                            <a href="/admin/widget/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </a>
                                         </td>
@@ -135,7 +135,7 @@ echo '<table class="table table-striped table-bordered">
                                         </td>
                                         <td>
                                             '.Html::button('<span class="glyphicon glyphicon-pencil"></span>' , ['value'=>Url::to('/admin/widgetitem/update?id='.$key->id),'class'=>'btn btn-success blogtagajax']).'
-                                            <a href="/admin/blog/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
+                                            <a href="/admin/widget/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </a>
                                         </td>
@@ -171,7 +171,7 @@ echo '<table class="table table-striped table-bordered">
                                         </td>
                                         <td>
                                             '.Html::button('<span class="glyphicon glyphicon-pencil"></span>' , ['value'=>Url::to('/admin/widgetitem/update?id='.$key->id),'class'=>'btn btn-success blogtagajax']).'
-                                            <a href="/admin/blog/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
+                                            <a href="/admin/widget/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </a>
                                         </td>
@@ -202,7 +202,7 @@ echo '<table class="table table-striped table-bordered">
                                         </td>
                                         <td>
                                             '.Html::button('<span class="glyphicon glyphicon-pencil"></span>' , ['value'=>Url::to('/admin/widgetitem/update?id='.$key->id),'class'=>'btn btn-success blogtagajax']).'
-                                            <a href="/admin/blog/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
+                                            <a href="/admin/widget/deleteitem/'.$key->id.'" title="Удалить" class="btn btn-danger" aria-label="Удалить" data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="post" data-pjax="0">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </a>
                                         </td>

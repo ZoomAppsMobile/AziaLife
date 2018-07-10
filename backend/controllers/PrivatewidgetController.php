@@ -12,21 +12,25 @@ use yii\filters\VerbFilter;
 /**
  * PrivatewidgetController implements the CRUD actions for Privatewidget model.
  */
-class PrivatewidgetController extends Controller
+class PrivatewidgetController extends BackendController
 {
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+        define(ROLE_USER, 'admin, manager');
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
                 ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**
