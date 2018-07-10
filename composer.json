@@ -34,8 +34,7 @@
         "kartik-v/yii2-widget-select2": "@dev",
         "2amigos/yii2-selectize-widget": "~1.0",
         "conquer/select2": "*",
-        "iutbay/yii2-fontawesome" : "*",
-        "iutbay/yii2-kcfinder" : "*"
+        "yiisoft/yii2-httpclient": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
