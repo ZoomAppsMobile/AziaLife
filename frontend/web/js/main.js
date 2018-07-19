@@ -3,10 +3,11 @@ $( ".kazina-response" ).on( "submit", function( event ) {
     $.ajax({
         type: 'GET',
         url: '/calculator/kazina-response',
-        dataType: 'json',
+        // dataType: 'json',
         data: $(this).serialize(),
         cache: false,
         success: function(response){
+            var response = JSON.parse(response);
             $('.response').show();
             $('.number').val(response.number);
             $('.OutADB').val(response.OutADB);
