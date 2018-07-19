@@ -28,8 +28,8 @@
     <h4 class="text-uppercase mb-4">ОСНОВНЫЕ ПАРАМЕТРЫ СТРАХОВАНИЯ</h4>
     <div class="second-row d-flex flex-md-row flex-column justify-content-between mb-4">
         <div class="d-flex flex-column">
-            <label for="input5">Количество лет</label>
-            <input class="form-control" type="text" id="input5" name="clnYears">
+            <label for="input5">Дата рождения</label>
+            <input class="form-control" type="date" id="input5" name="clnYears">
         </div>
         <div class="d-flex flex-column">
             <label for="input5">Пол</label>

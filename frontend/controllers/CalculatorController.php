@@ -37,14 +37,12 @@ class CalculatorController extends Controller
             $periodichnost = [1 => 'ежегодно', 2 => 'единовременно', 3 => 'раз в пол года', 4 => 'ежеквартально', 5 => 'ежемесячно'];
             $sex = [1 => 'м', 2 => 'ж'];
 
-            echo $this->calculate_age('1990-01-01');die;
-
             $aResult = $oClient->kazina(
                 [
                     'sessionId' => '',
                     'periodichnost' => $periodichnost[$array['periodichnost']],
                     'sex' => $sex[$array['sex']],
-                    'clnYears' => $array['clnYears'],
+                    'clnYears' => $this->calculate_age($array['clnYears']),
                     'srokYears' => $array['srokYears'],
                     'strSum' => $array['strSum'],
                     'ADB' => $array['ADB'],
