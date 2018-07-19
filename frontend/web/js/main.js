@@ -16,6 +16,9 @@ $( ".kazina-response" ).on( "submit", function( event ) {
             $('.OutTD').val(response.OutTD);
             $('.OutHD').val(response.OutHD);
             $('.OutTPD').val(response.OutTPD);
+        },
+        error: function(){
+            alert(1);
         }
     });
 });
