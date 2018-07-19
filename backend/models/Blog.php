@@ -2,13 +2,21 @@
 
 namespace backend\models;
 
+use common\models\AdditionalInsuranceCoverage;
+use common\models\BasicInsuranceCoverage;
+use common\models\MechanismOfTheContract;
+use common\models\MechanismOfTheContractBlog;
+use common\models\YourBenefits;
+use common\models\YourBenefitsBlog;
 use Yii;
 
 class Blog extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
+
+    public $YourBenefits;
+    public $MechanismOfTheContract;
+    public $MechanismOfTheContractSorter;
+
     public static function tableName()
     {
         return 'blog';
@@ -21,8 +29,9 @@ class Blog extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'title_kz', 'title_en', 'thumb', 'image', 'content', 'content_kz', 'content_en', 'url', 'order', 'status', 'category'], 'required'],
-            [['content', 'content_kz', 'content_en', 'status'], 'string'],
+            [['content', 'content_kz', 'content_en', 'status', 'bellowing_conditions', 'bellowing_conditions_kz', 'bellowing_conditions_en'], 'string'],
             [['order', 'category'], 'integer'],
+            [['YourBenefits', 'MechanismOfTheContract'], 'safe'],
             [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'thumb', 'image', 'note', 'note_kz', 'note_en'], 'string', 'max' => 512],
             [['url'], 'string', 'max' => 200],
             [['url'], 'unique'],
@@ -54,6 +63,117 @@ class Blog extends \yii\db\ActiveRecord
             'order' => 'Порядок',
             'status' => 'Статус',
             'category' => 'Категории',
+            'bellowing_conditions' => 'Условия страхования',
+            'bellowing_conditions_kz' => 'Условия страхования kz',
+            'bellowing_conditions_en' => 'Условия страхования en',
+            'YourBenefits' => 'Ваши выгоды',
+            'MechanismOfTheContract' => 'Механизм действия договора',
         ];
+    }
+
+    public function getYourBenefitsBlogs()
+    {
+        return $this->hasMany(YourBenefitsBlog::className(), ['blog_id' => 'id']);
+    }
+
+    public function getYourBenefitsBlogsId()
+    {
+        return $this->hasMany(YourBenefitsBlog::className(), ['blog_id' => 'id'])
+            ->viaTable('tag_to_post_bind', ['post_id' => 'id']);
+    }
+
+    public function getMechanismOfTheContractBlog()
+    {
+        return $this->hasMany(MechanismOfTheContractBlog::className(), ['blog_id' => 'id']);
+    }
+
+    public function getAdditionalInsuranceCoverage()
+    {
+        return $this->hasMany(AdditionalInsuranceCoverage::className(), ['blog_id' => 'id']);
+    }
+
+
+    public function getBasicInsuranceCoverage()
+    {
+        return $this->hasMany(BasicInsuranceCoverage::className(), ['blog_id' => 'id']);
+    }
+
+    public function getItems()
+    {
+        return $this->hasMany(MechanismOfTheContract::className(), ['id' => 'mechanism_of_the_contract_id'])
+            ->viaTable('mechanism_of_the_contract_blog', ['blog_id' => 'id'], function ($query) {
+                $query->orderBy(['sort' => SORT_DESC]);
+            });
+    }
+
+    public function Itemsblog($id)
+    {
+        return MechanismOfTheContract::find()
+            ->select('{{%mechanism_of_the_contract}}.*')
+            ->leftJoin('mechanism_of_the_contract_blog', 'mechanism_of_the_contract_blog.mechanism_of_the_contract_id = mechanism_of_the_contract.id')
+            ->where("{{%mechanism_of_the_contract_blog}}.blog_id = $id")
+            ->orderBy(['{{%mechanism_of_the_contract_blog}}.sort' => SORT_ASC])
+            ->all();
+    }
+
+    public function Issetmotc($id, $blog_id)
+    {
+        $model = MechanismOfTheContractBlog::find()->where("mechanism_of_the_contract_id = $id AND blog_id = $blog_id")->one();
+
+        return $model->id;
+    }
+
+    public function afterSave()
+    {
+        if(isset($_POST['title1']['new']) && count($_POST['title1']['new'] > 0))
+        {
+            AdditionalInsuranceCoverage::deleteAll(['blog_id' => $this->id]);
+            foreach($_POST['title1']['new'] as $k => $value)
+            {
+                if($value)
+                {
+                    $attr = new AdditionalInsuranceCoverage();
+                    $attr->title = $value;
+                    $attr->text = $_POST['text1']['new'][$k];
+                    $attr->blog_id = $this->id;
+                    $attr->save(false);
+                }
+            }
+        }
+        if(isset($_POST['title']['new']) && count($_POST['title']['new'] > 0))
+        {
+            BasicInsuranceCoverage::deleteAll(['blog_id' => $this->id]);
+            foreach($_POST['title']['new'] as $k => $value)
+            {
+                if($value)
+                {
+                    $attr = new BasicInsuranceCoverage();
+                    $attr->title = $value;
+                    $attr->text = $_POST['text']['new'][$k];
+                    $attr->blog_id = $this->id;
+                    $attr->save(false);
+                }
+            }
+        }
+        YourBenefitsBlog::deleteAll(['blog_id' => $this->id]);
+        if($this->YourBenefits)
+            foreach($this->YourBenefits as $k => $v){
+                $YourBenefitsBlog = new YourBenefitsBlog();
+
+                $YourBenefitsBlog->blog_id = $this->id;
+                $YourBenefitsBlog->your_benefits_id = $v;
+                $YourBenefitsBlog->save();
+            }
+        MechanismOfTheContractBlog::deleteAll(['blog_id' => $this->id]);
+        if($this->MechanismOfTheContract)
+            foreach($this->MechanismOfTheContract as $k => $v){
+                $YourBenefitsBlog = new MechanismOfTheContractBlog();
+
+                $YourBenefitsBlog->blog_id = $this->id;
+                $YourBenefitsBlog->mechanism_of_the_contract_id = $v;
+                if($_REQUEST['Blog']['MechanismOfTheContractSorter'][$k])
+                    $YourBenefitsBlog->sort = $_REQUEST['Blog']['MechanismOfTheContractSorter'][$k];
+                $YourBenefitsBlog->save(false);
+            }
     }
 }

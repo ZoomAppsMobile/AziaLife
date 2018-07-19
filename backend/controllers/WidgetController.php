@@ -6,6 +6,7 @@ use Yii;
 use backend\models\Widget;
 use backend\models\Widgetitem;
 use backend\models\WidgetSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

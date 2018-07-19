@@ -17,7 +17,7 @@ class Blogcategory extends \yii\db\ActiveRecord
             [['title', 'title_kz', 'title_en', 'order', 'status', 'type'], 'required'],
             [['order'], 'integer'],
             [['status', 'type'], 'string'],
-            [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'image'], 'string', 'max' => 512],
+            [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'image', 'url'], 'string', 'max' => 512],
         ];
     }
 
@@ -35,6 +35,7 @@ class Blogcategory extends \yii\db\ActiveRecord
             'order' => 'Порядок',
             'status' => 'Статус',
             'type' => 'Тип',
+            'url' => 'Url',
         ];
     }
 }

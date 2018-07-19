@@ -22,6 +22,11 @@ class AppAsset extends AssetBundle
         'stylesheets3/style.css',
         'stylesheets4/style.css',
         'stylesheets5/style.css',
+        'stylesheets6/style.css',
+        'stylesheets7/style.css',
+        'stylesheets8/style.css',
+        'stylesheets9/style.css',
+        'stylesheets10/style.css',
         'css/style.css',
         'css/normalize.css',
         'css/my.css',
@@ -34,6 +39,7 @@ class AppAsset extends AssetBundle
         'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js',
         'https://use.fontawesome.com/826a7e3dce.js',
         'js/script.js',
+        'js/main.js',
     ];
     public $depends = [
       //  'yii\web\YiiAsset',

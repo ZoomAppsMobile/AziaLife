@@ -50,7 +50,7 @@ use dosamigos\ckeditor\CKEditor;
 
 
     <?= $form->field($model, 'city')->dropDownList([ 'Алматы' => 'Алматы', 'Астана' => 'Астана' ], ['prompt' => '']) ?>
-
+    <?= $form->field($model, 'data')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'status')->dropDownList([ 1 => 'Показать', 0 => 'Скрыть', ], ['prompt' => '']) ?>
     <?= $form->field($model, 'main')->dropDownList([ 1 => 'Да', 0 => 'Нет', ], ['prompt' => '']) ?>
     <div class="form-group">

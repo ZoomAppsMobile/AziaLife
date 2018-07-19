@@ -31,6 +31,7 @@ class NewsController extends Controller
             ->all();
         return $this->render('index',['models'=>$allmodels, 'last'=>$last]);
     }
+
     public function actionPage()
     {
     	$news=News::find()->where(['status'=>1])->orderBy(['dating' => SORT_DESC]);

@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="blogcategory-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-   
+
     <p>
         <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>

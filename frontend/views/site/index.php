@@ -59,7 +59,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
 </div>
 <div class="products-mobile mt-4 d-flex d-md-none flex-column align-items-center">
     <img class="absolute-logo" src="/image/absolute-logo.png" alt="">
-    <h3 data-aos="fade-up" class="text-uppercase text-center mb-3"><?php 
+    <h3 data-aos="fade-up" class="text-uppercase text-center mb-3"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo 'СТРАХОВЫЕ ПРОДУКТЫ';
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -69,7 +69,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             }
         ?></h3>
     <div data-aos="fade-up" class="item1 mb-2">
-        <h4 class="text-uppercase text-center"><?php 
+        <h4 class="text-uppercase text-center"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner1->title;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -77,7 +77,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             } else if(\Yii::$app->session->get('lang')=='kz'){
                 echo $banner1->title_kz;
             }
-        ?> <br><span><?php 
+        ?> <br><span><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner1->description;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -88,7 +88,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
         ?></span></h4>
     </div>
     <div data-aos="fade-up" class="item2 mb-2">
-        <h4 class="text-uppercase text-center"><?php 
+        <h4 class="text-uppercase text-center"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner2->title;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -96,7 +96,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             } else if(\Yii::$app->session->get('lang')=='kz'){
                 echo $banner2->title_kz;
             }
-        ?><br><span><?php 
+        ?><br><span><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner2->description;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -107,7 +107,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
         ?></span></h4>
     </div>
     <div data-aos="fade-up" class="item3 mb-2 d-flex align-items-center justify-content-end pr-4">
-        <h4 class="text-uppercase text-center"><?php 
+        <h4 class="text-uppercase text-center"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner4->title;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -116,7 +116,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner4->title_kz;
             }
         ?>
-            <br><span><?php 
+            <br><span><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner4->description;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -127,7 +127,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
         ?></span></h4>
     </div>
     <div data-aos="fade-up" class="item4 mb-2">
-        <h4 class="text-uppercase text-center"><?php 
+        <h4 class="text-uppercase text-center"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner3->title;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -135,7 +135,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             } else if(\Yii::$app->session->get('lang')=='kz'){
                 echo $banner3->title_kz;
             }
-        ?><br><span><?php 
+        ?><br><span><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner3->description;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -152,7 +152,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
         </div>
         <div class="item-inside  align-items-center justify-content-center my-2 d-flex">
             <img src="/image/products-item6.png" alt="">
-            <h4 class="text-uppercase">КАЛЬКУЛЯТОР онлайн</h4>
+            <h4 class="text-uppercase"><a href="/calculator">КАЛЬКУЛЯТОР онлайн</a></h4>
         </div>
         <div class="item-inside  align-items-center justify-content-center d-flex">
             <img src="/image/products-item7.png" alt="">
@@ -162,7 +162,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
 </div>
 <div class="products mt-4 d-md-flex d-none flex-column align-items-center">
     <img data-aos="fade-up" class="absolute-logo" src="/image/absolute-logo.png" alt="">
-    <h3 data-aos="fade-up" class="text-uppercase text-center mb-3"><?php 
+    <h3 data-aos="fade-up" class="text-uppercase text-center mb-3"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo 'СТРАХОВЫЕ ПРОДУКТЫ';
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -176,7 +176,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             <div class="d-flex flex-column">
                 <div class="d-flex">
                     <div data-aos="fade-right" class="item1">
-                        <h4 class="text-uppercase text-center"><?php 
+                        <h4 class="text-uppercase text-center"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner1->title;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -184,7 +184,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             } else if(\Yii::$app->session->get('lang')=='kz'){
                 echo $banner1->title_kz;
             }
-        ?><br><span><?php 
+        ?><br><span><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner1->description;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -195,7 +195,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
         ?></span></h4>
                     </div>
                     <div data-aos="fade-right" class="item2">
-                        <h4 class="text-uppercase text-center"><?php 
+                        <h4 class="text-uppercase text-center"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner2->title;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -203,7 +203,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             } else if(\Yii::$app->session->get('lang')=='kz'){
                 echo $banner2->title_kz;
             }
-        ?> <br/><span><?php 
+        ?> <br/><span><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner2->description;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -215,7 +215,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
                     </div>
                 </div>
                 <div data-aos="fade-up" class="item3 d-flex align-items-center justify-content-end pr-4">
-                    <h4 class="text-uppercase text-center"><?php 
+                    <h4 class="text-uppercase text-center"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner4->title;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -223,8 +223,8 @@ if(\Yii::$app->session->get('lang')=='ru'){
             } else if(\Yii::$app->session->get('lang')=='kz'){
                 echo $banner4->title_kz;
             }
-        ?> 
-                        <br><span><?php 
+        ?>
+                        <br><span><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner4->description;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -236,7 +236,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
                 </div>
             </div>
             <div data-aos="fade-left" class="item4">
-                <h4 class="text-uppercase text-center"><?php 
+                <h4 class="text-uppercase text-center"><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner3->title;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -244,7 +244,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             } else if(\Yii::$app->session->get('lang')=='kz'){
                 echo $banner3->title_kz;
             }
-        ?>  <br><span><?php 
+        ?>  <br><span><?php
             if(\Yii::$app->session->get('lang')=='ru'){
                 echo $banner3->description;
             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -262,7 +262,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             </div>
             <div class="item-inside  align-items-center justify-content-center d-flex">
                 <img src="/image/products-item6.png" alt="">
-                <h4 class="text-uppercase">КАЛЬКУЛЯТОР онлайн</h4>
+                <h4 class="text-uppercase"><a href="/calculator" style="color:#9f074f;">КАЛЬКУЛЯТОР онлайн</a></h4>
             </div>
             <div class="item-inside  align-items-center justify-content-center d-flex">
                 <img src="/image/products-item7.png" alt="">
@@ -296,7 +296,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
             </div>';
                 }
             ?>
-            
+
         </div>
     </div>
 </div>

@@ -2,11 +2,15 @@
 
 namespace backend\controllers;
 
+use common\models\MechanismOfTheContract;
+use common\models\MechanismOfTheContractBlog;
+use common\models\YourBenefitsBlog;
 use Yii;
 use backend\models\Blog;
 use backend\models\Blogtag;
 use backend\models\BlogSearch;
 use backend\models\Privatewidget;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

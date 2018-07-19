@@ -17,7 +17,7 @@ $this->registerCssFile('/frontend/web/css/vacancy/style.css');
             <h4>Наши вакансии</h4>
             <p>Мы всегда рады новым и отличным специалистам! Изучите перспективные возможности карьеры в «Азия Life» и
                 присоединяйтесь к нам.</p>
-            <a href="" class="text-uppercase text-center">Узнать больше</a>
+            <a href="/careers/our-vacancies" class="text-uppercase text-center">Узнать больше</a>
         </div>
     </div>
     <?php
@@ -38,7 +38,7 @@ $this->registerCssFile('/frontend/web/css/vacancy/style.css');
         <div class="text-inside d-flex flex-column align-items-center align-items-md-start">
             <h4>'.$newtitle.'</h4>
             <p>'.$newdescription.'</p>
-            <a href="/vacancy/'.$key->id.'" class="text-uppercase text-center">Узнать больше</a>
+            <a href="/careers/'.$key->id.'" class="text-uppercase text-center">Узнать больше</a>
         </div>
     </div>
         ';

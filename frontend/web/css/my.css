@@ -12,3 +12,9 @@
 #exTab1 .tab-content .help-block.help-block-error{
     color: red;
 }
+.private-customers-wrap img{
+    height:50%;
+}
+.response{
+    display: none;
+}

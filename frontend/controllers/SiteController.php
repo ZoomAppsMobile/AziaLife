@@ -79,60 +79,6 @@ class SiteController extends Controller
             ]);
     }
 
-    public function actionXml(){
-        $oClient = new \SoapClient(
-            'https://app.asia-life.kz/ws/asialife.wsdl',
-            [
-                'location' => 'http://asialife.kz/ws',
-                'login' => 'asialife_site',
-                'password' => '1q3wr2',
-            ]
-        );
-//        ini_set('soap.wsdl_cache_enabled',0);
-//        ini_set('soap.wsdl_cache_ttl',0);
-        $aResult = $oClient->authorizationWS(
-            [
-                'login' => 'asialife_site',
-                'password' => '1q3wr2',
-            ]
-        );
-//
-//        echo '<pre>' . print_r($aResult,true) . '</pre>';die;
-
-//        $client = new \GuzzleHttp\Client();
-//
-//        $response = $client->get('https://app.asia-life.kz/ws/asialife.wsdl', [
-//            'auth' => [
-//                'asialife_site',
-//                '1q3wr2'
-//            ]
-//        ]);
-//
-//        $response = $client->get('https://app.asia-life.kz/ws/asialife.wsdl/authorizationWS', [
-//            'auth' => [
-//                'asialife_site',
-//                '1q3wr2'
-//            ]
-//        ]);
-
-//        $client = new Client(['https://app.asia-life.kz/ws/asialife.wsdl']);
-//
-//        $loginResponse = $client->post('authorizationWS', [
-//            'login' => 'asialife_site',
-//            'password' => '1q3wr2',
-//        ])->send();
-//
-////        $loginResponse->cookies->get('PHPSESSID') - содержит новый идентификатор сессии
-//        VarDumper::dump($loginResponse);die;
-//        $client->post('account/profile', ['birthDate' => '10/11/1982'])
-//            ->setCookies($loginResponse->cookies) // передача файла cookie из ответа в запрос
-//            ->send();
-//
-//        VarDumper::dump($response);die;
-
-
-    }
-
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {

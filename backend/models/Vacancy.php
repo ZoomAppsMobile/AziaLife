@@ -17,7 +17,7 @@ class Vacancy extends \yii\db\ActiveRecord
             [['title', 'title_kz', 'title_en', 'main', 'content', 'content_kz', 'content_en', 'city', 'status'], 'required'],
             [['main', 'content', 'content_kz', 'content_en', 'status'], 'string'],
             [['salary'], 'integer'],
-            [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'image', 'city'], 'string', 'max' => 512],
+            [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'image', 'city', 'data'], 'string', 'max' => 512],
         ];
     }
 
@@ -39,6 +39,7 @@ class Vacancy extends \yii\db\ActiveRecord
             'salary' => 'Зарплата',
             'city' => 'Город',
             'status' => 'Статус',
+            'data' => 'Дата'
         ];
     }
 }

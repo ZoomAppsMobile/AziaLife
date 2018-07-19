@@ -40,7 +40,7 @@ if(count($blogcategory)>0){
                         </div>' ;
                     }
                 ?>
-                
+
             </div>
 
         <?php

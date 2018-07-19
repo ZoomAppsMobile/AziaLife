@@ -28,14 +28,22 @@ return [
 
         /////Меню в футере
         'media-information' => 'menu/media-information',
-        'careers' => 'menu/careers',
+        'careers' => 'vacancy',
+        'careers/<id:\d+>'=>'vacancy/detail',
+        'careers/our-vacancies'=>'vacancy/our-vacancies',
+
+        'news' => 'news',
+
         'questions-and-answers' => 'menu/questions-and-answers',
         'company-details' => 'menu/company-details',
         'financial-indicators' => 'menu/financial-indicators',
         'offer-book' => 'menu/offer-book',
         'special-offers' => 'menu/special-offers',
 
-        'vacancy/<id:\d+>'=>'vacancy/detail',
+        'calculator' => 'calculator',
+        'calculator/kazina-response' => 'calculator/kazina-response',
+        'calculator/<url:[\w-]+>' => 'calculator/child',
+
         '<controller:\w+>/<id:\d+>'=>'<controller>/view',
         '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
         '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',

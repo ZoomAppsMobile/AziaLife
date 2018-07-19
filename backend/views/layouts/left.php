@@ -35,6 +35,7 @@
                         ],
                     ],
                     ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => ['/user']],
+                    ['label' => 'Новости', 'icon' => 'fa fa-user', 'url' => ['/news']],
                     [
                         'label' => 'Меню',
                         'icon' => 'fa fa-home',
@@ -60,6 +61,8 @@
                         'items' => [
                             ['label' => 'Категории', 'icon' => 'fa fa-tag', 'url' => ['/blogcategory']],
                             ['label' => 'Блог', 'icon' => 'fa fa-pencil-square', 'url' => ['/blog']],
+                            ['label' => 'Ваши выгоды', 'icon' => 'fa fa-user', 'url' => ['/your-benefits']],
+                            ['label' => 'Механизм действия договора', 'icon' => 'fa fa-user', 'url' => ['/mechanism-of-the-contract']],
                         ],
                     ],
                     [
@@ -68,7 +71,7 @@
                         'url' => '#',
                         'items' => [
                             ['label' => 'Список вакансий', 'icon' => 'fa fa-user', 'url' => ['/vacancy']],
-                            ['label' => 'Отклики', 'icon' => 'fa fa-bookmark', 'url' => '#'],
+                            ['label' => 'Отклики', 'icon' => 'fa fa-bookmark', 'url' => ['/are-distinguished']],
                         ],
                     ],
                     [
