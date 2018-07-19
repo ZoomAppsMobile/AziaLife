@@ -54,9 +54,7 @@ class CalculatorController extends Controller
                 ]
             );
         }
-        echo json_encode($aResult);
-
-        exit;
+        return json_encode($aResult);
     }
 
     function calculate_age($birthday) {
