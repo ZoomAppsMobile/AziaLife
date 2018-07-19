@@ -54,7 +54,7 @@ class CalculatorController extends Controller
                 ]
             );
         }
-        return json_encode($aResult);
+        echo json_encode($aResult);
 
         exit;
     }

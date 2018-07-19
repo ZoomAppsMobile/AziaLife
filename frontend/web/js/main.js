@@ -18,7 +18,7 @@ $( ".kazina-response" ).on( "submit", function( event ) {
             $('.OutTPD').val(response.OutTPD);
         },
         error: function(){
-            alert(1);
+            alert('Ошибка');
         }
     });
 });
