@@ -148,11 +148,11 @@ if(\Yii::$app->session->get('lang')=='ru'){
     <div data-aos="fade-up" class="item5 mb-2 d-flex flex-column justify-content-around w-100">
         <div class="item-inside  align-items-center justify-content-center d-flex">
             <img src="/image/products-item5.png" alt="">
-            <h4 class="text-uppercase">Произошел страховой случай</h4>
+            <h4 class="text-uppercase"><a href="/subject/strahovoy-sluchay" style="color:#9f074f;">Произошел страховой случай</a></h4>
         </div>
         <div class="item-inside  align-items-center justify-content-center my-2 d-flex">
             <img src="/image/products-item6.png" alt="">
-            <h4 class="text-uppercase"><a href="/calculator">КАЛЬКУЛЯТОР онлайн</a></h4>
+            <h4 class="text-uppercase"><a href="/calculator" style="color:#9f074f;">КАЛЬКУЛЯТОР онлайн</a></h4>
         </div>
         <div class="item-inside  align-items-center justify-content-center d-flex">
             <img src="/image/products-item7.png" alt="">
@@ -258,7 +258,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
         <div data-aos="fade-up" class="item5 d-flex justify-content-around w-100">
             <div class="item-inside  align-items-center justify-content-center d-flex">
                 <img src="/image/products-item5.png" alt="">
-                <h4 class="text-uppercase">Произошел страховой случай</h4>
+                <h4 class="text-uppercase"><a href="/subject/strahovoy-sluchay" style="color:#9f074f;">Произошел страховой случай</a></h4>
             </div>
             <div class="item-inside  align-items-center justify-content-center d-flex">
                 <img src="/image/products-item6.png" alt="">
