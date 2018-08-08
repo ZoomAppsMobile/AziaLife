@@ -32,7 +32,8 @@ class YourBenefitsBlog extends \yii\db\ActiveRecord
     {
         return [
             [['your_benefits_id', 'blog_id'], 'required'],
-            [['your_benefits_id', 'blog_id'], 'integer'],
+            [['your_benefits_id', 'blog_id', 'sort'], 'integer'],
+            ['text', 'string'],
             [['blog_id'], 'exist', 'skipOnError' => true, 'targetClass' => Blog::className(), 'targetAttribute' => ['blog_id' => 'id']],
             [['your_benefits_id'], 'exist', 'skipOnError' => true, 'targetClass' => YourBenefits::className(), 'targetAttribute' => ['your_benefits_id' => 'id']],
         ];

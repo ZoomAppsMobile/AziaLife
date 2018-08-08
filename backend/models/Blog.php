@@ -2,6 +2,8 @@
 
 namespace backend\models;
 
+use common\models\AdditionalProtectionInsurer;
+use common\models\ChildsInsuranceCoverage;
 use common\models\AdditionalInsuranceCoverage;
 use common\models\BasicInsuranceCoverage;
 use common\models\MechanismOfTheContract;
@@ -14,6 +16,7 @@ class Blog extends \yii\db\ActiveRecord
 {
 
     public $YourBenefits;
+    public $YourBenefitsSorter;
     public $MechanismOfTheContract;
     public $MechanismOfTheContractSorter;
 
@@ -29,7 +32,8 @@ class Blog extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'title_kz', 'title_en', 'thumb', 'image', 'content', 'content_kz', 'content_en', 'url', 'order', 'status', 'category'], 'required'],
-            [['content', 'content_kz', 'content_en', 'status', 'bellowing_conditions', 'bellowing_conditions_kz', 'bellowing_conditions_en'], 'string'],
+            [['content', 'content_kz', 'content_en', 'status', 'bellowing_conditions', 'bellowing_conditions_kz', 'bellowing_conditions_en',
+                'kase', 'spy', 'pens1', 'pens2'], 'string'],
             [['order', 'category'], 'integer'],
             [['YourBenefits', 'MechanismOfTheContract'], 'safe'],
             [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'thumb', 'image', 'note', 'note_kz', 'note_en'], 'string', 'max' => 512],
@@ -92,10 +96,19 @@ class Blog extends \yii\db\ActiveRecord
         return $this->hasMany(AdditionalInsuranceCoverage::className(), ['blog_id' => 'id']);
     }
 
-
     public function getBasicInsuranceCoverage()
     {
         return $this->hasMany(BasicInsuranceCoverage::className(), ['blog_id' => 'id']);
+    }
+
+    public function getChildsInsuranceCoverage()
+    {
+        return $this->hasMany(ChildsInsuranceCoverage::className(), ['blog_id' => 'id']);
+    }
+
+    public function getAdditionalProtectionInsurer()
+    {
+        return $this->hasMany(AdditionalProtectionInsurer::className(), ['blog_id' => 'id']);
     }
 
     public function getItems()
@@ -123,8 +136,16 @@ class Blog extends \yii\db\ActiveRecord
         return $model->id;
     }
 
-    public function afterSave()
+    public function Issetybsc($id, $blog_id)
     {
+        $model = YourBenefitsBlog::find()->where("your_benefits_id = $id AND blog_id = $blog_id")->one();
+
+        return $model->id;
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
         if(isset($_POST['title1']['new']) && count($_POST['title1']['new'] > 0))
         {
             AdditionalInsuranceCoverage::deleteAll(['blog_id' => $this->id]);
@@ -155,6 +176,36 @@ class Blog extends \yii\db\ActiveRecord
                 }
             }
         }
+        if(isset($_POST['title2']['new']) && count($_POST['title']['new'] > 0))
+        {
+            ChildsInsuranceCoverage::deleteAll(['blog_id' => $this->id]);
+            foreach($_POST['title2']['new'] as $k => $value)
+            {
+                if($value)
+                {
+                    $attr = new ChildsInsuranceCoverage();
+                    $attr->title = $value;
+                    $attr->text = $_POST['text2']['new'][$k];
+                    $attr->blog_id = $this->id;
+                    $attr->save(false);
+                }
+            }
+        }
+        if(isset($_POST['title3']['new']) && count($_POST['title']['new'] > 0))
+        {
+            AdditionalProtectionInsurer::deleteAll(['blog_id' => $this->id]);
+            foreach($_POST['title3']['new'] as $k => $value)
+            {
+                if($value)
+                {
+                    $attr = new AdditionalProtectionInsurer();
+                    $attr->title = $value;
+                    $attr->text = $_POST['text3']['new'][$k];
+                    $attr->blog_id = $this->id;
+                    $attr->save(false);
+                }
+            }
+        }
         YourBenefitsBlog::deleteAll(['blog_id' => $this->id]);
         if($this->YourBenefits)
             foreach($this->YourBenefits as $k => $v){
@@ -162,7 +213,9 @@ class Blog extends \yii\db\ActiveRecord
 
                 $YourBenefitsBlog->blog_id = $this->id;
                 $YourBenefitsBlog->your_benefits_id = $v;
-                $YourBenefitsBlog->save();
+                $YourBenefitsBlog->sort = $_REQUEST['Blog']['YourBenefitsSorter'][$v];
+                $YourBenefitsBlog->text = $_REQUEST['Blog']['YourBenefitsText'][$v];
+                $YourBenefitsBlog->save(false);
             }
         MechanismOfTheContractBlog::deleteAll(['blog_id' => $this->id]);
         if($this->MechanismOfTheContract)
@@ -171,8 +224,8 @@ class Blog extends \yii\db\ActiveRecord
 
                 $YourBenefitsBlog->blog_id = $this->id;
                 $YourBenefitsBlog->mechanism_of_the_contract_id = $v;
-                if($_REQUEST['Blog']['MechanismOfTheContractSorter'][$k])
-                    $YourBenefitsBlog->sort = $_REQUEST['Blog']['MechanismOfTheContractSorter'][$k];
+//                if ($_REQUEST['Blog']['MechanismOfTheContractSorter'][$v])
+                $YourBenefitsBlog->sort = $_REQUEST['Blog']['MechanismOfTheContractSorter'][$v];
                 $YourBenefitsBlog->save(false);
             }
     }

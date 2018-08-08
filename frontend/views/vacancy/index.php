@@ -1,6 +1,7 @@
 <?php
 $this->registerCssFile('/frontend/web/css/vacancy/style.css');
 ?>
+<link href="/vacancy/style.css" rel="stylesheet">
 <div class="link-anchors d-flex flex-md-row flex-column mt-4">
     <a href="">Главная <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="">Вакансии</a>

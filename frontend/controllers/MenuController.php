@@ -23,7 +23,7 @@ class MenuController extends Controller
 
     /// О компании
     public function actionAboutTheCompany(){
-        $model = Menu::findOne(['url' => 'about-the-company']);
+        $model = Menu::findOne(['url' => 'about-company']);
 
         return $this->render('about-the-company', compact('model'));
     }
@@ -77,7 +77,7 @@ class MenuController extends Controller
 
     ///Тех. поддержка
     public function actionClientSupport(){
-        $model = Menu::findOne(['url' => 'client-support']);
+        $model = Menu::findOne(['url' => 'clientsupport']);
 
         return $this->render('client-support', compact('model'));
     }

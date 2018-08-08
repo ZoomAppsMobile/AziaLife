@@ -1,3 +1,4 @@
+<link href="/our-vacancies/style.css" rel="stylesheet">
 <div class="link-anchors d-flex flex-md-row flex-column my-4">
     <a href="/">Главная <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="/careers">Вакансии <img src="/image/link-arrow-right.png" alt=""></a>

@@ -1,6 +1,7 @@
+<link href="/client_support/style.css" rel="stylesheet">
 <div class="link-anchors d-flex flex-md-row flex-column mt-4">
     <a href="/">Главная <img src="/image/link-arrow-right.png" alt=""></a>
-    <a href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to(['/client-support']))?>">Клиентская поддержка<img src="/image/link-arrow-right.png" alt=""></a>
+    <a href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to(['/clientsupport']))?>">Клиентская поддержка<img src="/image/link-arrow-right.png" alt=""></a>
     <a href="">Заявления</a>
 </div>
 

@@ -1,50 +1,59 @@
+<link href="/bolashak1/style.css" rel="stylesheet">
 <div class="link-anchors d-flex flex-md-row flex-column mt-4">
     <a href="/">Главная <img src="/image/link-arrow-right.png" alt=""></a>
-    <a href="/calculator">Калькулятор <img src="/image/link-arrow-right.png" alt=""></a>
-    <a href="">ОСРНС</a>
+    <a href="/calculator">Калькуляторы <img src="/image/link-arrow-right.png" alt=""></a>
+    <a href="">Азия Казына</a>
 </div>
 
 <div class="main-text mt-1 mt-md-5 mb-4 d-flex flex-md-row flex-column justify-content-between align-items-center">
-    <h3 class="text-uppercase text-md-left text-center">Шаг 1. Рассчитать стоиомость полиса</h3>
+    <h3 class="text-uppercase text-md-left text-center">Шаг 1. Рассчитать стоимость полиса</h3>
     <a href="">Важно</a>
 </div>
 
+<div class="main-text d-flex flex-md-row flex-column justify-content-between align-items-center">
+    <h4 class="text-main my-3">Данные о Застрахованном</h4>
+</div>
+
 <form class="form-asia d-flex flex-column kazina-response">
-<!--    <h4 class="text-uppercase mb-4">данные страхователя</h4>-->
-<!--    <div class="first-row d-flex flex-md-row flex-column justify-content-between mb-4">-->
-<!--        <div class="d-flex flex-column">-->
-<!--            <label for="input1">Ф.И.О.</label>-->
-<!--            <input name="oked" class="form-control" type="text" id="input1">-->
-<!--        </div>-->
-<!--        <div class="d-flex flex-column">-->
-<!--            <label for="input3">Телефон</label>-->
-<!--            <input name="col_sotr" class="form-control" type="text" id="input3">-->
-<!--        </div>-->
-<!--        <div class="d-flex flex-column">-->
-<!--            <label for="input4">E-mail</label>-->
-<!--            <input class="form-control" type="text" id="input4">-->
-<!--        </div>-->
-<!--    </div>-->
-    <h4 class="text-uppercase mb-4">ОСНОВНЫЕ ПАРАМЕТРЫ СТРАХОВАНИЯ</h4>
-    <div class="second-row d-flex flex-md-row flex-column justify-content-between mb-4">
-        <div class="d-flex flex-column">
-            <label for="input5">Дата рождения</label>
-            <input class="form-control" type="date" id="input5" name="clnYears">
+    <div id="first-row" class="first-row d-flex flex-md-row flex-column justify-content-between mb-4">
+        <div>
+            <label for="input1">Ф.И.О.</label>
+            <input id="name-control" class="form-control" type="text" name="name" value="">
         </div>
-        <div class="d-flex flex-column">
-            <label for="input5">Пол</label>
-            <input class="form-control" type="radio" id="input5" name="sex" value="1">
-            <input class="form-control" type="radio" id="input5" name="sex" value="2">
+        <div>
+            <label for="input2">Телефон</label>
+            <input id="tel-control input-nums" class="form-control" type="tel" name="phone-number" value="">
+        </div>
+        <div>
+            <label for="input3">E-mail</label>
+            <input id="email-control" class="form-control" type="text" name="email" value="">
         </div>
     </div>
-    <div class="second-row d-flex flex-md-row flex-column justify-content-between mb-4">
-<!--        <div class="d-flex flex-column">-->
-<!--            <label for="input5">Дата расчета</label>-->
-<!--            <input class="form-control" type="date" id="input5">-->
-<!--        </div>-->
-        <div class="d-flex flex-column">
-            <label for="input5">Срок страхования</label>
-            <select name="srokYears">
+
+    <div class="second-row d-flex flex-md-row flex-column mb-4">
+        <div>
+            <label for="input5">Дата рождения*</label>
+            <input class="form-control" type="date" id="born-control" required name="clnYears">
+        </div>
+        <div class="gender-block">
+            <label for="input6">Пол</label>
+            <div class="gender">
+                <label><input type="radio" name="sex" value=""> Мужской</label>
+                <label><input type="radio" name="sex" value=""> Женский</label>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="text-main my-3">ОСНОВНЫЕ ПАРАМЕТРЫ СТРАХОВАНИЯ</h4>
+    <div class="third-row d-flex flex-md-row flex-column mb-4">
+        <div>
+            <label for="input8">Дата расчетa</label>
+            <input class="form-control" type="date" id="input8" required>
+        </div>
+        <div class="select-block">
+            <label for="input9">Срок страхования*</label>
+            <select id="select1" class="form-control" name="srokYears">
+                <option></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -52,9 +61,10 @@
                 <option value="5">5</option>
             </select>
         </div>
-        <div class="d-flex flex-column">
-            <label for="input5">Периодичность взносов</label>
-            <select name="periodichnost">
+        <div class="select-block">
+            <label for="input10">Периодичность взносов*</label>
+            <select id="select1" class="form-control" name="periodichnost">
+                <option></option>
                 <option value="1">ежегодно</option>
                 <option value="2">единовременно</option>
                 <option value="3">раз в пол года</option>
@@ -63,89 +73,153 @@
             </select>
         </div>
     </div>
-    <div class="third-row d-flex flex-md-row flex-column justify-content-start mb-4 p-3">
-        <div class="last-dynamic d-flex flex-column mr-md-5 mr-0">
-            <label>Страховая сумма, тенге</label>
-            <input class="form-control" type="text" id="input5" name="strSum">
+
+    <div class="fourth-row d-flex flex-md-row flex-column mb-4 p-3">
+        <div class="last-dynamic">
+            <label for="input14">Страховая сумма, тенге</label>
+            <input id="input-nums" class="form-control" type="number" name="strSum" value="">
         </div>
-<!--        <div class="last-dynamic d-flex flex-column">-->
-<!--            <label>Страховой взнос, тенге</label>-->
-<!--            <input class="form-control" type="text" id="input5" name="">-->
-<!--        </div>-->
+        <div class="last-dynamic dynamic2">
+            <label for="input14">Страховой взнос, тенге</label>
+            <input id="input-nums" class="form-control number" type="number" name="" value="">
+        </div>
+    </div>
+    <p class="sometext">Укажите страховую сумму или желаемую сумму взноса. По второму полю расчет будет произведен автоматически</p>
+
+    <h4 class="text-main my-3">Дополнительные покрытия Застрахованного</h4>
+
+    <p class="sometext">Выберите по желанию виды дополнительного покрытия и размеры страховых сумм</p>
+
+    <div class="d-flex flex-column mb-4">
+        <div class="first-row d-flex flex-md-row flex-column mb-4">
+            <p class="dop-text">Смерть в результате НС</p>
+            <div class="select-block">
+                <label for="input9">Срок страхования*</label>
+                <select id="select2" class="form-control" name="ADB">
+                    <option>равна страховой сумме</option>
+                    <option value="100000">100000</option>
+                    <option value="200000">200000</option>
+                    <option value="300000">300000</option>
+                    <option value="400000">400000</option>
+                    <option value="500000">500000</option>
+                </select>
+            </div>
+            <div class="last-dynamic dynamic2">
+                <label for="input14">Страховой взнос, тенге</label>
+                <input id="input-nums" class="form-control OutADB" type="number" name="" value="">
+            </div>
+        </div>
+
+        <div class="first-row d-flex flex-md-row flex-column mb-4">
+            <p class="dop-text2">Телесная травма в результате</p>
+            <div class="select-block">
+                <select id="select2" class="form-control" name="TT">
+                    <option>равна страховой сумме</option>
+                    <option value="100000">100000</option>
+                    <option value="200000">200000</option>
+                    <option value="300000">300000</option>
+                    <option value="400000">400000</option>
+                    <option value="500000">500000</option>
+                </select>
+            </div>
+            <div class="last-dynamic dynamic2">
+                <input id="input-nums" class="form-control OutTT" type="number" name="" value="">
+            </div>
+        </div>
+
+        <div class="first-row d-flex flex-md-row flex-column mb-4">
+            <p class="dop-text2">Установление временой нетрудоспособности</p>
+            <div class="select-block">
+                <select id="select2" class="form-control" name="TD">
+                    <option>равна страховой сумме</option>
+                    <option value="100000">100000</option>
+                    <option value="200000">200000</option>
+                    <option value="300000">300000</option>
+                    <option value="400000">400000</option>
+                    <option value="500000">500000</option>
+                </select>
+            </div>
+            <div class="last-dynamic dynamic2">
+                <input id="input-nums" class="form-control OutTD" type="number" name="" value="">
+            </div>
+        </div>
+
+        <div class="first-row d-flex flex-md-row flex-column mb-4">
+            <p class="dop-text2">Госпитализация в результате НС</p>
+            <div class="select-block">
+                <select id="select2" class="form-control" name="HD">
+                    <option>равна страховой сумме</option>
+                    <option value="100000">100000</option>
+                    <option value="200000">200000</option>
+                    <option value="300000">300000</option>
+                    <option value="400000">400000</option>
+                    <option value="500000">500000</option>
+                </select>
+            </div>
+            <div class="last-dynamic dynamic2">
+                <input id="input-nums" class="form-control OutHD" type="number" name="" value="">
+            </div>
+        </div>
+
+        <div class="first-row d-flex flex-md-row flex-column mb-4">
+            <p class="dop-text2">Инвалидность в результате НС</p>
+            <div class="select-block">
+                <select id="select2" class="form-control" name="ATPD">
+                    <option>равна страховой сумме</option>
+                    <option value="100000">100000</option>
+                    <option value="200000">200000</option>
+                    <option value="300000">300000</option>
+                    <option value="400000">400000</option>
+                    <option value="500000">500000</option>
+                </select>
+            </div>
+            <div class="last-dynamic dynamic2">
+                <input id="input-nums" class="form-control OutATPD" type="number" name="" value="">
+            </div>
+        </div>
+
+        <div class="first-row d-flex flex-md-row flex-column mb-4">
+            <p class="dop-text2">Критическое заболевание</p>
+            <div class="select-block">
+                <select id="select2" class="form-control" name="CI">
+                    <option>равна страховой сумме</option>
+                    <option value="100000">100000</option>
+                    <option value="200000">200000</option>
+                    <option value="300000">300000</option>
+                    <option value="400000">400000</option>
+                    <option value="500000">500000</option>
+                </select>
+            </div>
+            <div class="last-dynamic dynamic2">
+                <input id="input-nums" class="form-control OutCI" type="number" name="" value="">
+            </div>
+        </div>
+
+        <div class="first-row d-flex flex-md-row flex-column mb-4">
+            <p class="dop-text2">Освобождение от уплаты взносов. Инвалидность в результате НС в первые 2 года. НС/заболевания с 3-го года.</p>
+            <div class="select-block">
+                <select id="select2" class="form-control" name="">
+                    <option>равна страховой сумме</option>
+                    <option value="100000">100000</option>
+                    <option value="200000">200000</option>
+                    <option value="300000">300000</option>
+                    <option value="400000">400000</option>
+                    <option value="500000">500000</option>
+                </select>
+            </div>
+            <div class="last-dynamic dynamic2">
+                <input id="input-nums" class="form-control OutTPD" type="number" name="" value="">
+            </div>
+        </div>
     </div>
 
-    <div class="fifth-row d-flex flex-md-row flex-column justify-content-between align-items-center mb-4">
-        <p>Укажите страховую сумму или желаемую сумму взноса. По второму полю расчет будет произведен автоматически</p>
-        <button class="text-uppercase">Продолжить оформление</button>
-    </div>
-    <div class="third-row d-flex flex-md-row flex-column justify-content-start mb-4 p-3">
-        <div class="last-dynamic d-flex flex-column mr-md-5 mr-0">
-            <label>Смерть в результате HC</label>
-            <input class="form-control" type="text" id="input5" name="ADB">
-        </div>
-        <div class="last-dynamic d-flex flex-column">
-            <label>Телесная травма в результате</label>
-            <input class="form-control" type="text" id="input5" name="TT">
-        </div>
-        <div class="last-dynamic d-flex flex-column">
-            <label>Установление временной нетрудоспособности</label>
-            <input class="form-control" type="text" id="input5" name="TD">
-        </div>
-        <div class="last-dynamic d-flex flex-column">
-            <label>Госпитализация в результате HC</label>
-            <input class="form-control" type="text" id="input5" name="HD">
-        </div>
-        <div class="last-dynamic d-flex flex-column">
-            <label>Инвалидность в результате HC</label>
-            <input class="form-control" type="text" id="input5" name="ATPD">
-        </div>
-        <div class="last-dynamic d-flex flex-column">
-            <label>Критическое заболевание</label>
-            <input class="form-control" type="text" id="input5" name="CI">
-        </div>
-<!--        <div class="last-dynamic d-flex flex-column">-->
-<!--            <label>Освобождение от уплаты взносов...</label>-->
-<!--            <input class="form-control" type="text" id="input5" name="">-->
-<!--        </div>-->
-<!--        <div class="last-dynamic d-flex flex-column">-->
-<!--            <label>Сумма, тенге</label>-->
-<!--            <input class="form-control" type="text" id="input5" name="">-->
-<!--        </div>-->
-    </div>
-    <div class="response">
-        <div class="third-row d-flex flex-md-row flex-column justify-content-start mb-4 p-3">
-            <div class="last-dynamic d-flex flex-column">
-                <label>Страховой взнос</label>
-                <input class="form-control number" type="text">
-            </div>
-            <div class="last-dynamic d-flex flex-column">
-                <label>Страховой взнос по «смерть в результате НС»</label>
-                <input class="form-control OutADB" type="text">
-            </div>
-            <div class="last-dynamic d-flex flex-column">
-                <label>Страховой взнос по «инвалидность в результате НС»</label>
-                <input class="form-control OutATPD" type="text">
-            </div>
-            <div class="last-dynamic d-flex flex-column">
-                <label>Страховой взнос по «телесная травма в результате»</label>
-                <input class="form-control OutTT" type="text">
-            </div>
-            <div class="last-dynamic d-flex flex-column">
-                <label>Страховой взнос по «критические заболевания»</label>
-                <input class="form-control OutCI" type="text">
-            </div>
-            <div class="last-dynamic d-flex flex-column">
-                <label>Страховой взнос по «установление временной нетрудоспособности»</label>
-                <input class="form-control OutTD" type="text">
-            </div>
-            <div class="last-dynamic d-flex flex-column">
-                <label>Страховой взнос по «госпитализация в результате НС»</label>
-                <input class="form-control OutHD" type="text">
-            </div>
-            <div class="last-dynamic d-flex flex-column">
-                <label>Страховой взнос по «Освобождение от уплаты взносов»</label>
-                <input class="form-control OutTPD" type="text">
+    <div class="fourth-row d-flex flex-md-row flex-column justify-content-between mb-4 p-3">
+        <div class="dynamic-item d-flex">
+            <p class="dynamic-sum">Сумма, тенге</p>
+            <div class="last-dynamic dynamic3">
+                <p class="form-control">15 666 000</p>
             </div>
         </div>
+        <button class="text-uppercase sum-btn">Рассчитать</button>
     </div>
 </form>

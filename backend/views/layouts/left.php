@@ -24,6 +24,8 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
+                    ['label' => 'Отзывы', 'icon' => 'fa fa-user', 'url' => ['/reviews']],
+                    ['label' => 'Страховые случаи', 'icon' => 'fa fa-user', 'url' => ['/insurance-case']],
                     [
                         'label' => 'Главная страница',
                         'icon' => 'fa fa-home',

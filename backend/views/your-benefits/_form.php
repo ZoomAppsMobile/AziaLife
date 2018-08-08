@@ -14,6 +14,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'text')->widget(\mihaildev\ckeditor\CKEditor::className(), [
+        'editorOptions' => [
+            'options' => ['rows' => 6],
+            'allowedContent' => true,
+            'preset' => 'full',
+            'inline' => false,
+        ],
+    ]) ?>
+
     <?= $form->field($model, 'img')->widget(\iutbay\yii2kcfinder\KCFinderInputWidget::className(), [
         'multiple' => false,
     ]); ?>

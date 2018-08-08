@@ -14,18 +14,20 @@ return [
         'lang/<url:\w+>'=>'lang/index',
 
         /////Меню верхнее
-        'about-the-company'=>'menu/about-the-company',
-        'about-the-company/<url:[\w-]+>'=>'menu/about-the-company-child',
-        'about-the-company/<url:[\w-]+>/<url1:[\w-]+>'=>'menu/about-the-company-child-child',
+        'about-company'=>'menu/about-the-company',
+        'about-company/<url:[\w-]+>'=>'menu/about-the-company-child',
+        'about-company/<url:[\w-]+>/<url1:[\w-]+>'=>'menu/about-the-company-child-child',
 //        'private-clients'=>'menu/private-clients',
-        'client-support'=>'menu/client-support',
-        'client-support/<url:[\w-]+>'=>'menu/client-support-child',
+        'clientsupport'=>'menu/client-support',
+        'clientsupport/<url:[\w-]+>'=>'menu/client-support-child',
 //        'business'=>'menu/business',
         'business/<url:[\w-]+>'=>'business/detail',
         'private-clients'=>'private',
         'private-clients/<url:[\w-]+>'=>'private/detail',
         'online-payment'=>'menu/online-payment',
 
+        'subject/otzivi' => 'subject/otzivi',
+        'subject/strahovoy-sluchay' => 'subject/strahovoy-sluchay',
         /////Меню в футере
         'media-information' => 'menu/media-information',
         'careers' => 'vacancy',
@@ -42,6 +44,10 @@ return [
 
         'calculator' => 'calculator',
         'calculator/kazina-response' => 'calculator/kazina-response',
+        'calculator/osrns-response' => 'calculator/osrns-response',
+        'calculator/bolashak-response' => 'calculator/bolashak-response',
+        'calculator/mst-response' => 'calculator/mst-response',
+        'calculator/country-type' => 'calculator/country-type',
         'calculator/<url:[\w-]+>' => 'calculator/child',
 
         '<controller:\w+>/<id:\d+>'=>'<controller>/view',

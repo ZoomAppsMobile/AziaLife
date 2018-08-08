@@ -29,6 +29,7 @@ class YourBenefits extends \yii\db\ActiveRecord
         return [
             [['title', 'img'], 'required'],
             [['title', 'img'], 'string', 'max' => 255],
+            ['text', 'string'],
         ];
     }
 
@@ -39,8 +40,9 @@ class YourBenefits extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'img' => 'Img',
+            'title' => 'Название',
+            'text' => 'Текст',
+            'img' => 'Картинка',
         ];
     }
 }

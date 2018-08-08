@@ -112,7 +112,7 @@ $this->title = $model->title;
         }
     ?>
 
-    <p><?=Html::button('Добавить виджет' , ['value'=>Url::to('/admin/privatewidget/create?id='.$model->id),'class'=>'btn btn-success blogtagajax']);?>
+<!--    <p>--><?//=Html::button('Добавить виджет' , ['value'=>Url::to('/admin/privatewidget/create?id='.$model->id),'class'=>'btn btn-success blogtagajax']);?>
 </p>
 <?php
         if(count($privatewidget)>0){

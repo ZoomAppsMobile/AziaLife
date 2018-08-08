@@ -1,3 +1,4 @@
+<link href="/calc/style.css" rel="stylesheet">
 <div class="link-anchors d-flex flex-md-row flex-column mt-4">
     <a href="">Главная <img src="public/images/link-arrow-right.png" alt=""></a>
     <a href="">Калькуляторы</a>

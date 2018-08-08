@@ -14,7 +14,7 @@ if (!\Yii::$app->session->get('lang')){
 $banner=Banner::find()
             ->where(['main' => '0'])
             ->orderBy(new Expression('rand()'))
-            ->one(); 
+            ->one();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

@@ -58,7 +58,7 @@ class SiteController extends Controller
     }
 
     public function actionIndex()
-    { 
+    {
         if (!\Yii::$app->session->get('lang')){
             \Yii::$app->session->set('lang', 'ru');
         }

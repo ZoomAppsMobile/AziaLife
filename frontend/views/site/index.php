@@ -7,7 +7,7 @@ if(\Yii::$app->session->get('lang')=='ru'){
     $this->title="AsiaLife";
 }
 ?>
-
+<link href="/css/style.css" rel="stylesheet">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
