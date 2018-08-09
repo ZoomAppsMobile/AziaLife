@@ -1,4 +1,4 @@
-<a class="cabinet" href="/login" style="margin-top:-29px;"><img src="/image/header-cabinet.png" alt="">
+<a class="cabinet" href="/login" style="margin-top:-29px;font-size:14px;"><img src="/image/header-cabinet.png" alt="">
         <span>
             <?php
             if(\Yii::$app->session->get('lang')=='ru'){
@@ -11,7 +11,7 @@
             ?>
         </span>
 </a>
-<div style="position: relative;top:10px;left:-159px;">
+<div style="position: relative;top:10px;left:-141px;font-size:14px;">
 <a class="cabinet" href="/site/logout" style="">
     <img src="/image/header-cabinet.png" alt="">
     <span>
