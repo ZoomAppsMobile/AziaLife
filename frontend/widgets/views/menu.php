@@ -1,4 +1,4 @@
-<a class="cabinet" href="/login"><img src="/image/header-cabinet.png" alt="">
+<a class="cabinet" href="/login" style="margin-top:-29px;"><img src="/image/header-cabinet.png" alt="">
         <span>
             <?php
             if(\Yii::$app->session->get('lang')=='ru'){
@@ -11,6 +11,22 @@
             ?>
         </span>
 </a>
+<div style="position: relative;top:10px;left:-159px;">
+<a class="cabinet" href="/site/logout" style="">
+    <img src="/image/header-cabinet.png" alt="">
+    <span>
+            <?php
+            if(\Yii::$app->session->get('lang')=='ru'){
+                echo "Выход";
+            } else if(\Yii::$app->session->get('lang')=='kz'){
+                echo "Выход";
+            } else if(\Yii::$app->session->get('lang')=='en'){
+                echo "Выход";
+            }
+            ?>
+        </span>
+</a>
+</div>
 </div>
 <div class="bottom-bar d-flex">
     <? foreach($model as $v){ ?>
