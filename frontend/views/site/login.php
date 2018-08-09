@@ -1,3 +1,4 @@
+<link href="/css/login/style.css" rel="stylesheet" >
 <div class="link-anchors d-flex mt-4">
     <a href="/">Главная <img src="image/link-arrow-right.png" alt=""></a>
     <a href="">Личный кабинет <img src="image/link-arrow-right.png" alt=""></a>
