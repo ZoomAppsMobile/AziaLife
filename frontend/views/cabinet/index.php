@@ -1,4 +1,4 @@
-<link href="/login/css/style.css" rel="stylesheet" >
+<link href="/styles/style.css" rel="stylesheet" >
 <div class="link-anchors d-flex mt-4">
     <a href="/">Главная <img src="image/link-arrow-right.png" alt=""></a>
     <p>Личный кабинет</p>
@@ -38,7 +38,7 @@
             <div class="block2__row1">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Заключенные<br> договора</a>
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Заключенные<br> договора</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Оплатить<br> страховой взнос</a>
@@ -47,10 +47,10 @@
                         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Начисленные<br> бонусы</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="home-home-tab" data-toggle="tab" href="#home-home" role="tab" aria-controls="home-home" aria-selected="false">Расчет<br> суммы займа</a>
+                        <a class="nav-link" id="home-tab1" data-toggle="tab" href="#home1" role="tab" aria-controls="home1" aria-selected="false">Расчет<br> суммы займа</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-profile-tab" data-toggle="tab" href="#profile-profile" role="tab" aria-controls="profile-profile" aria-selected="false">Сообщить<br> о страховом случае</a>
+                        <a class="nav-link" id="profile-tab1" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile1" aria-selected="false">Сообщить<br> о страховом случае</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -60,7 +60,7 @@
                             <a class="block1-link" href="#">Оформить договор</a>
                         </div>
                         <div class="tab-row2">
-                            <div data-aos="fade-up" class="accordion accordion-second" id="accordion1">
+                            <div data-aos="fade-up" class="accordion accordion-second" id="accordion3">
                                 <div class="accordion-group">
                                     <div class="accordion-heading accordion-heading2" data-toggle="collapse" data-parent="#accordion3"
                                          href="#collapseTwo">
@@ -99,29 +99,9 @@
 
                     </div>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div data-aos="fade-up" class="accordion accordion-second mt-3" id="accordion2">
-                        <div class="accordion-group">
-                            <div class="accordion-heading accordion-heading3" data-toggle="collapse" data-parent="#accordion3"
-                                 href="#collapseThree">
-                                <a class="accordion-toggle">
-                                    Оплатить страховой взнос
-                                </a>
-                            </div>
-                            <div id="collapseThree" class="accordion-body collapse">
-                                <div class="accordion-inner d-flex flex-column">
-                                    <p class="name-1">Уважаемый Иван Иванович</p>
-                                    <p class="name-2">До следующего страхового взноса по Договору страхования «Азия Коргау» <span>осталось 9 дней</span></p>
-                                    <p class="name"><b>Рекомендуем оплатить до 01.04.2017 г.</b></p>
-                                    <button id="btn-pay">оплатить</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="profile-profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane fade" id="home-home" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                 </div>
             </div>
         </div>
