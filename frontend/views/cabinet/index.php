@@ -1,167 +1,125 @@
 <div class="link-anchors d-flex mt-4">
     <a href="/">Главная <img src="image/link-arrow-right.png" alt=""></a>
-    <a href="">Личный кабинет <img src="image/link-arrow-right.png" alt=""></a>
+    <p>Личный кабинет</p>
 </div>
 
-<h3 class="text-uppercase my-1 my-md-5 main-text font-weight-bold">ЛИЧНЫЙ КАБИНЕТ</h3>
-
-<div class="d-flex justify-content-center my-5 main-text">
-    <div class="col-4">
-        <div class="personal-info-wrap">
-            <div class="personal-info-wrap-tt d-flex justify-content-space-between">
-                <a href="">Редактировать данные</a>
-                <a href="">Сменить пароль</a>
+<div class="about-stock d-flex flex-column">
+    <h3 data-aos="fade-up" class="text-uppercase mb-4">Личный Кабинет</h3>
+    <div data-aos="fade-up" class="main-blocks d-flex">
+        <div class="block1">
+            <div class="block1__row1 d-flex justify-content-between">
+                <a class="block1-link" href="#">Редактировать данные</a>
+                <a class="block1-link" href="#">Сменить пароль</a>
             </div>
-            <div class="personal-info-wrap-mt">
-                <h2>Персональные данныe</h2>
-                <div class="p-i-w-mt-text">
-                    <div class="p-i-w-mt-text-ii"><div class="ii-text">ИИН</div> 78542398451</div>
-                    <div class="p-i-w-mt-text-ii"><div class="ii-text">ФИО</div> Иванов Иван Иванович</div>
-                    <div class="p-i-w-mt-text-ii"><div class="ii-text">Телефон</div> 8 7777777777</div>
-                    <div class="p-i-w-mt-text-ii"><div class="ii-text">ИИН</div> 78542398451</div>
+
+            <div class="block1__row2">
+                <p class="personal-data">Персональные данные</p>
+                <div class="pasport d-flex justify-content-between">
+                    <div class="pasport-row1">
+                        <p class="initials">ИИН</p>
+                        <p class="initials">ФИО</p>
+                        <p class="initials">Телефон:</p>
+                        <p class="initials">E-mail:</p>
+                    </div>
+                    <div class="pasport-row2">
+                        <p class="initials2"><?=$profile->iin?></p>
+                        <p class="initials2"><?=$profile->fio?></p>
+                        <p class="initials2"><?=$profile->phone?></p>
+                        <p class="initials2"><?=$profile->email?></p>
+                    </div>
                 </div>
             </div>
-            <a href=""> <div class="p-i-button">ЗАДАТЬ ВОПРОС</div></a>
+
+            <button id="btn-quest">Задать вопрос</button>
         </div>
-    </div>
-    <div id="exTab1" class="col-8">
-        <ul  class="nav nav-pills1">
-            <li >
-                <a  href="#1a" data-toggle="tab" class="active">Заключенные договора</a>
-            </li>
-            <li ><a href="#2a" data-toggle="tab">Оплатить страховой взнос</a>
-            </li>
-            <li><a href="#3a" data-toggle="tab">Начисленные бонусы</a>
-            </li>
-            <li><a href="#4a" data-toggle="tab">Расчет суммы займа</a>
-            </li>
-            <li><a href="#5a" data-toggle="tab">Сообщать о страховом случае</a>
-            </li>
 
-        </ul>
+        <div class="block2">
+            <div class="block2__row1">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Заключенные<br> договора</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Оплатить<br> страховой взнос</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Начисленные<br> бонусы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Расчет<br> суммы займа</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Сообщить<br> о страховом случае</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-row1 d-flex justify-content-between">
+                            <a class="block1-link" href="#">Продлить договор</a>
+                            <a class="block1-link" href="#">Оформить договор</a>
+                        </div>
+                        <div class="tab-row2">
+                            <div data-aos="fade-up" class="accordion accordion-second" id="accordion3">
+                                <div class="accordion-group">
+                                    <div class="accordion-heading accordion-heading2" data-toggle="collapse" data-parent="#accordion3"
+                                         href="#collapseTwo">
+                                        <a class="accordion-toggle">
+                                            Заключенные договора
+                                        </a>
+                                    </div>
+                                    <div id="collapseTwo" class="accordion-body collapse">
+                                        <div class="accordion-inner d-flex flex-column">
+                                            <p class="list-dogovor">Список действующих договоров</p>
 
-        <div class="tab-content cab clearfix">
-            <div class="tab-pane active" id="1a">
-                <div class="ddeal d-flex justify-content-space-between">
-                    <a href="">Продлить договор</a>
-                    <a href="">Оформить договор</a>
-                </div>
-                <div class="accordion accordion-first1" id="accordion2">
-                    <div class="accordion-group">
-                        <div data-aos="fade-up" class="accordion-margin mb-3">
-                            <div class="accordion-heading accordion-heading1" data-toggle="collapse" data-parent="#accordion2"
-                                 href="#collapseOne">
-                                <a class="accordion-toggle">
-                                    заключенные договора
-                                </a>
+                                            <div class="accordion-row1">
+                                                <p class="dogovor-item d-flex align-items-center"><span>•</span>Договор страхования от несчастных случаев и болезней лиц, выезжающих за рубеж</p>
+                                                <p class="dogovor-item d-flex align-items-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Заявка о страховом случае №170089 находится в работе</p>
+                                                <p class="dogovor-item d-flex align-items-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;СЕРИЯ VZR  № VZR 000 00001  01.01.2017 – 01.01.2018</p>
+                                            </div>
+
+                                            <div class="accordion-row2">
+                                                <p class="dogovor-item d-flex align-items-center"><span>•</span>Договор накопительного страхования «Азия Коргау»</p>
+                                                <p class="dogovor-item d-flex align-items-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Причина: не страховой случай.</p>
+                                                <p class="dogovor-item d-flex align-items-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Заявка о страховом случае №170089 урегулирована.</p>
+                                                <p class="dogovor-item d-flex align-items-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;СЕРИЯ VZR  № VZR 000 00001  01.01.2017 – 01.01.2023</p>
+                                                <p class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Сумма выплаты: <span class="red-price">25100 тенге<span></p>
+                                            </div>
+
+                                            <div class="accordion-row3">
+                                                <p class="dogovor-item d-flex align-items-center"><span>•</span>Договор накопительного страхования «Азия Коргау»</p>
+                                                <p class="dogovor-item d-flex align-items-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Заявка о страховом случае №170089 отклонена</p>
+                                                <p class="dogovor-item d-flex align-items-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;СЕРИЯ RGH  № GRG 000 225542  01.01.2017 – 01.01.2018</p>
+                                                <p class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Сумма накоплений на текущий момент: <span class="red-price">56000 тенге<span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="collapseOne" class="accordion-body collapse p-3">
-                                <div class="accordion-inner d-flex flex-column">
-                                    <div class="d-flex align-items-center flex-column">
-                                        <div class="accordion-list">
-                                            <p>Список действующих договоров:</p>
-                                            <ul>
-                                                <li>
-                                                    <span>Договор страхования от несчастных случаев и болезней лиц, выезжающих за рубеж</span><br>
-                                                    <span class="text-uppercase">СЕРИЯ VZR  № VZR 000 00001  01.01.2017 – 01.01.2018</span>
 
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="accordion-list">
-                                            <ul>
-                                                <li>
-                                                    <span>Договор накопительного страхования «Азия Коргау»</span><br>
-                                                    <span class="text-uppercase">СЕРИЯ VZR  № VZR 000 00001  01.01.2017 – 01.01.2023</span>
-                                                </li>
-                                                <p>Список действующих договоров: <div class="numb">25100 тенге</div></p>
-                                            </ul>
-                                        </div>
-                                        <div class="accordion-list">
-                                            <ul>
-                                                <li>
-                                                    <span>Договор накопительного страхования «Азия Коргау»</span><br>
-                                                    <span class="text-uppercase">СЕРИЯ RGH  № GRG 000 225542  01.01.2017 – 01.01.2018</span>
-                                                </li>
-                                                <p>Список действующих договоров: <div class="numb">56000 тенге</div></p>
-                                            </ul>
+                            <div data-aos="fade-up" class="accordion accordion-second mt-3" id="accordion3">
+                                <div class="accordion-group">
+                                    <div class="accordion-heading accordion-heading3" data-toggle="collapse" data-parent="#accordion3"
+                                         href="#collapseThree">
+                                        <a class="accordion-toggle">
+                                            Оплатить страховой взнос
+                                        </a>
+                                    </div>
+                                    <div id="collapseThree" class="accordion-body collapse">
+                                        <div class="accordion-inner d-flex flex-column">
+                                            <p class="name-1">Уважаемый Иван Иванович</p>
+                                            <p class="name-2">До следующего страхового взноса по Договору страхования «Азия Коргау» <span>осталось 9 дней</span></p>
+                                            <p class="name"><b>Рекомендуем оплатить до 01.04.2017 г.</b></p>
+                                            <button id="btn-pay">оплатить</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div data-aos="fade-up" class="accordion-margin mb-3">
-                            <div class="accordion-heading accordion-heading2" data-toggle="collapse" data-parent="#accordion2"
-                                 href="#collapse2">
-                                <a class="accordion-toggle">
-                                    оплатить страховой взнос
-                                </a>
-                            </div>
-                            <div id="collapse2" class="accordion-body collapse p-3">
-                                <div class="accordion-inner d-flex flex-column">
-                                    <div class="accordion-list">
-                                        <ul>
-                                            <li>
-                                                <span>Уважаемый Иван Иванович</span><br>
-                                                <span>До следующего страхового взноса по Договору страхования «Азия Коргау» осталось <div class="numb">9 дней</div> </span>
-                                            </li>
-                                            <p>Рекомендуем оплатить до 01.04.2017 г.</p>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="cab-button">ОПЛАТИТЬ</div>
-            </div>
-            <div class="tab-pane" id="5a">
-                <div class="insurance-sert d-flex flex-column">
-                    <span>Уважаемый клиент! <br>
-                          Если с вами произошел страховой случай <br>
-                          Вам необходимо заполнить и отправить <div class="numb1"><a href="">заявление</a></div> уведомление о наступлении страхового случая</span>
-                </div>
-                <div class="insurance-sert d-flex flex-column">
-                    <div class="file-loader d-flex">
-                        <label >
-                            <input type="file">
-                        </label>
-                        <div class="load-text">
-                            прикрепите скан документа удостоверяющего личность
-                        </div>
-                    </div>
-                    <div class="file-loader d-flex">
-                        <label >
-                            <input type="file">
-                        </label>
-                        <div class="load-text">
-                            прикрепите скан заполненного заявления о наступлении страхового случая
-                        </div>
-                    </div>
-                    <div class="postcriptuum">
-                        <span>Примечание</span><br>
-                        <textarea name="" id="" cols="100" rows="5"></textarea>
-                    </div>
-                    <div class="form-chek">
-                        <span>Выберите удобную форму общения</span>
-                        <div class="chekbox-div">
-                            <label>
-                                <input class="checkbox" type="checkbox" name="checkbox-test">
-                                <span class="checkbox-custom"></span>
-                                <span class="label">Email</span>
-                            </label>
-                            <label>
-                                <input class="checkbox" type="checkbox" name="checkbox-test">
-                                <span class="checkbox-custom"></span>
-                                <span class="label">W-P</span>
-                            </label>
-                        </div>
-                        <div class="cab-button">ОТПРАВИТЬ</div>
-                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>

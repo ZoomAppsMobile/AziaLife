@@ -209,4 +209,15 @@ class User extends ActiveRecord implements IdentityInterface
             'newPasswordConfirm'=>'Повтарите пароль',
         ];
     }
+
+    public function afterSave($insert, $changedAttributes){
+        parent::afterSave($insert, $changedAttributes);
+
+        if($this->isNewRecord) {
+            $profile = new Profile();
+            $profile->user_id = $this->id;
+            $profile->save(false);
+        }
+    }
+
 }

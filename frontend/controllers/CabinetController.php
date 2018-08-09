@@ -8,6 +8,8 @@
 
 namespace frontend\controllers;
 
+use common\models\Profiles;
+use common\models\User;
 use yii\web\Controller;
 use Yii;
 
@@ -19,9 +21,9 @@ class CabinetController extends Controller
             return $this->redirect('/login');
         }
 
-        $user = 1;
+        $profile = Profiles::findOne(Yii::$app->user->id);
 
-        return $this->render('index', compact('user'));
+        return $this->render('index', compact('profile'));
     }
 
 }

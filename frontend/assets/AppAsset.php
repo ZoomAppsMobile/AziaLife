@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
 //        'css1/responsive.css',
 //        'stylesheets/style.css',
         'about/style.css',
+        'styles/style.css',
 //        'stylesheets2/style.css',
 //        'partners_customers/style.css',
 //        'client_support/style.css',
