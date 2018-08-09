@@ -11,6 +11,7 @@ return [
     'cache' => false,
     'rules' => [
         'login'=>'site/login',
+        'logins'=>'site/logins',
         'lang/<url:\w+>'=>'lang/index',
 
         /////Меню верхнее

@@ -99,9 +99,29 @@
 
                     </div>
                 </div>
-
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div data-aos="fade-up" class="accordion accordion-second mt-3" id="accordion3">
+                        <div class="accordion-group">
+                            <div class="accordion-heading accordion-heading3" data-toggle="collapse" data-parent="#accordion3"
+                                 href="#collapseThree">
+                                <a class="accordion-toggle">
+                                    Оплатить страховой взнос
+                                </a>
+                            </div>
+                            <div id="collapseThree" class="accordion-body collapse">
+                                <div class="accordion-inner d-flex flex-column">
+                                    <p class="name-1">Уважаемый Иван Иванович</p>
+                                    <p class="name-2">До следующего страхового взноса по Договору страхования «Азия Коргау» <span>осталось 9 дней</span></p>
+                                    <p class="name"><b>Рекомендуем оплатить до 01.04.2017 г.</b></p>
+                                    <button id="btn-pay">оплатить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    <div class="tab-pane fade" id="home1" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="contact-tab">...</div>
                 </div>
             </div>
         </div>

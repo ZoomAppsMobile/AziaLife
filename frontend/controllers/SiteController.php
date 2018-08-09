@@ -112,6 +112,39 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionLogins()
+    {
+        if (!\Yii::$app->user->isGuest) {
+            return $this->redirect('/cabinet');
+        }
+        $model = new LoginForm();
+        $signup = new SignupForm();
+        $array = Yii::$app->request->post();
+        if ($array['LoginForm']&&$model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->redirect('/cabinet');
+        } elseif($array['LoginForm']) {
+            Yii::$app->session->setFlash('contactFormLogin');
+            return $this->render('login', [
+                'model' => $model, 'signup' => $signup
+            ]);
+        }
+
+        if ($array['SignupForm']&&$signup->load(Yii::$app->request->post())) {
+            if ($user = $signup->signup()) {
+                $backend_user = new \backend\models\SignupForm();
+                $backend_user->getRole($user->role, $user->id, 1);
+                return $this->goHome();
+            }else{
+                return $this->render('login', [
+                    'model' => $model, 'signup' => $signup, 'error_signup' => 1
+                ]);
+            }
+        }
+        return $this->render('login', [
+            'model' => $model, 'signup' => $signup
+        ]);
+    }
+
     public function actionRequestPasswordReset()
     {
         $model = new PasswordResetRequestForm();
