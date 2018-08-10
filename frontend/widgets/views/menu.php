@@ -11,9 +11,8 @@
             ?>
         </span>
 </a>
-<div style="position: relative;top:10px;left:-141px;font-size:14px;">
+<div style="position: relative;top:10px;left:-45px;font-size:14px;">
 <a class="cabinet" href="/site/logout" style="">
-    <img src="/image/header-cabinet.png" alt="">
     <span>
             <?php
             if(\Yii::$app->session->get('lang')=='ru'){
