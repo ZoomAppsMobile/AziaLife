@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use backend\models\search\MenuSearchFooter;
+use common\models\Advantages;
+use common\models\Docs;
 use Yii;
 use common\models\Menu;
 use backend\models\search\MenuSearchTop;
@@ -64,9 +66,15 @@ class MenuController extends BackendController
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        $model = $this->findModel($id);
+
+        $advantages = Advantages::find()->orderBy('sort')->all();
+        $advantages_img = new Advantages();
+
+        $docs = Docs::find()->orderBy('sort')->all();
+        $docs_file = new Docs();
+
+        return $this->render('view', compact('model', 'advantages', 'advantages_img', 'docs', 'docs_file'));
     }
 
     /**

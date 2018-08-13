@@ -1,7 +1,5 @@
-<?php
-$this->registerCssFile('/frontend/web/styles/style.css');
-?>
-<div class="link-anchors d-flex flex-md-row flex-column mt-4">
+<link href="/css/documents_and_publications/style.css" rel="stylesheet">
+<div class="link-anchors d-flex flex-md-row flex-column my-4">
     <a href="/">Главная <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to(['/about-company']))?>">О компании <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="">Документы и публикации</a>

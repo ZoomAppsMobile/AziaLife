@@ -1,4 +1,4 @@
-<link href="/styles/style.css" rel="stylesheet" >
+<link href="/css/lk/style.css" rel="stylesheet" >
 <div class="link-anchors d-flex mt-4">
     <a href="/">Главная <img src="image/link-arrow-right.png" alt=""></a>
     <p>Личный кабинет</p>

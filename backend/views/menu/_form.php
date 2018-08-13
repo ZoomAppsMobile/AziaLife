@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use common\models\Menu;
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 /* @var $this yii\web\View */
 /* @var $model common\models\Menu */
 /* @var $form yii\widgets\ActiveForm */
@@ -19,7 +21,23 @@ use common\models\Menu;
 
     <?= $form->field($model, 'name_kz')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'text')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'options' => ['rows' => 6],
+            'allowedContent' => true,
+            'preset' => 'full',
+            'inline' => false,
+        ]),
+    ]) ?>
+
+    <?= $form->field($model, 'dop_text')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'options' => ['rows' => 6],
+            'allowedContent' => true,
+            'preset' => 'full',
+            'inline' => false,
+        ]),
+    ]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

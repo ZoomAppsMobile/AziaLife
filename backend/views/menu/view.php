@@ -41,4 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?= $this->render('_advantages', compact('model', 'advantages', 'advantages_img')) ?>
+    <?= $this->render('_docs', compact('model', 'docs', 'docs_file')) ?>
+
 </div>

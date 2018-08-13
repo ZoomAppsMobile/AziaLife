@@ -32,7 +32,7 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'name_en', 'name_kz'], 'required'],
-            [['text', 'description'], 'string'],
+            [['text', 'description', 'dop_text'], 'string'],
             [['sort_top', 'sort_footer', 'parent_id', 'footer', 'top', 'status'], 'integer'],
             [['name', 'name_en', 'name_kz', 'title', 'keywords', 'url'], 'string', 'max' => 255],
         ];
@@ -54,6 +54,7 @@ class Menu extends \yii\db\ActiveRecord
             'keywords' => 'Ключевые слова',
             'url' => 'Url',
             'status' => 'Статус',
+            'dop_text' => 'Дополнительный текст',
         ];
     }
 
