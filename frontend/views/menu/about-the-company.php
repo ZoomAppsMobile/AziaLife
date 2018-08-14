@@ -46,7 +46,6 @@
     </div>
 </div>
 
-
 <div data-aos="fade-up" class="your-profit d-flex flex-column my-4">
     <h3 data-aos="fade-up" class="text-uppercase my-3">Документы:</h3>
     <div class="d-flex justify-content-between flex-md-row flex-column">
