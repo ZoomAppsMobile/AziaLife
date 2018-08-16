@@ -10,8 +10,8 @@
 <div data-aos="fade-up"  class="about-stock d-flex flex-column">
     <h3 class="text-uppercase mb-4">СТРАХОВЫе тарифы</h3>
     <p class="text1">В Данном разделе Вы можете ознакомиться со страховыми тарифами, применяемыми в АО «КСЖ «Азия Life».</p>
-    <?foreach($model as $v){?>
-        <div class="finance-block d-flex">
+    <div class="finance-block d-flex">
+        <?foreach($model as $v){?>
             <a href="<?=$v->file?>">
                 <div class="tarif-item">
                     <div class="tarif-cell">
@@ -20,6 +20,6 @@
                     </div>
                 </div>
             </a>
-        </div>
-    <?}?>
+        <?}?>
+    </div>
 </div>
