@@ -290,12 +290,12 @@ $this->registerCssFile('/frontend/web/css/stahovanie-zaem-v/style.css');
 <div data-aos="fade-up" class="accordion accordion-first  mt-5" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading accordion-heading3" data-toggle="collapse" data-parent="#accordion2"
-             href="#collapseOne">
+             href="#collapseOne11">
             <a class="accordion-toggle">
                 Выгоды банка:
             </a>
         </div>
-        <div id="collapseOne" class="accordion-body collapse p-3">
+        <div id="collapseOne11" class="accordion-body collapse p-3">
             <div class="accordion-inner d-flex flex-column">
                 <?=$blog->vig_banka?>
             </div>
