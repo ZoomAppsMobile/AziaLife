@@ -1,11 +1,12 @@
 <?php
 $this->registerCssFile('/frontend/web/css/news/style.css');
 ?>
-<h3 class="text-uppercase my-1 my-md-5 main-text font-weight-bold">Новости</h3>
-<div class="allnews">
+<div data-aos="fade-up" class="about-stock d-flex flex-column mt-5">
+    <h3 class="text-uppercase mb-4">Новости</h3>
 <?php
     $newflex=true;
     foreach ($models as $key) {
+        $data = strtotime($key->dating);
         if(\Yii::$app->session->get('lang')=='ru'){
             $newtitle=$key->title;
             $newdescription=$key->description;
@@ -17,23 +18,22 @@ $this->registerCssFile('/frontend/web/css/news/style.css');
             $newdescription=$key->description_kz;
         }
         if($newflex){            
-            echo '<div class=" d-flex main-text justify-space-around my-md-5">
-                    <div class="wrap-news d-flex flex-md-row flex-column justify-content-between">';
+            echo '<div data-aos="fade-up" class="main d-flex justify-content-between">';
         }
-        echo '<div class="news-one d-flex flex-md-row flex-column justify-content-between">
-            <div class="news-img-wr">
-                <img src="'.$key->image.'" alt="">
+?>
+    <div data-aos="fade-up" class="main d-flex justify-content-between mt-5">
+        <div class="news-block1 d-flex">
+            <img class="" src="<?=$key->image?>" alt="">
+            <div class="block-info">
+                <h4 class="text-uppercase head-text"><?=$newtitle?></h4>
+                <p class="pub-date"><?=date('d.m.Y', $data)?></p>
+                <p class="block-info-text"><?=$newdescription?></p>
+                <a class="more-info">Читать больше</a>
             </div>
-            <div class="news-text-wr">
-                <h4 class="text-uppercase font-weight-bold">'.$newtitle.'</h4>
-                <span>'.$key->dating.'</span>
-                <p>'.$newdescription.'</p>
-                <a href=""><p>Читать далее</p></a>
-            </div>
-        </div>';
-        if(!$newflex){
-            echo '</div>
-            </div>';
+        </div>
+    </div>
+    <?    if(!$newflex){
+            echo '</div>';
         }
         if($newflex){
             $newflex=false;
@@ -42,42 +42,14 @@ $this->registerCssFile('/frontend/web/css/news/style.css');
         }
     }
      if(!$newflex){
-            echo '</div>
-            </div>';
+            echo '</div>';
         }
 ?>
-</div>
 <?php
 if(!$last){
-        echo '<div id="newsbut" class="news-button" data-page="2">РАННИЕ НОВОСТИ</div>';
+        echo '<button data-aos="fade-up" class="old-news" id="newsbut" data-page="2">Ранние новости</button>';
     }
 ?>
+</div>
 
-
-<script type="text/javascript">
-    jQuery(document).ready(function($){
-        AOS.init({
-            offset: 0,
-            duration: 600,
-            easing: 'ease-in-sine',
-            delay: 100,
-//            disable: window.innerWidth < 768
-        });
-
-        $("#newsbut").click(function() {     
-            var page = $(this).data('page'); 
-            var newdata=$(this).data('page')+1;   
-            $(this).data('page', newdata)        
-            $.ajax({  
-                type: "POST",  
-                url: "/news/page/",  
-                data: {page: page},  
-                success: function(html){                 
-                   $(".allnews").append(html);
-                }  
-            });  
-            return false;  
-        });
-    });
-</script>
 

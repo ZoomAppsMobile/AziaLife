@@ -137,3 +137,18 @@ $('select[name="country1"]').change(function(){
             }
         });
 });
+$("#newsbut").click(function() {
+    var page = $(this).data('page');
+    var newdata=$(this).data('page')+1;
+    $(this).data('page', newdata)
+    $.ajax({
+        type: "POST",
+        url: "/news/page/",
+        data: {page: page},
+        success: function(html){
+            $('#newsbut').hide();
+            $(".about-stock").append(html);
+        }
+    });
+    return false;
+});

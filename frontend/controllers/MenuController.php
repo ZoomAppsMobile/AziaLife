@@ -56,7 +56,7 @@ class MenuController extends Controller
             if(!$empty)
                 throw new HttpException(404 ,'Not found');
 
-            $model = Document::find()->where('category = "'.$id.'"')->orderBy('year')->all();
+            $model = Document::find()->where('category = "'.$id.'"')->orderBy('year DESC')->all();
         }
         elseif($url=='partners-and-customers'){
             $model = PartnersAndCustomers::find()->where("url = '$url1'")->one();

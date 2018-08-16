@@ -50,14 +50,14 @@
                                  ?>
                     "><img src="/image/rules-download.png" alt="">
                                 <?php
-                                if(\Yii::$app->session->get('lang')=='ru'){
-                                    echo $v['title'];
-                                } else if(\Yii::$app->session->get('lang')=='kz'){
-                                    echo $v['title_kz'];
-                                } else if(\Yii::$app->session->get('lang')=='en'){
-                                    echo $v['title_en'];
-                                }
-                            ?>
+                                    if(\Yii::$app->session->get('lang')=='ru'){
+                                        echo $v['title'];
+                                    } else if(\Yii::$app->session->get('lang')=='kz'){
+                                        echo $v['title_kz'];
+                                    } else if(\Yii::$app->session->get('lang')=='en'){
+                                        echo $v['title_en'];
+                                    }
+                                ?>
                         </a>
                     </li>
         <? $Oldyear = $v['year'];} ?>
