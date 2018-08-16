@@ -368,7 +368,7 @@ $this->registerCssFile('/frontend/web/css/stahovanie-zaem-v/style.css');
     $items = [];
     foreach($blog->additionalInsuranceCoverage as $v){
         if(!$v->text){
-           $items[] = '<p class="d-flex align-items-center"><span>•</span>Страховым случаем является смерть Застрахованного, наступившая в период действия страховой защиты или дожитие Застрахованного до конца срока страхования</p>';
+           $items[] = '<p class="d-flex align-items-center"><span>•</span>'.$v->title.'</p>';
         }
     }
 ?>
