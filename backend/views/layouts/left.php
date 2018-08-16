@@ -37,6 +37,15 @@
                         ],
                     ],
                     ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => ['/user']],
+                    [
+                        'label' => 'Офисы',
+                        'icon' => 'fa fa-home',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Офисы', 'icon' => 'fa fa-file-zip-o', 'url' => ['/offices']],
+                            ['label' => 'Города', 'icon' => 'fa fa-file-zip-o', 'url' => ['/city']],
+                        ],
+                    ],
                     ['label' => 'Новости', 'icon' => 'fa fa-user', 'url' => ['/news']],
                     [
                         'label' => 'Меню',

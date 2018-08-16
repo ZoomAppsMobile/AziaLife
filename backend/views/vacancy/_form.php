@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use iutbay\yii2kcfinder\KCFinderInputWidget;
-use dosamigos\ckeditor\CKEditor;
+use mihaildev\ckeditor\CKEditor;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Vacancy */
 /* @var $form yii\widgets\ActiveForm */
@@ -29,21 +29,32 @@ use dosamigos\ckeditor\CKEditor;
         'multiple' => false,
     ]); ?>
 
-    
 
     <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-        'options' => ['rows' => 6],
-        'preset' => 'full'
+        'editorOptions' => [
+            'options' => ['rows' => 6],
+            'allowedContent' => true,
+            'preset' => 'full',
+            'inline' => false,
+        ],
     ]) ?>
 
     <?= $form->field($model, 'content_kz')->widget(CKEditor::className(), [
-        'options' => ['rows' => 6],
-        'preset' => 'full'
+        'editorOptions' => [
+            'options' => ['rows' => 6],
+            'allowedContent' => true,
+            'preset' => 'full',
+            'inline' => false,
+        ],
     ]) ?>
 
     <?= $form->field($model, 'content_en')->widget(CKEditor::className(), [
-        'options' => ['rows' => 6],
-        'preset' => 'full'
+        'editorOptions' => [
+            'options' => ['rows' => 6],
+            'allowedContent' => true,
+            'preset' => 'full',
+            'inline' => false,
+        ],
     ]) ?>
 
     <?= $form->field($model, 'salary')->textInput(['maxlength' => true]) ?>

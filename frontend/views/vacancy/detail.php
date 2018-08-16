@@ -1,6 +1,7 @@
 <?php
 $this->registerCssFile('/frontend/web/css/vacancydetail/style.css');
 ?>
+<?if($vacancy->id==1){?>
 <link href="/vacancy/style.css" rel="stylesheet">
 <div class="link-anchors d-flex flex-md-row flex-column mt-4">
     <a href="/">Главная <img src="/image/link-arrow-right.png" alt=""></a>
@@ -15,7 +16,6 @@ $this->registerCssFile('/frontend/web/css/vacancydetail/style.css');
         }
         ?></a>
 </div>
-
 <h3 class="text-uppercase mt-1 mt-md-5 mb-2 main-text font-weight-bold">
     <?php
         if(\Yii::$app->session->get('lang')=='ru'){
@@ -102,17 +102,29 @@ $this->registerCssFile('/frontend/web/css/vacancydetail/style.css');
         </div>
     <?php \yii\widgets\ActiveForm::end() ?>
 </div>
+<?}else{?>
+    <div class="link-anchors d-flex flex-md-row flex-column my-4">
+        <a href="">Главная<img src="/image/link-arrow-right.png" alt=""></a>
+        <a href="/careers">Вакансии<img src="/image/link-arrow-right.png" alt=""></a>
+        <p href="">Риск-менеджер</p>
+    </div>
 
-<script>
-    jQuery(document).ready(function($){
+    <div data-aos="fade-up" class="about-stock d-flex flex-column">
+        <h3  class="text-uppercase mb-4">Риск-менеджер</h3>
 
-        AOS.init({
-            offset: 0,
-            duration: 600,
-            easing: 'ease-in-sine',
-            delay: 100,
-//            disable: window.innerWidth < 768
-        });
-    });
+        <ul class="vacancy-block">
+            <li class="vacancy-item"><span>Выполнять задачи в соответствии с целями и задачами Компании по организации и функционированию системы управления рисками, в соответствии с законодательными...</span></li>
+            <li class="vacancy-item"><span>Иметь высшее экономическое или финансовое образование. Знать основы законодательства и нормативных правовых актов, регламентирующие страховую деятельность, основы бухгалтерского учета, практику...</span></li>
+        </ul>
 
-</script>
+        <div data-aos="fade-up" class="wrapper-2">
+            <div  class="banners d-flex justify-content-center my-5">
+                <img class="banner" src="public/images/banner.png" alt="">
+            </div>
+
+            <div class="icon-block">
+                <img src="public/images/icon.png" alt="">
+            </div>
+        </div>
+    </div>
+<?}?>

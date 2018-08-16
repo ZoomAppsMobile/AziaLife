@@ -3,6 +3,7 @@ use backend\models\Widget;
 use backend\models\Widgetitem;
 use backend\models\Tableitem;
 $this->registerCssFile('/frontend/web/kapital/style.css');
+$this->registerCssFile('/frontend/web/css/stahovanie-zaem-v/style.css');
 ?>
 <link href="/bolashak/style.css" rel="stylesheet">
 <link href="/asiaLife_capital/style.css" rel="stylesheet">
@@ -284,6 +285,24 @@ $this->registerCssFile('/frontend/web/kapital/style.css');
         <? } ?>
     </div>
 </div>
+
+<?if(!empty($blog->vig_banka)){?>
+<div data-aos="fade-up" class="accordion accordion-first  mt-5" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading accordion-heading3" data-toggle="collapse" data-parent="#accordion2"
+             href="#collapseOne">
+            <a class="accordion-toggle">
+                Выгоды банка:
+            </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse p-3">
+            <div class="accordion-inner d-flex flex-column">
+                <?=$blog->vig_banka?>
+            </div>
+        </div>
+    </div>
+</div>
+<?}?>
 
 <? if($blog->bellowing_conditions){ ?>
 <div data-aos="fade-up" class="accordion accordion-first  mt-5" id="accordion2">
