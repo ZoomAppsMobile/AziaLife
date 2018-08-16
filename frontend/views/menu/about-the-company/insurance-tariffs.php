@@ -11,15 +11,15 @@
     <h3 class="text-uppercase mb-4">СТРАХОВЫе тарифы</h3>
     <p class="text1">В Данном разделе Вы можете ознакомиться со страховыми тарифами, применяемыми в АО «КСЖ «Азия Life».</p>
     <div class="finance-block d-flex">
-        <?foreach($model as $v){?>
+        <?$i = 1;foreach($model as $v){?>
             <a href="<?=$v->file?>">
-                <div class="tarif-item">
+                <div class="tarif-item<?if($i!=1) echo 2;?>">
                     <div class="tarif-cell">
                         <img class="tarif-icon" src="/images/icon.png" alt="">
                         <p class="tarif-text"><?=$v->title?></p>
                     </div>
                 </div>
             </a>
-        <?}?>
+        <?$i++;}?>
     </div>
 </div>
