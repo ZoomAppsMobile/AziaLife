@@ -13,9 +13,9 @@ $this->registerCssFile('/frontend/web/new_style/style.css');
     <h3 class="text-uppercase mb-4">Финансовые показатели</h3>
     <p class="text1">В данном разделе Вашему вниманию предлагается финансовая отчетность, а также ежеквартальная финансовая отчетность АО «КСЖ «Азия Life».</p>
 
-    <? $Oldyear = "";foreach($model as $v){ $year = $v['year'];?>
+    <? $i = 1;$Oldyear = "";foreach($model as $v){ $year = $v['year'];?>
     <?if($year!=$Oldyear&&$Oldyear != ""){?>
-        <p class="year"><?=$v['year']?></p>
+        <p class="year<?if($i!=1) echo ' mt-5';?>"><?=$v['year']?></p>
     <?}?>
     <?if($year!=$Oldyear&&$Oldyear == ""){?>
         <p class="year"><?=$v['year']?></p>
@@ -46,5 +46,5 @@ $this->registerCssFile('/frontend/web/new_style/style.css');
             </div>
         </a>
     </div>
-        <? $Oldyear = $v['year'];} ?>
+        <? $i++;$Oldyear = $v['year'];} ?>
 </div>
