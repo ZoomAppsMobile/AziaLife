@@ -15,7 +15,7 @@ class FaqController extends Controller
 {
     public function actionIndex()
     {
-        $model = Faqcategory::find()->all();
+        $model = Faqcategory::find()->where('status = 1')->all();
         return $this->render('index', compact('model'));
     }
 }

@@ -38,7 +38,7 @@ $this->registerCssFile('/frontend/web/css/faq/style.css');
             }
         </style>
     <?}?>
-    <?foreach($v->faqs as $v1){?>
+    <?foreach($v->faqs as $v1){ if($v->status==1){?>
         <div data-aos="fade-up" class="accordion-margin mb-3">
             <div class="accordion-heading accordion-heading8" data-toggle="collapse" data-parent="#accordion2"
                  href="#collapse<?=$i?>">
@@ -52,7 +52,7 @@ $this->registerCssFile('/frontend/web/css/faq/style.css');
                 </div>
             </div>
         </div>
-    <?$i++;}?>
+    <?$i++;}}?>
 <?}?>
             </div>
         </div>
