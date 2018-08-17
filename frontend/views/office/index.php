@@ -41,6 +41,8 @@
                     map.geoObjects.add(new ymaps.Placemark([<?=$v->latitude?>, <?=$v->longitude?>], {
                         balloonContent: '<?=$v->text?>'
                     }, {
+                        iconLayout: 'default#image',
+                        iconImageHref: '/frontend/web/images/absolute-logo.png',
                         preset: 'islands#icon',
                         iconColor: '#0095b6'
                     }));
