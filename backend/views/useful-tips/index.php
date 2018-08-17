@@ -7,17 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\search\UsefulTipsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Useful Tips';
+$this->title = 'Вопросы с полезныех советов';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="useful-tips-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Useful Tips', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -32,7 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'city',
             //'email:email',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {delete}',
+            ],
         ],
     ]); ?>
 </div>

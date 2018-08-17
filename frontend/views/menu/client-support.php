@@ -40,7 +40,7 @@ $this->registerCssFile('/frontend/web/css/clientsupport/style.css');
         <div class="client-card">
             <div class="card-item1">
                 <img src="/images/card1.png" alt="">
-                <p class="card-title1"><a href="#">Действия
+                <p class="card-title1"><a href="/clientsupport/action-insured-event">Действия
                         <br>при наступлении
                         <br>страхового случая</a></p>
             </div>

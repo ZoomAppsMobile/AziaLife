@@ -22,6 +22,7 @@ return [
         'clientsupport/faq'=>'faq',
         'clientsupport'=>'menu/client-support',
         'clientsupport/useful-tips' => 'clientsupport/useful-tips',
+        'clientsupport/action-insured-event' => 'clientsupport/action-insured-event',
         'clientsupport/<url:[\w-]+>'=>'menu/client-support-child',
 //        'business'=>'menu/business',
         'business/<url:[\w-]+>'=>'business/detail',
