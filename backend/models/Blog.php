@@ -33,7 +33,7 @@ class Blog extends \yii\db\ActiveRecord
         return [
             [['title', 'title_kz', 'title_en', 'thumb', 'image', 'content', 'content_kz', 'content_en', 'url', 'order', 'status', 'category'], 'required'],
             [['content', 'content_kz', 'content_en', 'status', 'bellowing_conditions', 'bellowing_conditions_kz', 'bellowing_conditions_en',
-                'kase', 'spy', 'pens1', 'pens2', 'vig_banka'], 'string'],
+                'kase', 'spy', 'pens1', 'pens2', 'vig_banka', 'k_r_p', 'v_s_m_s', 'v_zn'], 'string'],
             [['order', 'category'], 'integer'],
             [['YourBenefits', 'MechanismOfTheContract'], 'safe'],
             [['title', 'title_kz', 'title_en', 'description', 'description_kz', 'description_en', 'thumb', 'image', 'note', 'note_kz', 'note_en'], 'string', 'max' => 512],
@@ -73,6 +73,9 @@ class Blog extends \yii\db\ActiveRecord
             'YourBenefits' => 'Ваши выгоды',
             'MechanismOfTheContract' => 'Механизм действия договора',
             'vig_banka' => 'Выгоды банка',
+            'k_r_p' => 'Какие риски покрываются',
+            'v_s_m_s' => 'Варианты сумм страховой защиты',
+            'v_zn' => 'Важно знать',
         ];
     }
 

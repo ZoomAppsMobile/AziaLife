@@ -41,6 +41,12 @@ use backend\models\Blogcategory;
             <li class="nav-item">
                 <a id="profile-tab"2 data-toggle="tab" href="#home-sz" role="tab" aria-controls="profile" aria-selected="false" class="nav-link">Страхование заемщиков</a>
             </li>
+            <li class="nav-item">
+                <a id="profile-tab"2 data-toggle="tab" href="#m_s_t" role="tab" aria-controls="profile" aria-selected="false" class="nav-link">Мед. стр. туристов</a>
+            </li>
+            <li class="nav-item">
+                <a id="profile-tab"2 data-toggle="tab" href="#ob_st" role="tab" aria-controls="profile" aria-selected="false" class="nav-link">Об. стр. работников</a>
+            </li>
         </ul>
         <div id="myTabContent" class="tab-content bg-white box-shadow p-4 mb-4">
             <div id="blocs" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade">
@@ -295,6 +301,35 @@ use backend\models\Blogcategory;
             </div>
             <div id="home-sz" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade">
                 <?= $form->field($model, 'vig_banka')->widget(CKEditor::className(), [
+                    'editorOptions' => [
+                        'options' => ['rows' => 6],
+                        'allowedContent' => true,
+                        'preset' => 'full',
+                        'inline' => false,
+                    ],
+                ]) ?>
+            </div>
+            <div id="m_s_t" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade">
+                <?= $form->field($model, 'k_r_p')->widget(CKEditor::className(), [
+                    'editorOptions' => [
+                        'options' => ['rows' => 6],
+                        'allowedContent' => true,
+                        'preset' => 'full',
+                        'inline' => false,
+                    ],
+                ]) ?>
+
+                <?= $form->field($model, 'v_s_m_s')->widget(CKEditor::className(), [
+                    'editorOptions' => [
+                        'options' => ['rows' => 6],
+                        'allowedContent' => true,
+                        'preset' => 'full',
+                        'inline' => false,
+                    ],
+                ]) ?>
+            </div>
+            <div id="ob_st" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade">
+                <?= $form->field($model, 'v_zn')->widget(CKEditor::className(), [
                     'editorOptions' => [
                         'options' => ['rows' => 6],
                         'allowedContent' => true,

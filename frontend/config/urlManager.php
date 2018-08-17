@@ -19,6 +19,7 @@ return [
         'about-company/<url:[\w-]+>'=>'menu/about-the-company-child',
         'about-company/<url:[\w-]+>/<url1:[\w-]+>'=>'menu/about-the-company-child-child',
 //        'private-clients'=>'menu/private-clients',
+        'clientsupport/faq'=>'faq',
         'clientsupport'=>'menu/client-support',
         'clientsupport/<url:[\w-]+>'=>'menu/client-support-child',
 //        'business'=>'menu/business',

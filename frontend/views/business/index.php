@@ -31,7 +31,7 @@ $this->registerCssFile('/frontend/web/style_busines/style.css');
     <div class="main d-flex justify-content-between flex-md-row flex-column">
         <div class="row1 d-flex flex-column">
             <img src="/images/image1.png" alt="">
-            <p class="text1 mt-4"><a href="#" class="text1">Обязательное страхование работника от несчастных случаев</a></p>
+            <p class="text1 mt-4"><a href="/private-clients/compulsory_employee_insurance" class="text1">Обязательное страхование работника от несчастных случаев</a></p>
             <p class="text2">Социальная ответственность и обязанность работодателя</p>
         </div>
 

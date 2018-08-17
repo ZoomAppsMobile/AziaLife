@@ -4,6 +4,8 @@ use backend\models\Widgetitem;
 use backend\models\Tableitem;
 $this->registerCssFile('/frontend/web/kapital/style.css');
 $this->registerCssFile('/frontend/web/css/stahovanie-zaem-v/style.css');
+$this->registerCssFile('/frontend/web/css/m_s_t/style.css');
+$this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
 ?>
 <link href="/bolashak/style.css" rel="stylesheet">
 <link href="/asiaLife_capital/style.css" rel="stylesheet">
@@ -304,6 +306,24 @@ $this->registerCssFile('/frontend/web/css/stahovanie-zaem-v/style.css');
 </div>
 <?}?>
 
+<?if(!empty($blog->k_r_p)){?>
+    <div data-aos="fade-up" class="accordion accordion-first  mt-5" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading accordion-heading1" data-toggle="collapse" data-parent="#accordion2"
+                 href="#collapseOne">
+                <a class="accordion-toggle">
+                    Какие риски покрываются полисом страхования:
+                </a>
+            </div>
+            <div id="collapseOne" class="accordion-body collapse p-3">
+                <div class="accordion-inner d-flex flex-column">
+                    <?=$blog->k_r_p?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?}?>
+
 <? if($blog->bellowing_conditions){ ?>
 <div data-aos="fade-up" class="accordion accordion-first  mt-5" id="accordion2">
     <div class="accordion-group">
@@ -340,30 +360,57 @@ $this->registerCssFile('/frontend/web/css/stahovanie-zaem-v/style.css');
 </div>
 <? } ?>
 
-<div class="mechanism d-flex flex-column mt-5">
-    <h3 data-aos="fade-up" class="text-uppercase mb-3">механизм действия договора:</h3>
-    <? $i = 1; $temsblog = $blog->itemsblog($blog->id); foreach($temsblog as $v){ ?>
-    <?php if($i==1){ ?>
-        <div class="d-flex flex-md-row flex-column justify-content-between align-items-center">
-    <? } ?>
-    <?php if(($i-1)%3==0){ ?>
-        </div>
-        <div class="d-flex flex-md-row flex-column justify-content-between align-items-center mt-md-3 mt-0">
-    <? } ?>
-        <div data-aos="fade-up" class="item d-flex flex-column py-1 px-3 mt-3 mt-md-0 <? if(($i+1)%3==0){echo 'mx-2';}?>">
-            <div class="d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center">
-                        <img src="<?=$v['img']?>" alt="">
-                        <h5 class="text-uppercase ml-2"><?=$v['title']?></h5>
-                    </div>
-                    <h4><?=$i?></h4>
+<?if(!empty($blog->v_zn)){?>
+    <div data-aos="fade-up" class="accordion accordion-first  mt-5" id="accordion5">
+        <div class="accordion-group">
+            <div class="accordion-heading accordion-heading2" data-toggle="collapse" data-parent="#accordion5"
+                 href="#collapsTwo">
+                <a class="accordion-toggle">
+                    Важно знать:
+                </a>
             </div>
-            <?=$v['text']?>
+            <div id="collapsTwo" class="accordion-body collapse p-3">
+                <?=$blog->v_zn?>
+            </div>
         </div>
-    <? $i++;} ?>
     </div>
-</div>
+<? } ?>
 
+<?if(!empty($blog->v_s_m_s)){?>
+    <div data-aos="fade-up" class="your-profit d-flex flex-column my-4">
+        <h3 data-aos="fade-up" class="text-uppercase my-3">Варианты сумм страховой защиты в зависимости от территории<br>
+            действия полиса:</h3>
+        <div class="variants-block d-flex">
+            <?=$blog->v_s_m_s?>
+        </div>
+    </div>
+<? } ?>
+
+<?$temsblog = $blog->itemsblog($blog->id);if(!empty($temsblog)){?>
+    <div class="mechanism d-flex flex-column mt-5">
+        <h3 data-aos="fade-up" class="text-uppercase mb-3">механизм действия договора:</h3>
+        <? $i = 1; foreach($temsblog as $v){ ?>
+        <?php if($i==1){ ?>
+            <div class="d-flex flex-md-row flex-column justify-content-between align-items-center">
+        <? } ?>
+        <?php if(($i-1)%3==0){ ?>
+            </div>
+            <div class="d-flex flex-md-row flex-column justify-content-between align-items-center mt-md-3 mt-0">
+        <? } ?>
+            <div data-aos="fade-up" class="item d-flex flex-column py-1 px-3 mt-3 mt-md-0 <? if(($i+1)%3==0){echo 'mx-2';}?>">
+                <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <img src="<?=$v['img']?>" alt="">
+                            <h5 class="text-uppercase ml-2"><?=$v['title']?></h5>
+                        </div>
+                        <h4><?=$i?></h4>
+                </div>
+                <?=$v['text']?>
+            </div>
+        <? $i++;} ?>
+        </div>
+    </div>
+<? } ?>
 <?
     $items = [];
     foreach($blog->additionalInsuranceCoverage as $v){

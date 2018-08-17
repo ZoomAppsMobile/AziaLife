@@ -33,7 +33,7 @@
             <a href=""><img src="/image/footer-social6.png" alt=""></a>
             <a href=""><img src="/image/footer-social7.png" alt=""></a>
         </div>
-        <div class="second-row d-flex">
+        <div class="second-row d-flex mt-md-5 mt-0">
             <a href=""><img src="/image/footer-social8.png" alt=""></a>
             <a href=""><img src="/image/footer-social9.png" alt=""></a>
         </div>
