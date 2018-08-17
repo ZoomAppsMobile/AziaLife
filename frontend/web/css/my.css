@@ -21,3 +21,6 @@
 a .finance-item2, a img{
     cursor:pointer;
 }
+.help-block{
+    color:red;
+}

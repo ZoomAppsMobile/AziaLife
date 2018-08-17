@@ -26,6 +26,7 @@
                 'items' => [
                     ['label' => 'Отзывы', 'icon' => 'fa fa-user', 'url' => ['/reviews']],
                     ['label' => 'Страховые случаи', 'icon' => 'fa fa-user', 'url' => ['/insurance-case']],
+                    ['label' => 'Полезные советы', 'icon' => 'fa fa-user', 'url' => ['/useful-tips']],
                     [
                         'label' => 'Главная страница',
                         'icon' => 'fa fa-home',

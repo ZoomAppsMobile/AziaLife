@@ -21,6 +21,7 @@ return [
 //        'private-clients'=>'menu/private-clients',
         'clientsupport/faq'=>'faq',
         'clientsupport'=>'menu/client-support',
+        'clientsupport/useful-tips' => 'clientsupport/useful-tips',
         'clientsupport/<url:[\w-]+>'=>'menu/client-support-child',
 //        'business'=>'menu/business',
         'business/<url:[\w-]+>'=>'business/detail',
