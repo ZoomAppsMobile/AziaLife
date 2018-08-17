@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Term;
 use backend\models\TermSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

@@ -64,7 +64,7 @@ $this->registerCssFile('/frontend/web/css/clientsupport/style.css');
         <div class="client-card">
             <div class="card-item">
                 <img src="/images/card4.png" alt="">
-                <p class="card-title"><a href="#">Страховые термины</a></p>
+                <p class="card-title"><a href="/terms">Страховые термины</a></p>
             </div>
         </div>
 
