@@ -59,7 +59,7 @@ $banner=Banner::find()
             <div class="phone-and-map d-flex flex-column">
                 <div class="d-flex align-items-center">
                     <img src="/image/header-map.png" alt="">
-                    <a><?php
+                    <a id="office-city"><?php
                             if(\Yii::$app->session->get('lang')=='ru'){
                                 echo "Астана";
                             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -69,7 +69,9 @@ $banner=Banner::find()
                             }
                         ?></a>
                 </div>
-                <a class="pink-text" href=""><span><?php
+                <a class="pink-text" href="" id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span>
+                        <?php
                             if(\Yii::$app->session->get('lang')=='ru'){
                                 echo "офисы в вашем городе";
                             } else if(\Yii::$app->session->get('lang')=='en'){
@@ -77,7 +79,56 @@ $banner=Banner::find()
                             } else if(\Yii::$app->session->get('lang')=='kz'){
                                 echo "Сіздің қалаңыздағы кеңселер";
                             }
-                        ?></span></a>
+                        ?>
+                    </span>
+                </a>
+                <div class="dropdown-menu ddn-cont" data-offset="1" aria-labelledby="dLabel">
+                    <div class="ddn-cont-wrap">
+                        <div class="ddn-cont-top d-flex justify-content-between">
+                            <h3 class="text-uppercase">выберите ваш город</h3>
+                            <div class="close"><a href="">X</a></div>
+                        </div>
+
+                        <form class="d-flex search-form align-items-center" action="">
+                            <input type="text">
+                            <button><img src="public/images/header-search1.png" alt=""></button>
+                        </form>
+                        <div class="ddn-cont-citys d-flex justify-content-between">
+                            <ul class="border-right">
+                                <? $city = \common\models\City::find()->all(); ?>
+                                <? foreach($city as $v){ ?>
+                                    <li><a href="/office?id=<?=$v->id?>"><?=$v->name?></a></li>
+                                <? } ?>
+<!--                                <li><a href="">Актау</a></li>-->
+<!--                                <li><a href="">Актобе</a></li>-->
+<!--                                <li><a href="">Астана</a></li>-->
+<!--                                <li><a href="">Атырау </a></li>-->
+<!--                                <li><a href="">Шымкент</a></li>-->
+<!--                                <li><a href="">Караганда</a></li>-->
+<!--                                <li><a href="">Кызылорда</a></li>-->
+<!--                                <li><a href="">Усть-Каменогорск</a></li>-->
+<!--                                <li><a href="">Рудный</a></li>-->
+<!--                                <li><a href="">Рудный</a></li>-->
+<!--                                <li><a href="">Рудный</a></li>-->
+<!--                                <li><a href="">Рудный</a></li>-->
+<!--                                <li><a href="">Рудный</a></li>-->
+<!--                                <li><a href="">Рудный</a></li>-->
+                            </ul>
+<!--                            <ul>-->
+<!--                                <li><a href="">Туркестан</a></li>-->
+<!--                                <li><a href="">Темиртау</a></li>-->
+<!--                                <li><a href="">Талдыкорган</a></li>-->
+<!--                                <li><a href="">Павлодар</a></li>-->
+<!--                                <li><a href="">Петропавловск</a></li>-->
+<!--                                <li><a href="">Кокшетау</a></li>-->
+<!--                                <li><a href="">Семей</a></li>-->
+<!--                                <li><a href="">Уральск</a></li>-->
+<!--                                <li><a href="">Экибастуз</a></li>-->
+<!--                            </ul>-->
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <select class="language-button selectpicker" onchange="location = this.options[this.selectedIndex].value;">
               <option value="/lang/ru" <?php if(\Yii::$app->session->get('lang')=='ru'){ echo 'selected'; } ?>>RU</option>

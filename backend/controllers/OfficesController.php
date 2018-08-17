@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\City;
 use Yii;
 use common\models\Offices;
 use backend\models\search\OfficesSearch;
@@ -42,6 +43,15 @@ class OfficesController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    public function actionCity()
+    {
+        $model = City::find()->where("id = ".$_GET['id'])->one();
+
+        echo $model->name;
+
+        die;
     }
 
     /**

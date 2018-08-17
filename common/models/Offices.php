@@ -46,12 +46,17 @@ class Offices extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'text' => 'Text',
-            'status' => 'Status',
-            'latitude' => 'Latitude',
-            'longitude' => 'Longitude',
-            'city_id' => 'City ID',
+            'name' => 'Название',
+            'text' => 'Описание',
+            'status' => 'Статус',
+            'latitude' => 'Широта',
+            'longitude' => 'Долгота',
+            'city_id' => 'Город',
         ];
+    }
+
+    public function getCity()
+    {
+        return $this->hasOne(City::className(), ['id' => 'city_id']);
     }
 }

@@ -39,6 +39,7 @@ class AppAsset extends AssetBundle
 //        'stiles/style.scss',
 //        'stiles2/style.scss',
 //        'stylesheets111/style.css',
+        'css/office_style/style.css',
     ];
     public $js = [
         'libs/jquery/dist/jquery.min.js',
