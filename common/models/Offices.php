@@ -17,6 +17,7 @@ use Yii;
  */
 class Offices extends \yii\db\ActiveRecord
 {
+    public $path = "images/offices/";
     /**
      * {@inheritdoc}
      */
@@ -31,11 +32,11 @@ class Offices extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'text', 'status', 'latitude', 'longitude', 'city_id'], 'required'],
-            [['text'], 'string'],
+            [['name', 'status', 'latitude', 'longitude', 'city_id'], 'required'],
             [['status', 'city_id'], 'integer'],
-            [['name'], 'string', 'max' => 255],
+            [['phone', 'address', 'time', 'email'], 'string', 'max' => 255],
             [['latitude', 'longitude'], 'string', 'max' => 20],
+            [['img'], 'file', 'extensions'=>'jpg, gif, png, jpeg'],
         ];
     }
 
@@ -47,11 +48,15 @@ class Offices extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Название',
-            'text' => 'Описание',
             'status' => 'Статус',
             'latitude' => 'Широта',
             'longitude' => 'Долгота',
             'city_id' => 'Город',
+            'img' => 'Картинка',
+            'phone' => 'Телефон',
+            'email' => 'Почта',
+            'address' => 'Адрес',
+            'time' => 'Время работы',
         ];
     }
 

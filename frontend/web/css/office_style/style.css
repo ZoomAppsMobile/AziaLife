@@ -7550,17 +7550,17 @@ body {
 .map-wrap {
   width: 100%;
   position: relative; }
-  .map-wrap img {
-    width: 100%; }
+  /*.map-wrap img {*/
+    /*width: 100%; }*/
   .map-wrap .map-adress {
     position: absolute;
     top: 20.5rem;
     left: 4rem;
-    background: url("public/images/adress-map.png") no-repeat center center;
+    background: url("../../images/adress-map.png") no-repeat center center;
     background-size: cover;
     width: 37rem;
     height: 14rem;
-    display: none !important; }
+    }
     .map-wrap .map-adress .img-adres-wrap {
       width: 40%;
       margin: .5rem 1.5rem 0rem; }
@@ -7583,7 +7583,7 @@ body {
           margin-right: 1rem; }
 
 .ddn-cont {
-  background: url("public/images/drpd-bg.png") no-repeat center center;
+  background: url("../../images/drpd-bg.png") no-repeat center center;
   background-size: cover;
   width: 25rem;
   height: 27rem; }
@@ -7622,6 +7622,12 @@ body {
 .dropdown-menu {
   border: none !important; }
 
+.adress-map-text{
+  margin-left:5px;
+}
+.adress-map-text img{
+  margin-right:5px;
+}
 /*ADRESS PAGE*/
 
 /*# sourceMappingURL=style.css.map */

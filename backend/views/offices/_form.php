@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Offices */
@@ -14,13 +15,28 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
-
     <?= $form->field($model, 'latitude')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'longitude')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'time')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'status')->dropDownList([0=>'Закрыто', 1=>'Активно'], ['prompt' => '']) ?>
+
+    <img src="<?='/'.@backend.'/web/'.$model->path.$model->img?>" alt="">
+
+    <?= $form->field($model, 'img')->label(false)->widget(FileInput::className(), [
+        'options' => [
+            'accept' => 'image/*',
+            'multiple' => false,
+        ]
+    ]) ?>
 
     <?= $form->field($model, 'city_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\City::find()->all(), 'id', 'name'), ['prompt' => '']) ?>
 

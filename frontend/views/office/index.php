@@ -39,7 +39,7 @@
 
                 <?foreach($model as $v){?>
                     map.geoObjects.add(new ymaps.Placemark([<?=$v->latitude?>, <?=$v->longitude?>], {
-                        balloonContent: '<?=$v->text?>'
+                        balloonContent: '<div class="d-flex justify-content-between p-2"><div class="img-adres-wrap"><img src="<?='/'.@backend.'/web/'.$v->path.$v->img?>" alt=""></div><div class="adress-map-text flex-column"><span><?=$v->address?></span><p><img src="/images/call-adress.png" alt=""><?=$v->phone?></p><p><img src="/images/mail-adress.png" alt=""><?=$v->email?></p><p><img src="/images/time-adress.png" alt=""><?=$v->time?></p></div></div>'
                     }, {
                         iconLayout: 'default#image',
                         iconImageHref: '/frontend/web/images/absolute-logo.png',
@@ -50,16 +50,6 @@
             }
         </script>
 
-        <div class="map-adress d-flex justify-content-between  p-2">
-            <div class="img-adres-wrap">
-                <img src="public/images/adress-img.jpg" alt="">
-            </div>
-            <div class="adress-map-text flex-column">
-                <span>пр. Аль-Фараби 17/1, ПФЦ <br> "Нурлы Тау", 5Б, 10 этаж, 17 офис</span>
-                <p><img src="public/images/call-adress.png" alt="">+7 (727) 338 45 01</p>
-                <p><img src="public/images/mail-adress.png" alt="">info@asia-life.kz</p>
-                <p><img src="public/images/time-adress.png" alt="">time-adress.png</p>
-            </div>
-        </div>
+
     </div>
 </div>

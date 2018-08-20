@@ -9,6 +9,7 @@ use backend\models\search\OfficesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * OfficesController implements the CRUD actions for Offices model.
@@ -76,8 +77,18 @@ class OfficesController extends Controller
     {
         $model = new Offices();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $files = UploadedFile::getInstances($model, 'img');
+
+            $time = time();
+            foreach($files as $file)
+                $file->saveAs($model->path . $time . $file->baseName . '.' . $file->extension);
+
+            if($file)
+                $model->img =  $time . $file->baseName . '.' . $file->extension;
+
+            if($model->save())
+                return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -95,9 +106,22 @@ class OfficesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $old_img = $model->img;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $files = UploadedFile::getInstances($model, 'img');
+
+            $time = time();
+            foreach($files as $file)
+                $file->saveAs($model->path . $time . $file->baseName . '.' . $file->extension);
+
+            if($file)
+                $model->img =  $time . $file->baseName . '.' . $file->extension;
+            else
+                $model->img = $old_img;
+
+            if($model->save())
+                return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [

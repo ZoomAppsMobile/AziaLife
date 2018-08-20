@@ -19,7 +19,7 @@ class OfficesSearch extends Offices
     {
         return [
             [['id', 'status', 'city_id'], 'integer'],
-            [['name', 'text', 'latitude', 'longitude'], 'safe'],
+            [['name', 'latitude', 'longitude'], 'safe'],
         ];
     }
 
@@ -65,7 +65,6 @@ class OfficesSearch extends Offices
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'text', $this->text])
             ->andFilterWhere(['like', 'latitude', $this->latitude])
             ->andFilterWhere(['like', 'longitude', $this->longitude]);
 
