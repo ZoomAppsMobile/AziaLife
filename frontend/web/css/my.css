@@ -12,9 +12,9 @@
 #exTab1 .tab-content .help-block.help-block-error{
     color: red;
 }
-.private-customers-wrap img{
-    height:50%;
-}
+/*.private-customers-wrap img{*/
+    /*height:50%;*/
+/*}*/
 .response{
     display: none;
 }
@@ -23,4 +23,7 @@ a .finance-item2, a img{
 }
 .help-block{
     color:red;
+}
+.mechanism .item img{
+    margin-top:-15px;
 }
