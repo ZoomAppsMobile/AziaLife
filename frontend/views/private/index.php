@@ -34,8 +34,10 @@ if(count($blogcategory)>0){
                         echo '<div class="private-customers-wrap">
                             <a href="/private-clients/'.$val->url.'">
                                 <img src="'.$val->thumb.'" alt="">
-                                <h4 class="text-uppercase font-weight-bold">'.$valtitle.'</h4>
-                                <span>'.$valdescription.'</span>
+                                <div class="private-customers-wrap-block" style="width:90%;">
+                                <h4 class="text-uppercase font-weight-bold" style="font-size: 1rem;cursor:pointer;">'.$valtitle.'</h4>
+                                <span style="cursor:pointer;">'.$valdescription.'</span>
+                                </div>
                             </a>
                         </div>' ;
                     }

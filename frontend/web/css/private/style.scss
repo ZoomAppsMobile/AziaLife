@@ -863,7 +863,7 @@ ul{
 /*NEWS PAGE*/
 
 /*PRIVAT PAGE*/
-.private-customers-wrap{
+.private-customers-wrap .private-customers-wrap-block{
   width: 21.5rem;
   line-height: 1;
   img{
@@ -874,7 +874,7 @@ ul{
   }
   h4{
     margin: 1rem 0rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   span{
     color: #000;
@@ -889,4 +889,5 @@ ul{
     text-align: center;
   }
 }
+
 /*PRIVAT PAGE*/
