@@ -1,5 +1,6 @@
-<link href="/about/style.css" rel="stylesheet">
-<link href="/css1/main.css" rel="stylesheet">
+<?php
+$this->registerCssFile('/frontend/web/new_style/style.css');
+?>
 <div class="link-anchors d-flex flex-md-row flex-column mt-4">
     <a href="/">Главная <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to(['/about-company']))?>">О компании <img src="/image/link-arrow-right.png" alt=""></a>
@@ -13,7 +14,7 @@
     <h4>В Данном разделе Вы можете ознакомиться со страховыми тарифами, применяемыми в АО «КСЖ «Азия Life».</h4>
 
     <div data-aos="fade-up" class="rules-badges mt-4 d-flex flex-column align-items-center justify-content-center p-4 w-100">
-        <div data-aos="fade-up" class="badges-row d-flex flex-md-row row justify-content-around flex-column align-items-md-start align-items-center w-100 mt-0 mt-md-4">
+        <div data-aos="fade-up" class="finance-block">
             <? foreach($model as $v){ ?>
                 <a href="<?php
                             if(\Yii::$app->session->get('lang')=='ru'){
@@ -23,11 +24,11 @@
                             } else if(\Yii::$app->session->get('lang')=='en'){
                                 echo $v['file_en'];
                             }
-                          ?>"
-                   class="badge-pdf mt-2 mt-md-0 d-flex flex-column justify-content-center align-items-center p-2">
-                    <img src="/image/rules-download.png" alt="">
-                    <p class="text-center mt-2">
-                        <?php
+                          ?>">
+                    <div class="finance-row d-flex">
+                        <p class="finance-item"><img src="/images/icon.png" alt=""></p>
+                        <p class="finance-item2">
+                            <?php
                             if(\Yii::$app->session->get('lang')=='ru'){
                                 echo $v['title'];
                             } else if(\Yii::$app->session->get('lang')=='kz'){
@@ -35,8 +36,9 @@
                             } else if(\Yii::$app->session->get('lang')=='en'){
                                 echo $v['title_en'];
                             }
-                        ?>
-                    </p>
+                            ?>
+                        </p>
+                    </div>
                 </a>
             <? } ?>
         </div>
