@@ -91,6 +91,17 @@ $this->registerCssFile('/frontend/web/new_style/style.css');
                 <p class="map-way"><a style="font-family: 'pragmatica-cyrillic', sans-serif;font-size: 1rem; color: #000;"  href="/clientsupport/faq">Часто задаваемые вопросы</a></p>
                 <p class="map-way"><a style="font-family: 'pragmatica-cyrillic', sans-serif;font-size: 1rem; color: #000;"  href="/terms">Страховые термины</a></p>
                 <p class="map-way"><a style="font-family: 'pragmatica-cyrillic', sans-serif;font-size: 1rem; color: #000;"  href="/clientsupport/useful-tips">Полезные советы</a></p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;
             </div>
         </div>
 
@@ -113,6 +124,20 @@ $this->registerCssFile('/frontend/web/new_style/style.css');
                 <p class="map-way"><a style="font-family: 'pragmatica-cyrillic', sans-serif;font-size: 1rem; color: #000;"  href="#">Мобильное приложение</a></p>
                 <p class="map-way"><a style="font-family: 'pragmatica-cyrillic', sans-serif;font-size: 1rem; color: #000;"  href="#">Социальные сети</a></p>
                 <p class="map-way"><a style="font-family: 'pragmatica-cyrillic', sans-serif;font-size: 1rem; color: #000;"  href="#">Обратная связь</a></p>
+            </div>
+            <div class="map-block3">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
