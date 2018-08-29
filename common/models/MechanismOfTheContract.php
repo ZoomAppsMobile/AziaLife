@@ -12,7 +12,7 @@ use Yii;
  * @property string $text
  * @property string $img
  */
-class MechanismOfTheContract extends \yii\db\ActiveRecord
+class MechanismOfTheContract extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

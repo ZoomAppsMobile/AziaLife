@@ -4,7 +4,7 @@ namespace backend\models;
 
 use Yii;
 
-class Blogcategory extends \yii\db\ActiveRecord
+class Blogcategory extends \common\models\CommonModel
 {
     public static function tableName()
     {

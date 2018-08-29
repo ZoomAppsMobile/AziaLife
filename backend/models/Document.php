@@ -19,7 +19,7 @@ use Yii;
  * @property integer $status
  * @property string $category
  */
-class Document extends \yii\db\ActiveRecord
+class Document extends \common\models\CommonModel
 {
     const URL_DOCUMENT = "insurance-rules, register-of-insurance-agents, insurance-tariffs, financial-indicators";
 //    const INSURANCE_RULES = "0, insurance-rules";

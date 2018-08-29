@@ -4,7 +4,7 @@ namespace backend\models;
 
 use Yii;
 
-class News extends \yii\db\ActiveRecord
+class News extends \common\models\CommonModel
 {
     
     public static function tableName()

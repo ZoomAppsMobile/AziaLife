@@ -4,7 +4,7 @@ namespace backend\models;
 
 use Yii;
 
-class Widgetitem extends \yii\db\ActiveRecord
+class Widgetitem extends \common\models\CommonModel
 {
     public static function tableName()
     {

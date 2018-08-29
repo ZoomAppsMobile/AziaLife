@@ -4,7 +4,7 @@ namespace backend\models;
 
 use Yii;
 
-class Faqcategory extends \yii\db\ActiveRecord
+class Faqcategory extends \common\models\CommonModel
 {
     
     public static function tableName()

@@ -12,7 +12,7 @@ use common\models\YourBenefits;
 use common\models\YourBenefitsBlog;
 use Yii;
 
-class Blog extends \yii\db\ActiveRecord
+class Blog extends \common\models\CommonModel
 {
 
     public $YourBenefits;

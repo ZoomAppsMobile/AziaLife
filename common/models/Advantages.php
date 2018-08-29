@@ -12,7 +12,7 @@ use Yii;
  * @property string $text
  * @property string $img
  */
-class Advantages extends \yii\db\ActiveRecord
+class Advantages extends \common\models\CommonModel
 {
     public $files;
     public $path = 'images/advantages/';
@@ -31,8 +31,8 @@ class Advantages extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'text', 'img'], 'required'],
-            [['text'], 'string'],
-            [['title', 'img'], 'string', 'max' => 255],
+            [['text', 'text_kz', 'text_en'], 'string'],
+            [['title', 'img', 'title_kz', 'title_en'], 'string', 'max' => 255],
             ['files', 'each', 'rule' => ['image']],
         ];
     }
@@ -47,6 +47,10 @@ class Advantages extends \yii\db\ActiveRecord
             'title' => 'Название',
             'text' => 'Текст',
             'img' => 'Картинка',
+            'title_kz' => 'Название kz',
+            'title_en' => 'Название en',
+            'text_kz' => 'Текст kz',
+            'text_en' => 'Текст en',
         ];
     }
 

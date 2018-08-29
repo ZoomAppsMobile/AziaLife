@@ -27,3 +27,19 @@ a .finance-item2, a img{
 .mechanism .item img{
     margin-top:-15px;
 }
+.edit-form .center_button_form, .password-form .center_button_form{
+    text-align: right;
+    margin:-30px 16px 20px 0;
+}
+.edit-form .center_button_form button, .password-form .center_button_form button{
+    background: #9f074f;
+    border: none;
+}
+.message{
+    text-align: center;
+    margin-top:10px;
+    margin-bottom:-20px;
+}
+.form .message{
+    margin-bottom:0;
+}

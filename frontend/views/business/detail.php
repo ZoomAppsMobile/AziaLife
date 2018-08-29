@@ -6,44 +6,20 @@ $this->registerCssFile('/frontend/web/css/privatedetail/style.css');
 ?>
 <div class="link-anchors d-flex my-4">
     <a href="/"><?php
-             if(\Yii::$app->session->get('lang')=='ru'){
-                echo "Главная";
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo "Main";
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo "Басты бет";
-            }
+            echo Yii::t('main-title', 'Главная');
             ?> <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="/business"><?php
-             if(\Yii::$app->session->get('lang')=='ru'){
-                echo "Бизнесу";
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo "Business";
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo "Бизнес";
-            }
+            echo Yii::t('main-title', 'Бизнесу');
             ?> <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="">
         <?php
-             if(\Yii::$app->session->get('lang')=='ru'){
-                echo $blog->title;
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo $blog->title_en;
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo $blog->title_kz;
-            }
-            ?>
+            echo $blog->setLang('title');
+        ?>
     </a>
 </div>
 <div class="about-stock d-flex flex-column">
     <h3 data-aos="fade-up" class="text-uppercase mb-4"><?php
-             if(\Yii::$app->session->get('lang')=='ru'){
-                echo $blog->title;
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo $blog->title_en;
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo $blog->title_kz;
-            }
+            echo $blog->setLang('title');
             ?></h3>
     <div data-aos="fade-up" class="d-flex flex-md-row flex-column">
         <img class="main-pic" src="<?=$blog->image?>" alt="">
@@ -53,28 +29,13 @@ $this->registerCssFile('/frontend/web/css/privatedetail/style.css');
                 if(count($blogtags)>0){
                     echo '<div class="pink-links align-items-md-center mt-4 mt-md-0 d-flex flex-md-row flex-column">';
                     foreach ($blogtags as $tagkey) {
-                        if(\Yii::$app->session->get('lang')=='ru'){
-                            $tagkeytitle=$tagkey->title;
-                            if(isset($tagkey->file)){
-                                $tagkeyurl=$tagkey->file;
+                            $tagkeytitle=$tagkey->setLang('title');
+                            $file = $tagkey->setLang('file');
+                            if(isset($file)){
+                                $tagkeyurl=$tagkey->setLang('file');
                             }else{
                                 $tagkeyurl=$tagkey->url;
                             }
-                        } else if(\Yii::$app->session->get('lang')=='en'){
-                            $tagkeytitle=$tagkey->title_en;
-                            if(isset($tagkey->file_en)){
-                                $tagkeyurl=$tagkey->file_en;
-                            }else{
-                                $tagkeyurl=$tagkey->url;
-                            }
-                        } else if(\Yii::$app->session->get('lang')=='kz'){
-                            $tagkeytitle=$tagkey->title_kz;
-                            if(isset($tagkey->file_kz)){
-                                $tagkeyurl=$tagkey->file_kz;
-                            }else{
-                                $tagkeyurl=$tagkey->url;
-                            }
-                        }
                         echo ' 
                             <a class="text-uppercase" target="_blank" href="'.$tagkeyurl.'"><img class="mr-3" src="'.$tagkey->icon.'" alt="">'.$tagkeytitle.'</a>
                         ';
@@ -83,15 +44,9 @@ $this->registerCssFile('/frontend/web/css/privatedetail/style.css');
                 }
 
             ?>
-           
+
             <?php
-             if(\Yii::$app->session->get('lang')=='ru'){
-                echo $blog->content;
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo $blog->content_en;
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo $blog->content_kz;
-            }
+                echo $blog->setLang('content');
             ?>
         </div>
     </div>
@@ -100,13 +55,7 @@ $this->registerCssFile('/frontend/web/css/privatedetail/style.css');
 if(count($privatewidget)>0){
     foreach ($privatewidget as $wkey) {
         $widget=Widget::findOne($wkey->wid);
-        if(\Yii::$app->session->get('lang')=='ru'){
-            $widgettitle=$widget->title; 
-        } else if(\Yii::$app->session->get('lang')=='en'){
-            $widgettitle=$widget->title_en;
-        } else if(\Yii::$app->session->get('lang')=='kz'){
-            $widgettitle=$widget->title_kz; 
-        }
+        $widgettitle=$widget->setLang('title');
         if($widget->type==0){
             echo '<div class="your-profit d-flex flex-column my-4">
                     <h3 data-aos="fade-up" class="text-uppercase my-3">'.$widgettitle.'</h3>
@@ -114,13 +63,7 @@ if(count($privatewidget)>0){
                         ';
                     $widgetitem=Widgetitem::find()->where(['wid'=>$widget->id])->all();
                     foreach ($widgetitem as $walue) {
-                        if(\Yii::$app->session->get('lang')=='ru'){
-                            $widgetitemtitle=$walue->title; 
-                        } else if(\Yii::$app->session->get('lang')=='en'){
-                            $widgetitemtitle=$walue->title_en;
-                        } else if(\Yii::$app->session->get('lang')=='kz'){
-                            $widgetitemtitle=$walue->title_kz; 
-                        }
+                        $widgetitemtitle=$walue->setLang('title');
                         if(isset($walue->icon)){
                            echo '<div data-aos="fade-up" class="item d-flex flex-column align-items-center justify-content-center">
                                 <img src="'.$walue->icon.'" alt="">
@@ -147,16 +90,8 @@ if(count($privatewidget)>0){
                                 <div class="accordion-inner d-flex flex-column">';
                                 $widgetitem=Widgetitem::find()->where(['wid'=>$widget->id])->all();
                                 foreach ($widgetitem as $walue) {
-                                    if(\Yii::$app->session->get('lang')=='ru'){
-                                        $widgetitem1=$walue->title;
-                                        $widgetitem2=$walue->description;  
-                                    } else if(\Yii::$app->session->get('lang')=='en'){
-                                        $widgetitem1=$walue->title_en;
-                                        $widgetitem2=$walue->description_en; 
-                                    } else if(\Yii::$app->session->get('lang')=='kz'){
-                                        $widgetitem1=$walue->title_kz;
-                                        $widgetitem2=$walue->description_kz;  
-                                    }
+                                    $widgetitem1=$walue->setLang('title');
+                                    $widgetitem2=$walue->setLang('description');
                                     echo '<div class="first-table d-flex flex-column mt-5">
                                         <div class="d-flex align-items-center">
                                             <h5 class="text-uppercase p-3 mb-0 w-50">'.$widgetitem1.'</h5>
@@ -164,16 +99,8 @@ if(count($privatewidget)>0){
                                         </div>';
                                         $tableitem=Tableitem::find()->where(['itemid'=>$walue->id])->orderBy(['order' => SORT_ASC])->all();
                                         foreach ($tableitem as $tableitemkey) {
-                                            if(\Yii::$app->session->get('lang')=='ru'){
-                                                $table1=$tableitemkey->names;
-                                                $table2=$tableitemkey->value;
-                                            } else if(\Yii::$app->session->get('lang')=='en'){
-                                                $table1=$tableitemkey->names_en;
-                                                $table2=$tableitemkey->value_en;
-                                            } else if(\Yii::$app->session->get('lang')=='kz'){
-                                                $table1=$tableitemkey->names_kz;
-                                                $table2=$tableitemkey->value_kz;
-                                            }
+                                            $table1=$tableitemkey->setLang('names');
+                                            $table2=$tableitemkey->setLang('value');
                                             echo '<div class="d-flex align-items-center">
                                                 <p class="mb-0 p-3 w-50">'.$table1.'</p>
                                                 <p class="mb-0 p-3 w-50">'.$table2.'</p>
@@ -181,7 +108,7 @@ if(count($privatewidget)>0){
                                         }
                                 echo '</div>';
                                 }
-                                    
+
             echo '              </div>
                             </div>
                         </div>
@@ -199,13 +126,7 @@ if(count($privatewidget)>0){
                             <div class="accordion-inner d-flex flex-column">';
                                  $widgetitem=Widgetitem::find()->where(['wid'=>$widget->id])->all();
                                 foreach ($widgetitem as $walue) {
-                                    if(\Yii::$app->session->get('lang')=='ru'){
-                                        $widgetitemtitle=$walue->title; 
-                                    } else if(\Yii::$app->session->get('lang')=='en'){
-                                        $widgetitemtitle=$walue->title_en;
-                                    } else if(\Yii::$app->session->get('lang')=='kz'){
-                                        $widgetitemtitle=$walue->title_kz; 
-                                    }
+                                    $widgetitemtitle=$walue->setLang('title');
                                     echo '<p class="d-flex align-items-center"><span>•</span>'.$widgetitemtitle.'</p>';
                                     }
                          echo   '</div>
@@ -216,21 +137,13 @@ if(count($privatewidget)>0){
             echo '<div class="mechanism d-flex flex-column mt-5">
                 <h3 data-aos="fade-up" class="text-uppercase mb-3">'.$widgettitle.'</h3>';
                 $widgetitem=Widgetitem::find()->where(['wid'=>$widget->id])->all();
-                $check=100;        
+                $check=100;
                 foreach ($widgetitem as $walue) {
-                    if(\Yii::$app->session->get('lang')=='ru'){
-                        $widgetitemtitle=$walue->title; 
-                        $widgetitemdescription=$walue->description; 
-                    } else if(\Yii::$app->session->get('lang')=='en'){
-                        $widgetitemtitle=$walue->title_en;
-                        $widgetitemdescription=$walue->description_en; 
-                    } else if(\Yii::$app->session->get('lang')=='kz'){
-                        $widgetitemtitle=$walue->title_kz; 
-                        $widgetitemdescription=$walue->description_kz; 
-                    }
+                    $widgetitemtitle=$walue->setLang('title');
+                    $widgetitemdescription=$walue->setLang('description');
                     if($check==100){
                         echo '<div class="d-flex flex-md-row flex-column justify-content-between align-items-center">';
-                        $check=0; 
+                        $check=0;
                     }else if($check==0){
                         echo '<div class="d-flex flex-md-row flex-column justify-content-between align-items-center mt-md-3 mt-0">';
                     }
@@ -248,12 +161,12 @@ if(count($privatewidget)>0){
                             </div>';
                     $check++;
                     if($check==3){
-                        echo '</div>'; 
-                        $check=0;                                  
+                        echo '</div>';
+                        $check=0;
                     }
                 }
                 if($check!=3){
-                    echo '</div>';                                   
+                    echo '</div>';
                 }
         }
     }
@@ -263,13 +176,7 @@ if(count($privatewidget)>0){
     <button>оформить сейчас</button>
     <p class="text-left w-100">
         <?php
-            if(\Yii::$app->session->get('lang')=='ru'){
-                echo $blog->note;
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo $blog->note_en;
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo $blog->note_kz;
-            }
+            echo $blog->setLang('note');
         ?>
     </p>
 </div>
@@ -280,6 +187,6 @@ if(count($privatewidget)>0){
             duration: 600,
             easing: 'ease-in-sine',
             delay: 100,
-        });     
+        });
     });
 </script>

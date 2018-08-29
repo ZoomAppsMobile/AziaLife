@@ -17,7 +17,7 @@ use Yii;
  * @property string $iin
  * @property string $text
  */
-class InsuranceCase extends \yii\db\ActiveRecord
+class InsuranceCase extends \common\models\CommonModel
 {
     /**
      * {@inheritdoc}
@@ -46,14 +46,14 @@ class InsuranceCase extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'first_name' => 'First Name',
-            'Last_name' => 'Last Name',
-            'number' => 'Number',
-            'phone' => 'Phone',
+            'name' => 'Имя',
+            'first_name' => 'Фамилия',
+            'Last_name' => 'Отчество',
+            'number' => 'Номер',
+            'phone' => 'Телефон',
             'email' => 'Email',
-            'iin' => 'Iin',
-            'text' => 'Text',
+            'iin' => 'ИИН',
+            'text' => 'Текст',
         ];
     }
 }

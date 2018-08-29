@@ -19,7 +19,7 @@ use Yii;
  * @property string $main
  * @property string $status
  */
-class Banner extends \yii\db\ActiveRecord
+class Banner extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

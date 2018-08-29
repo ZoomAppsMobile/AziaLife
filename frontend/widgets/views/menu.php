@@ -1,29 +1,20 @@
-<a class="cabinet" href="/login" style="margin-top:-29px;font-size:14px;"><img src="/image/header-cabinet.png" alt="">
+<a class="cabinet" href="/login" style="<?if(\Yii::$app->user->id){?>margin-top:-29px;<?}?>font-size:14px;"><img src="/image/header-cabinet.png" alt="">
         <span>
             <?php
-            if(\Yii::$app->session->get('lang')=='ru'){
-                echo "Личный кабинет";
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo "Жеке кабинет";
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo "Personal account";
-            }
+                echo Yii::t('main-label', 'Личный кабинет');
             ?>
         </span>
 </a>
 <div style="position: relative;top:10px;left:-45px;font-size:14px;">
 <a class="cabinet" href="/site/logout" style="">
-    <span>
+    <?if(\Yii::$app->user->id){?>
+        <span>
             <?php
-            if(\Yii::$app->session->get('lang')=='ru'){
-                echo "Выход";
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo "Выход";
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo "Выход";
-            }
+                echo Yii::t('main-label', 'Выход');
             ?>
+
         </span>
+    <?}?>
 </a>
 </div>
 </div>
@@ -31,13 +22,7 @@
     <? foreach($model as $v){ ?>
         <a class="text-uppercase" href="/<?=\yii\helpers\Html::encode(\yii\helpers\Url::to($v['url']))?>">
             <?php
-                if(\Yii::$app->session->get('lang')=='ru'){
-                    echo $v['name'];
-                } else if(\Yii::$app->session->get('lang')=='kz'){
-                    echo $v['name_kz'];
-                } else if(\Yii::$app->session->get('lang')=='en'){
-                    echo $v['name_en'];
-                }
+                echo $v->setLang('name');
             ?>
         </a>
     <? } ?>

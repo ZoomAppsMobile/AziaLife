@@ -2,6 +2,8 @@
 namespace frontend\controllers;
 
 use backend\controllers\UserController;
+use common\models\Contact;
+use common\models\Metatags;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -19,7 +21,7 @@ use backend\models\Slider;
 use backend\models\News;
 use backend\models\Banner;
 
-class SiteController extends Controller
+class SiteController extends FrontendController
 {
     public function behaviors()
     {
@@ -60,17 +62,21 @@ class SiteController extends Controller
     public function actionIndex()
     {
         if (!\Yii::$app->session->get('lang')){
-            \Yii::$app->session->set('lang', 'ru');
+            \Yii::$app->session->set('lang', '');
         }
+
+        $meta = Metatags::find()->where('url = "/"')->one();
+        $this->setMeta($meta);
+
         $slider=Slider::find()->where(['status'=>1])->orderBy(['order'=>SORT_ASC])->all();
         $news=News::find()->where(['status'=>1])->orderBy(['dating'=>SORT_ASC])->all();
         $banner1=Banner::findOne(1);
         $banner2=Banner::findOne(2);
         $banner3=Banner::findOne(3);
         $banner4=Banner::findOne(4);
-               
+
         return $this->render('index', [
-            'slider'=>$slider, 
+            'slider'=>$slider,
             'news'=>$news,
             'banner1'=>$banner1,
             'banner2'=>$banner2,
@@ -84,6 +90,10 @@ class SiteController extends Controller
         if (!\Yii::$app->user->isGuest) {
             return $this->redirect('/cabinet');
         }
+
+        $meta = Metatags::find()->where('url = "login"')->one();
+        $this->setMeta($meta);
+
         $model = new LoginForm();
         $signup = new SignupForm();
         $array = Yii::$app->request->post();
@@ -187,5 +197,23 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionContactPhone()
+    {
+        $model = new Contact();
+
+        $array = Yii::$app->request->get();
+        $model['name'] = $array['name'];
+        $model['phone'] = $array['phone'];
+        $model['subject'] = 'Заказ звонка с сайта '.Yii::$app->params['sait'];
+        $model['body'] = 'Телефон: '.$array['phone'];
+        $model['data'] = time();
+
+        if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+            $model->save(false);
+            echo 'done';
+            die;
+        }
     }
 }

@@ -30,9 +30,6 @@ use backend\models\Blogcategory;
                 <a id="profile-tab3" data-toggle="tab" href="#blocs" role="tab" aria-controls="blocs" aria-selected="false" class="nav-link">Блоки</a>
             </li>
             <li class="nav-item">
-                <a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" class="nav-link">Мета теги</a>
-            </li>
-            <li class="nav-item">
                 <a id="profile-tab1" data-toggle="tab" href="#for-azia" role="tab" aria-controls="profile" aria-selected="false" class="nav-link">Азия капитал</a>
             </li>
             <li class="nav-item">

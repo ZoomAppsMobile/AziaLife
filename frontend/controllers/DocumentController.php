@@ -2,7 +2,7 @@
 namespace frontend\controllers;
 use yii\web\Controller;
 use backend\models\Document;
-class DocumentController extends Controller
+class DocumentController extends FrontendController
 {
 	public function actionIndex()
     {

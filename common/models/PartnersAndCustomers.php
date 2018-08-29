@@ -22,7 +22,7 @@ use Yii;
  * @property string $url
  * @property integer $status
  */
-class PartnersAndCustomers extends \yii\db\ActiveRecord
+class PartnersAndCustomers extends \common\models\CommonModel
 {
     /**
      * @inheritdoc
@@ -52,19 +52,19 @@ class PartnersAndCustomers extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'title_en' => 'Title En',
-            'title_kz' => 'Title Kz',
-            'text' => 'Text',
-            'text_en' => 'Text En',
-            'text_kz' => 'Text Kz',
-            'doc' => 'Doc',
-            'doc_en' => 'Doc En',
-            'doc_kz' => 'Doc Kz',
+            'title' => 'Заголовок',
+            'title_en' => 'Заголовок En',
+            'title_kz' => 'Заголовок Kz',
+            'text' => 'Текст',
+            'text_en' => 'Текст En',
+            'text_kz' => 'Текст Kz',
+            'doc' => 'Документ',
+            'doc_en' => 'Документ En',
+            'doc_kz' => 'Документ Kz',
             'keywords' => 'Keywords',
-            'description' => 'Description',
+            'description' => 'Описание',
             'url' => 'Url',
-            'status' => 'Status',
+            'status' => 'Статус',
         ];
     }
 }

@@ -12,18 +12,22 @@ use backend\models\Document;
 use backend\models\Statement;
 use backend\models\Term;
 use common\models\Menu;
+use common\models\Metatags;
 use common\models\PartnersAndCustomers;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\HttpException;
 
-class MenuController extends Controller
+class MenuController extends FrontendController
 {
     //////////////////Top menu
 
     /// О компании
     public function actionAboutTheCompany(){
         $model = Menu::findOne(['url' => 'about-company']);
+        $meta = Menu::findOne(['url' => 'about-company']);
+
+        $this->setMeta($meta);
 
         return $this->render('about-the-company', compact('model'));
     }
@@ -35,6 +39,8 @@ class MenuController extends Controller
             $model = PartnersAndCustomers::find()->all();
         else
             throw new HttpException(404 ,'Not found');
+        $array = Metatags::find()->where('url = "'.$url.'"')->one();
+        $this->setMeta($array);
 
         return $this->render("about-the-company/$url", compact('model'));
     }
@@ -57,9 +63,13 @@ class MenuController extends Controller
                 throw new HttpException(404 ,'Not found');
 
             $model = Document::find()->where('category = "'.$id.'"')->orderBy('year DESC')->all();
+            $array = Metatags::find()->where('url = "'.$url1.'"')->one();
+            $this->setMeta($array);
         }
         elseif($url=='partners-and-customers'){
             $model = PartnersAndCustomers::find()->where("url = '$url1'")->one();
+            $this->setMeta($model);
+
             $url1 = "partners-and-customers-one";
         }
         else
@@ -79,12 +89,18 @@ class MenuController extends Controller
     public function actionClientSupport(){
         $model = Menu::findOne(['url' => 'clientsupport']);
 
+        $meta = Metatags::find()->where('url = "clientsupport"')->one();
+        $this->setMeta($meta);
+
         return $this->render('client-support', compact('model'));
     }
 
     public function actionClientSupportChild($url){
         if($url=="statement")
             $model = Statement::find()->with('docs')->all();
+
+        $meta = Metatags::find()->where('url = "'.$url.'"')->one();
+        $this->setMeta($meta);
 
         return $this->render("client-support/$url", compact('model'));
     }
@@ -99,6 +115,9 @@ class MenuController extends Controller
     ///Онлайн оплата
     public function actionOnlinePayment(){
         $model = Menu::findOne(['url' => 'online-payment']);
+
+        $model = Metatags::find()->where('url = "online-payment"')->one();
+        $this->setMeta($model);
 
         return $this->render('online-payment', compact('model'));
     }

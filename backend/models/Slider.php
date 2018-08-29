@@ -5,7 +5,7 @@ namespace backend\models;
 use Yii;
 
 
-class Slider extends \yii\db\ActiveRecord
+class Slider extends \common\models\CommonModel
 {
 
     public static function tableName()

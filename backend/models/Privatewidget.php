@@ -14,7 +14,7 @@ use Yii;
  * @property string $status
  * @property integer $order
  */
-class Privatewidget extends \yii\db\ActiveRecord
+class Privatewidget extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

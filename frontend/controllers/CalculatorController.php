@@ -12,7 +12,7 @@ use common\models\Countries;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
 
-class CalculatorController extends Controller
+class CalculatorController extends FrontendController
 {
     public function actionIndex(){
         return $this->render('index');

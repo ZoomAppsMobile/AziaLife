@@ -24,6 +24,9 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
+                    ['label' => 'Мета теги', 'icon' => 'fa fa-user', 'url' => ['/metatags']],
+                    ['label' => 'Переводы', 'icon' => 'fa fa-user', 'url' => ['/source-message']],
+                    ['label' => 'Обратный звонок', 'icon' => 'fa fa-user', 'url' => ['/contact']],
                     ['label' => 'Отзывы', 'icon' => 'fa fa-user', 'url' => ['/reviews']],
                     ['label' => 'Страховые случаи', 'icon' => 'fa fa-user', 'url' => ['/insurance-case']],
                     ['label' => 'Вопросы с полезныех советов', 'icon' => 'fa fa-user', 'url' => ['/useful-tips']],

@@ -11,7 +11,7 @@ use Yii;
  * @property string $title
  * @property string $img
  */
-class YourBenefits extends \yii\db\ActiveRecord
+class YourBenefits extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

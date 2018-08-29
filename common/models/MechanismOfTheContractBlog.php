@@ -15,7 +15,7 @@ use Yii;
  * @property Blog $blog
  * @property MechanismOfTheContract $mechanismOfTheContract
  */
-class MechanismOfTheContractBlog extends \yii\db\ActiveRecord
+class MechanismOfTheContractBlog extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

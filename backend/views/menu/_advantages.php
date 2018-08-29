@@ -34,9 +34,35 @@ use mihaildev\ckeditor\CKEditor;
                     </div>
                     <?= $form->field($v, 'id[]')->hiddenInput(['value' => $v->id]) ?>
                     <?= $form->field($v, 'title[]')->textInput(['maxlength' => true, 'value' => $v->title]) ?>
+                    <?= $form->field($v, 'title_kz[]')->textInput(['maxlength' => true, 'value' => $v->title_kz]) ?>
+                    <?= $form->field($v, 'title_en[]')->textInput(['maxlength' => true, 'value' => $v->title_en]) ?>
 
                     <?= $form->field($v, 'text[]')->widget(CKEditor::className(), [
                         'options' => ['rows' => 6, 'id' => $v->id.'advantages', 'value' => $v->text], 'editorOptions' => [
+                            'allowedContent' => true,
+                            'height' => 300,
+                            'toolbarGroups' => [
+                                ['name' => 'clipboard', 'groups' => ['mode','undo', 'selection', 'clipboard','doctools']],
+                            ],
+                            'preset' => 'my', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+                            'inline' => false, //по умолчанию false
+                        ],
+                    ]) ?>
+
+                    <?= $form->field($v, 'text_kz[]')->widget(CKEditor::className(), [
+                        'options' => ['rows' => 6, 'id' => $v->id.'advantages1', 'value' => $v->text_kz], 'editorOptions' => [
+                            'allowedContent' => true,
+                            'height' => 300,
+                            'toolbarGroups' => [
+                                ['name' => 'clipboard', 'groups' => ['mode','undo', 'selection', 'clipboard','doctools']],
+                            ],
+                            'preset' => 'my', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+                            'inline' => false, //по умолчанию false
+                        ],
+                    ]) ?>
+
+                    <?= $form->field($v, 'text_en[]')->widget(CKEditor::className(), [
+                        'options' => ['rows' => 6, 'id' => $v->id.'advantages2', 'value' => $v->text_en], 'editorOptions' => [
                             'allowedContent' => true,
                             'height' => 300,
                             'toolbarGroups' => [

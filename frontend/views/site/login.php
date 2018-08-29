@@ -1,18 +1,18 @@
 <link href="/css/login/style.css" rel="stylesheet" >
 <div class="link-anchors d-flex mt-4">
-    <a href="/">Главная <img src="image/link-arrow-right.png" alt=""></a>
-    <a href="">Личный кабинет <img src="image/link-arrow-right.png" alt=""></a>
+    <a href="/"><?=Yii::t('main-title', 'Главная')?> <img src="image/link-arrow-right.png" alt=""></a>
+    <p><?=Yii::t('main-title', 'Личный кабинет')?> <img src="image/link-arrow-right.png" alt=""></p>
 </div>
 
-<h3 class="text-uppercase my-1 my-md-5 main-text font-weight-bold">ЛИЧНЫЙ КАБИНЕТ</h3>
+<h3 class="text-uppercase my-1 my-md-5 main-text font-weight-bold"><?=Yii::t('main-title', 'ЛИЧНЫЙ КАБИНЕТ')?></h3>
 
 <div class="d-flex justify-content-center my-5">
     <div id="exTab1" class="">
         <ul  class="nav nav-pills">
             <li>
-                <a  href="#1a" data-toggle="tab" class="<?if(!$error_signup){?>active<?}?>">Вход</a>
+                <a  href="#1a" data-toggle="tab" class="<?if(!$error_signup){?>active<?}?>"><?=Yii::t('main-title', 'Вход')?></a>
             </li>
-            <li><a href="#2a" data-toggle="tab" <?if($error_signup){?>class="active"<?}?>>Регистрация</a>
+            <li><a href="#2a" data-toggle="tab" <?if($error_signup){?>class="active"<?}?>><?=Yii::t('main-title', 'Регистрация')?></a>
             </li>
 
         </ul>
@@ -22,26 +22,26 @@
                 <?php $form = \yii\bootstrap\ActiveForm::begin(); ?>
                 <?php if (Yii::$app->session->hasFlash('contactFormLogin')): ?>
                     <div class="alert alert-danger">
-                        Неправильный логин или пароль.
+                        <?=Yii::t('main-title', 'Неправильный логин или пароль')?>.
                     </div>
                 <?php endif; ?>
                 <input type="text" id="" class="" name="LoginForm[username]" autofocus="" placeholder="Email">
                 <input type="password" name="LoginForm[password]" placeholder="Пароль">
                 <div class="form-group">
-                    <input type="submit" value="ВОЙТИ В ЛИЧНЫЙ КАБИНЕТ">
+                    <input type="submit" value="<?=Yii::t('main-title', 'ВОЙТИ В ЛИЧНЫЙ КАБИНЕТ')?>">
                 </div>
 
                 <?php \yii\bootstrap\ActiveForm::end(); ?>
-                <a href="<?=\yii\helpers\Url::to(['site/request-password-reset']);?>"><span>Забыли пароль</span></a>
+                <a href="<?=\yii\helpers\Url::to(['site/request-password-reset']);?>"><span><?=Yii::t('main-title', 'Забыли пароль')?></span></a>
             </div>
             <div class="tab-pane <?if($error_signup){?>active<?}?>" id="2a">
                 <?php $form = \yii\bootstrap\ActiveForm::begin(['id' => 'form-signup']); ?>
 
-                    <?= $form->field($signup, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Имя пользователя'])->label(false); ?>
+                    <?= $form->field($signup, 'username')->textInput(['autofocus' => true, 'placeholder' => Yii::t('main-title', 'Имя пользователя')])->label(false); ?>
 
                     <?= $form->field($signup, 'email')->textInput(['placeholder' => 'E-mail'])->label(false);  ?>
 
-                    <?= $form->field($signup, 'password')->passwordInput(['placeholder' => 'Пароль'])->label(false);  ?>
+                    <?= $form->field($signup, 'password')->passwordInput(['placeholder' => Yii::t('main-title', 'Пароль')])->label(false);  ?>
 
                     <div class="form-group">
                         <?= \yii\helpers\Html::submitButton('ПОЛУЧИТЬ ДОСТУП', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
@@ -53,9 +53,9 @@
 <!--                    <input type="submit" value="ПОЛУЧИТЬ ДОСТУП">-->
 <!--                </form>-->
                 <div class="litletext">
-                    <span> Получить код <a href="">онлайн оплата</a></span>
+                    <span> <?=Yii::t('main-title', 'Получить код')?> <a href=""><?=Yii::t('main-title', 'онлайн оплата')?></a></span>
                     <br><br>
-                    <span>Регистрация возможна только для клиентов “Азия  Life”, заключившим договор страхования оффлайн</span>
+                    <span><?=Yii::t('main-title', 'Регистрация возможна только для клиентов “Азия  Life”, заключившим договор страхования оффлайн')?></span>
                 </div>
             </div>
 

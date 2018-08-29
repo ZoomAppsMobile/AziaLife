@@ -13,7 +13,7 @@ use Yii;
  * @property string $file
  * @property int $sort
  */
-class Docs extends \yii\db\ActiveRecord
+class Docs extends \common\models\CommonModel
 {
     public $files;
     public $path = 'images/docs/';
@@ -32,9 +32,9 @@ class Docs extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'text', 'file', 'sort'], 'required'],
-            [['text'], 'string'],
+            [['text', 'text_kz', 'text_en'], 'string'],
             [['sort'], 'integer'],
-            [['title', 'file'], 'string', 'max' => 255],
+            [['title', 'file', 'title_kz', 'text_en'], 'string', 'max' => 255],
             ['files', 'each', 'rule' => ['file']],
         ];
     }
@@ -47,7 +47,11 @@ class Docs extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Название',
+            'title_kz' => 'Название kz',
+            'title_en' => 'Название en',
             'text' => 'Текст',
+            'text_kz' => 'Текст kz',
+            'text_en' => 'Текст en',
             'file' => 'Файл',
             'sort' => 'Сортировка',
         ];

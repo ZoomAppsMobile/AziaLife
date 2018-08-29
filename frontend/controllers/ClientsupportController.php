@@ -10,17 +10,21 @@ namespace frontend\controllers;
 
 use backend\models\Advise;
 use backend\models\Event;
+use common\models\Metatags;
 use common\models\UsefulTips;
 use yii\web\Controller;
 use Yii;
 
-class ClientsupportController extends Controller
+class ClientsupportController extends FrontendController
 {
         public function actionUsefulTips()
         {
             $model = Advise::find()->orderBy('order')->all();
 
             $UsefulTips = new UsefulTips();
+
+            $meta = Metatags::find()->where('url = "useful-tips"')->one();
+            $this->setMeta($meta);
 
             if ($UsefulTips->load(Yii::$app->request->post()) && $UsefulTips->save())
                 Yii::$app->session->setFlash('success1', 'Спасибо за Ваш вопрос');
@@ -31,6 +35,9 @@ class ClientsupportController extends Controller
         public function actionActionInsuredEvent()
         {
             $model = Event::find()->orderBy('order')->all();
+
+            $meta = Metatags::find()->where('url = "action-insured-event"')->one();
+            $this->setMeta($meta);
 
             return $this->render('/menu/client-support/action-insured-event', compact('model'));
         }

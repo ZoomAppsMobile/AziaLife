@@ -12,7 +12,7 @@ use Yii;
  * @property string $text
  * @property int $blog_id
  */
-class AdditionalProtectionInsurer extends \yii\db\ActiveRecord
+class AdditionalProtectionInsurer extends \common\models\CommonModel
 {
     /**
      * {@inheritdoc}

@@ -40,6 +40,7 @@ class AppAsset extends AssetBundle
 //        'stiles2/style.scss',
 //        'stylesheets111/style.css',
         'css/office_style/style.css',
+        'css/sweetalert.css',
     ];
     public $js = [
         'libs/jquery/dist/jquery.min.js',
@@ -50,6 +51,7 @@ class AppAsset extends AssetBundle
         'https://use.fontawesome.com/826a7e3dce.js',
         'js/script.js',
         'js/main.js',
+        'js/sweetalert.min.js',
     ];
     public $depends = [
       //  'yii\web\YiiAsset',

@@ -2,16 +2,8 @@
 $newflex=true;
 foreach ($models as $key) {
     $data = strtotime($key->dating);
-    if(\Yii::$app->session->get('lang')=='ru'){
-        $newtitle=$key->title;
-        $newdescription=$key->description;
-    } else if(\Yii::$app->session->get('lang')=='en'){
-        $newtitle=$key->title_en;
-        $newdescription=$key->description_en;
-    } else if(\Yii::$app->session->get('lang')=='kz'){
-        $newtitle=$key->title_kz;
-        $newdescription=$key->description_kz;
-    }
+    $newtitle=$key->setLang('title');
+    $newdescription=$key->setLang('description');
     if($newflex){
         echo '<div data-aos="fade-up" class="main d-flex justify-content-between">';
     }
@@ -23,7 +15,7 @@ foreach ($models as $key) {
                 <h4 class="text-uppercase head-text"><?=$newtitle?></h4>
                 <p class="pub-date"><?=date('d.m.Y', $data)?></p>
                 <p class="block-info-text"><?=$newdescription?></p>
-                <a class="more-info">Читать больше</a>
+                <a class="more-info"><?=Yii::t('main-title', 'Читать больше')?></a>
             </div>
         </div>
     </div>

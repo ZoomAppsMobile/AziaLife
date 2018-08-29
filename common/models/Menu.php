@@ -15,7 +15,7 @@ use Yii;
  * @property string $keywords
  * @property string $url
  */
-class Menu extends \yii\db\ActiveRecord
+class Menu extends \common\models\CommonModel
 {
     /**
      * @inheritdoc
@@ -34,7 +34,7 @@ class Menu extends \yii\db\ActiveRecord
             [['name', 'name_en', 'name_kz'], 'required'],
             [['text', 'description', 'dop_text'], 'string'],
             [['sort_top', 'sort_footer', 'parent_id', 'footer', 'top', 'status'], 'integer'],
-            [['name', 'name_en', 'name_kz', 'title', 'keywords', 'url'], 'string', 'max' => 255],
+            [['name', 'name_en', 'name_kz', 'title', 'keywords', 'url', 'title_kz', 'title_en', 'description_en', 'description_kz', 'text_kz', 'text_en', 'dop_text_en', 'dop_text_kz'], 'string', 'max' => 255],
         ];
     }
 
@@ -46,8 +46,8 @@ class Menu extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Название',
-            'name_en' => 'Название En',
-            'name_kz' => 'Название Kz',
+            'name_en' => 'Название',
+            'name_kz' => 'Название',
             'text' => 'Текст',
             'title' => 'Заголовок',
             'description' => 'Описание',
@@ -55,6 +55,14 @@ class Menu extends \yii\db\ActiveRecord
             'url' => 'Url',
             'status' => 'Статус',
             'dop_text' => 'Дополнительный текст',
+            'title_kz' => 'Заголовок',
+            'title_en' => 'Заголовок',
+            'description_en' => 'Описание',
+            'description_kz' => 'Описание',
+            'text_kz' => 'Текст',
+            'text_en' => 'Текст',
+            'dop_text_en' => 'Дополнительный текст',
+            'dop_text_kz' => 'Дополнительный текст',
         ];
     }
 

@@ -2,7 +2,7 @@
 $this->registerCssFile('/frontend/web/css/news/style.css');
 ?>
 <div data-aos="fade-up" class="about-stock d-flex flex-column mt-5">
-    <h3 class="text-uppercase mb-4">Новости</h3>
+    <h3 class="text-uppercase mb-4"><?=Yii::t('main-title', 'Новости')?></h3>
 <?php
     $newflex=true;
     foreach ($models as $key) {
@@ -28,7 +28,7 @@ $this->registerCssFile('/frontend/web/css/news/style.css');
                 <h4 class="text-uppercase head-text"><?=$newtitle?></h4>
                 <p class="pub-date"><?=date('d.m.Y', $data)?></p>
                 <p class="block-info-text"><?=$newdescription?></p>
-                <a class="more-info">Читать больше</a>
+                <a class="more-info"><?=Yii::t('main-title', 'Читать больше')?></a>
             </div>
         </div>
     </div>
@@ -47,9 +47,7 @@ $this->registerCssFile('/frontend/web/css/news/style.css');
 ?>
 <?php
 if(!$last){
-        echo '<button data-aos="fade-up" class="old-news" id="newsbut" data-page="2">Ранние новости</button>';
+        echo '<button data-aos="fade-up" class="old-news" id="newsbut" data-page="2">'.Yii::t('main-title', 'Ранние новости').'</button>';
     }
 ?>
 </div>
-
-

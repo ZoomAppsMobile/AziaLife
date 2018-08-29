@@ -14,7 +14,7 @@ use Yii;
  * @property string $status
  * @property integer $order
  */
-class Advise extends \yii\db\ActiveRecord
+class Advise extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

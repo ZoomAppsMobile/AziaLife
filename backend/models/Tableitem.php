@@ -15,7 +15,7 @@ use Yii;
  *
  * @property Widgetitem $item
  */
-class Tableitem extends \yii\db\ActiveRecord
+class Tableitem extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

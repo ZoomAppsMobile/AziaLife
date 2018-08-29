@@ -16,7 +16,7 @@ use Yii;
  * @property string $description_en
  * @property string $status
  */
-class Term extends \yii\db\ActiveRecord
+class Term extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

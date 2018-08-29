@@ -15,7 +15,7 @@ use Yii;
  * @property string $longitude
  * @property int $city_id
  */
-class Offices extends \yii\db\ActiveRecord
+class Offices extends \common\models\CommonModel
 {
     public $path = "images/offices/";
     /**
@@ -34,7 +34,7 @@ class Offices extends \yii\db\ActiveRecord
         return [
             [['name', 'status', 'latitude', 'longitude', 'city_id'], 'required'],
             [['status', 'city_id'], 'integer'],
-            [['phone', 'address', 'time', 'email'], 'string', 'max' => 255],
+            [['phone', 'address', 'address_en', 'address_kz', 'phone_en', 'phone_kz', 'time', 'email'], 'string', 'max' => 255],
             [['latitude', 'longitude'], 'string', 'max' => 20],
             [['img'], 'file', 'extensions'=>'jpg, gif, png, jpeg'],
         ];
@@ -57,6 +57,10 @@ class Offices extends \yii\db\ActiveRecord
             'email' => 'Почта',
             'address' => 'Адрес',
             'time' => 'Время работы',
+            'address_en' => 'Адрес',
+            'address_kz' => 'Адрес',
+            'phone_en' => 'Телефон',
+            'phone_kz' => 'Телефон',
         ];
     }
 

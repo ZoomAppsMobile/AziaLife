@@ -1,7 +1,7 @@
 <?php
 namespace backend\models;
 use Yii;
-class User extends \yii\db\ActiveRecord
+class User extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

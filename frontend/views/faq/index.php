@@ -2,18 +2,18 @@
 $this->registerCssFile('/frontend/web/css/faq/style.css');
 ?>
 <div class="link-anchors d-flex mt-4">
-    <a href="/">Главная <img src="public/images/link-arrow-right.png" alt=""></a>
-    <a href="/clientsupport">Клиентская поддержка<img src="public/images/link-arrow-right.png" alt=""></a>
-    <p>Часто задаваемые вопросы</p>
+    <a href="/"><?=Yii::t('main-title', 'Главная')?> <img src="public/images/link-arrow-right.png" alt=""></a>
+    <a href="/clientsupport"><?=Yii::t('main-title', 'Клиентская поддержка')?><img src="public/images/link-arrow-right.png" alt=""></a>
+    <p><?=Yii::t('main-title', 'Часто задаваемые вопросы')?></p>
 </div>
 
-<h3 class="text-uppercase my-1 my-md-5 main-text font-weight-bold">Часто задаваемые вопросы</h3>
+<h3 class="text-uppercase my-1 my-md-5 main-text font-weight-bold"><?=Yii::t('main-title', 'Часто задаваемые вопросы')?></h3>
 <?$i=1;foreach($model as $v){?>
     <?if($i==1){?>
         <div class="main-body1 d-flex flex-column">
             <div class="job-inside count<?=$i?> d-flex flex-md-row flex-column align-items-center justify-content-center py-3 px-5 mb-4">
                 <div class="text-inside d-flex flex-column align-items-center align-items-md-start">
-                    <h4><?=$v->title?></h4>
+                    <h4><?=$v->setLang('title');?></h4>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@ $this->registerCssFile('/frontend/web/css/faq/style.css');
         <div class="main-body2 d-flex flex-column">
             <div class="job-inside count<?=$i?> d-flex flex-md-row flex-column align-items-center justify-content-center py-3 px-5 mb-4">
                 <div class="text-inside d-flex flex-column align-items-center align-items-md-start">
-                    <h4><?=$v->title?></h4>
+                    <h4><?=$v->setLang('title');?></h4>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@ $this->registerCssFile('/frontend/web/css/faq/style.css');
             <div class="accordion-heading accordion-heading8" data-toggle="collapse" data-parent="#accordion2"
                  href="#collapse<?=$i?>">
                 <a class="accordion-toggle">
-                    <?=$v1->title?>
+                    <?=$v1->setLang('title');?>
                 </a>
             </div>
             <div id="collapse<?=$i?>" class="accordion-body collapse p-3">

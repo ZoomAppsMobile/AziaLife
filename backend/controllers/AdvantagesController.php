@@ -27,7 +27,11 @@ class AdvantagesController extends Controller
 
                 $model1->img = $time . $file->baseName . '.' . $file->extension;
                 $model1->title = "";
+                $model1->title_kz = "";
+                $model1->title_en = "";
                 $model1->text = "";
+                $model1->text_kz = "";
+                $model1->text_en = "";
 //                $model1->category_id = $id;
                 $model1->save(false);
             }
@@ -45,7 +49,11 @@ class AdvantagesController extends Controller
             foreach($post['Advantages']['id'] as $k => $v){
                 $model = Advantages::findOne($post['Advantages']['id'][$k]);
                 $model->title = $post['Advantages']['title'][$k];
+                $model->title_kz = $post['Advantages']['title_kz'][$k];
+                $model->title_en = $post['Advantages']['title_en'][$k];
                 $model->text = $post['Advantages']['text'][$k];
+                $model->text_kz = $post['Advantages']['text_kz'][$k];
+                $model->text_en = $post['Advantages']['text_en'][$k];
                 $model->save(false);
             }
 

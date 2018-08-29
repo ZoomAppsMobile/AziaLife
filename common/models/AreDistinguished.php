@@ -18,7 +18,7 @@ use Yii;
  * @property integer $opit_1
  * @property integer $opit_2
  */
-class AreDistinguished extends \yii\db\ActiveRecord
+class AreDistinguished extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

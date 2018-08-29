@@ -13,7 +13,7 @@ use Yii;
  * @property string $phone
  * @property string $email
  */
-class Reviews extends \yii\db\ActiveRecord
+class Reviews extends \common\models\CommonModel
 {
     /**
      * {@inheritdoc}
@@ -42,9 +42,9 @@ class Reviews extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'text' => 'Text',
-            'fio' => 'Fio',
-            'phone' => 'Phone',
+            'text' => 'Текст',
+            'fio' => 'ФИО',
+            'phone' => 'Телефон',
             'email' => 'Email',
         ];
     }

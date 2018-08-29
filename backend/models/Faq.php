@@ -20,7 +20,7 @@ use Yii;
  *
  * @property Faqcategory $category0
  */
-class Faq extends \yii\db\ActiveRecord
+class Faq extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

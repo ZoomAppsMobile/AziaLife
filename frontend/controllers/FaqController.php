@@ -9,13 +9,18 @@
 namespace frontend\controllers;
 
 use backend\models\Faqcategory;
+use common\models\Metatags;
 use yii\web\Controller;
 
-class FaqController extends Controller
+class FaqController extends FrontendController
 {
     public function actionIndex()
     {
         $model = Faqcategory::find()->where('status = 1')->all();
+
+        $meta = Metatags::find()->where('url = "useful-tips"')->one();
+        $this->setMeta($meta);
+
         return $this->render('index', compact('model'));
     }
 }

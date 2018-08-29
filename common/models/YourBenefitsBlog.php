@@ -15,7 +15,7 @@ use Yii;
  * @property Blog $blog
  * @property YourBenefits $yourBenefits
  */
-class YourBenefitsBlog extends \yii\db\ActiveRecord
+class YourBenefitsBlog extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

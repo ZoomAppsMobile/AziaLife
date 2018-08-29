@@ -4,7 +4,7 @@ namespace backend\models;
 
 use Yii;
 
-class Widget extends \yii\db\ActiveRecord
+class Widget extends \common\models\CommonModel
 {
 
     public static function tableName()

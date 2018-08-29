@@ -1,7 +1,7 @@
 <?php
 namespace backend\models;
 use Yii;
-class Blogtag extends \yii\db\ActiveRecord
+class Blogtag extends \common\models\CommonModel
 {
     public static function tableName()
     {

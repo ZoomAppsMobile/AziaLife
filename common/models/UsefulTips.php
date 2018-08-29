@@ -14,7 +14,7 @@ use Yii;
  * @property string $city
  * @property string $email
  */
-class UsefulTips extends \yii\db\ActiveRecord
+class UsefulTips extends \common\models\CommonModel
 {
     /**
      * {@inheritdoc}

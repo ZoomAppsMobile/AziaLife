@@ -11,7 +11,7 @@ use Yii;
  * @property integer $country_id
  * @property string $name
  */
-class Countries extends \yii\db\ActiveRecord
+class Countries extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

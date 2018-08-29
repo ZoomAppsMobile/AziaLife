@@ -1,9 +1,10 @@
 <?php
 namespace frontend\controllers;
+use common\models\Metatags;
 use yii\web\Controller;
 use backend\models\News;
 
-class NewsController extends Controller
+class NewsController extends FrontendController
 {
 	public function beforeAction($action) 
     { 
@@ -12,6 +13,9 @@ class NewsController extends Controller
     }
 	public function actionIndex()
     {
+        $meta = Metatags::find()->where('url = "news"')->one();
+        $this->setMeta($meta);
+
     	$news=News::find()->where(['status'=>1])->orderBy(['dating' => SORT_DESC]);
     	if(isset($_POST['page'])){
             $post_page=$_POST['page'];

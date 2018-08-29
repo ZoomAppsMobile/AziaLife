@@ -18,7 +18,7 @@ use yii\db\ActiveRecord;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class NewVacancy extends \yii\db\ActiveRecord
+class NewVacancy extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

@@ -13,7 +13,7 @@ use Yii;
  * @property string $phone
  * @property string $email
  */
-class Profiles extends \yii\db\ActiveRecord
+class Profiles extends \common\models\CommonModel
 {
     /**
      * {@inheritdoc}

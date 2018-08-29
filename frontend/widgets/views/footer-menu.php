@@ -2,9 +2,9 @@
     <? $i = 0;foreach($model as $v){ ?>
         <?
             if($i==3) echo '<div class="links d-flex flex-column mx-md-3 mx-0">';
-            else if($i==0||$i%3==0) echo '<div class="links d-flex flex-column">';
+            else if($i==0||$i%3==0) echo '<div class="links d-flex flex-column">';;
         ?>
-            <a href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to(['/'.$v['url']]))?>"><?=$v['name']?></a>
+            <a href="<?=\yii\helpers\Html::encode(\yii\helpers\Url::to(['/'.$v['url']]))?>"><?=$v->setLang('name');?></a>
         <? if(($i+1)%3==0) echo '</div>'; ?>
     <? $i++;} ?>
     <div class="contacts my-4 my-md-0">
@@ -19,7 +19,7 @@
         </div>
         <div class="mobile-app d-flex">
             <img src="/image/footer-mobile-app.png" alt="">
-            <a href="">Мобильное приложение</a>
+            <a href=""><?=Yii::t('main-title', 'Мобильное приложение')?></a>
         </div>
     </div>
 

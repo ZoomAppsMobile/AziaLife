@@ -12,44 +12,20 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
 <link href="/pension/style.css" rel="stylesheet">
 <div class="link-anchors d-flex my-4">
     <a href="/"><?php
-             if(\Yii::$app->session->get('lang')=='ru'){
-                echo "Главная";
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo "Main";
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo "Басты бет";
-            }
+            echo Yii::t('main-title', 'Главная');
             ?> <img src="/image/link-arrow-right.png" alt=""></a>
     <a href="/private-clients"><?php
-             if(\Yii::$app->session->get('lang')=='ru'){
-                echo "Частным клиентам";
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo "Private clients";
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo "Жеке клиент";
-            }
+            echo Yii::t('main-title', 'Частным клиентам');
             ?> <img src="/image/link-arrow-right.png" alt=""></a>
     <p>
         <?php
-             if(\Yii::$app->session->get('lang')=='ru'){
-                echo $blog->title;
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo $blog->title_en;
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo $blog->title_kz;
-            }
+            echo $blog->setLang('title');
             ?>
     </p>
 </div>
 <div class="about-stock d-flex flex-column">
     <h3 data-aos="fade-up" class="text-uppercase mb-4"><?php
-        if(\Yii::$app->session->get('lang')=='ru'){
-            echo $blog->title;
-        } else if(\Yii::$app->session->get('lang')=='en'){
-            echo $blog->title_en;
-        } else if(\Yii::$app->session->get('lang')=='kz'){
-            echo $blog->title_kz;
-        }
+            echo $blog->setLang('title');
         ?></h3>
     <div data-aos="fade-up" class="photo-and-information d-flex flex-md-row flex-column">
         <img class="main-pic" src="<?=$blog->image?>" alt="">
@@ -59,27 +35,11 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
             if(count($blogtags)>0){
                 echo '<div class="pink-links align-items-md-center mt-4 mt-md-0 d-flex flex-md-row flex-column">';
                 foreach ($blogtags as $tagkey) {
-                    if(\Yii::$app->session->get('lang')=='ru'){
-                        $tagkeytitle=$tagkey->title;
-                        if(isset($tagkey->file)){
-                            $tagkeyurl=$tagkey->file;
-                        }else{
-                            $tagkeyurl=$tagkey->url;
-                        }
-                    } else if(\Yii::$app->session->get('lang')=='en'){
-                        $tagkeytitle=$tagkey->title_en;
-                        if(isset($tagkey->file_en)){
-                            $tagkeyurl=$tagkey->file_en;
-                        }else{
-                            $tagkeyurl=$tagkey->url;
-                        }
-                    } else if(\Yii::$app->session->get('lang')=='kz'){
-                        $tagkeytitle=$tagkey->title_kz;
-                        if(isset($tagkey->file_kz)){
-                            $tagkeyurl=$tagkey->file_kz;
-                        }else{
-                            $tagkeyurl=$tagkey->url;
-                        }
+                    $tagkeytitle=$tagkey->setLang('title');
+                    if(isset($tagkey->file)){
+                        $tagkeyurl=$tagkey->setLang('title');
+                    }else{
+                        $tagkeyurl=$tagkey->url;
                     }
                     if($tagkey->order==1)
                         echo '<a class="text-uppercase" target="_blank" href="'.$tagkeyurl.'"><img class="mr-3" src="'.$tagkey->icon.'" alt="">'.$tagkeytitle.'</a>';
@@ -258,7 +218,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
 ?>
 
 <div class="your-profit d-flex flex-column my-4">
-    <h3  class="text-uppercase my-3">Ваши выгоды:</h3>
+    <h3  class="text-uppercase my-3"><?=Yii::t('main-title', 'Ваши выгоды')?>:</h3>
     <div  class="items d-flex flex-md-row flex-column align-items-center justify-content-center px-3 py-4">
         <?
         $YourBenefits = \common\models\YourBenefitsBlog::find()->alias('t')->with('yourBenefits')->orderBy('sort')->where('t.blog_id = '.$blog->id)->asArray()->all();
@@ -294,7 +254,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
         <div class="accordion-heading accordion-heading3" data-toggle="collapse" data-parent="#accordion2"
              href="#collapseOne11">
             <a class="accordion-toggle">
-                Выгоды банка:
+                <?=Yii::t('main-title', 'Выгоды банка')?>:
             </a>
         </div>
         <div id="collapseOne11" class="accordion-body collapse p-3">
@@ -312,7 +272,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
             <div class="accordion-heading accordion-heading1" data-toggle="collapse" data-parent="#accordion2"
                  href="#collapseOne22">
                 <a class="accordion-toggle">
-                    Какие риски покрываются полисом страхования:
+                    <?=Yii::t('main-title', 'Какие риски покрываются полисом страхования')?>:
                 </a>
             </div>
             <div id="collapseOne22" class="accordion-body collapse p-3">
@@ -330,7 +290,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
         <div class="accordion-heading accordion-heading1" data-toggle="collapse" data-parent="#accordion2"
              href="#collapseOne">
             <a class="accordion-toggle">
-                Условия страхования:
+                <?=Yii::t('main-title', 'Условия страхования')?>:
             </a>
         </div>
         <div id="collapseOne" class="accordion-body collapse p-3">
@@ -346,13 +306,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
 <!--                    плат</p>-->
 <!--                <p class="d-flex align-items-center"><span>•</span>Минимальный взнос – 5 000 тенге в месяц</p>-->
                 <?php
-                    if(\Yii::$app->session->get('lang')=='ru'){
-                        echo $blog->bellowing_conditions;
-                    } else if(\Yii::$app->session->get('lang')=='en'){
-                        echo $blog->bellowing_conditions_en;
-                    } else if(\Yii::$app->session->get('lang')=='kz'){
-                        echo $blog->bellowing_conditions_kz;
-                    }
+                    echo $blog->setLang('bellowing_conditions');
                ?>
             </div>
         </div>
@@ -366,7 +320,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
             <div class="accordion-heading accordion-heading2" data-toggle="collapse" data-parent="#accordion5"
                  href="#collapsTwo">
                 <a class="accordion-toggle">
-                    Важно знать:
+                    <?=Yii::t('main-title', 'Важно знать')?>:
                 </a>
             </div>
             <div id="collapsTwo" class="accordion-body collapse p-3">
@@ -378,8 +332,8 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
 
 <?if(!empty($blog->v_s_m_s)){?>
     <div data-aos="fade-up" class="your-profit d-flex flex-column my-4">
-        <h3 data-aos="fade-up" class="text-uppercase my-3">Варианты сумм страховой защиты в зависимости от территории<br>
-            действия полиса:</h3>
+        <h3 data-aos="fade-up" class="text-uppercase my-3"><?=Yii::t('main-title', 'Варианты сумм страховой защиты в зависимости от территории')?><br>
+            <?=Yii::t('main-title', 'действия полиса')?>:</h3>
         <div class="variants-block d-flex">
             <?=$blog->v_s_m_s?>
         </div>
@@ -388,7 +342,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
 
 <?$temsblog = $blog->itemsblog($blog->id);if(!empty($temsblog)){?>
     <div class="mechanism d-flex flex-column mt-5">
-        <h3 data-aos="fade-up" class="text-uppercase mb-3">механизм действия договора:</h3>
+        <h3 data-aos="fade-up" class="text-uppercase mb-3"><?=Yii::t('main-title', 'механизм действия договора')?>:</h3>
         <? $i = 1; foreach($temsblog as $v){ ?>
         <?php if($i==1){ ?>
             <div class="d-flex flex-md-row flex-column justify-content-between align-items-center">
@@ -425,7 +379,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
         <div class="accordion-heading accordion-heading2" data-toggle="collapse" data-parent="#accordion2"
              href="#collapseTwo">
             <a class="accordion-toggle">
-                ВИДЫ СТРАХОВОЙ ЗАЩИТЫ:
+                <?=Yii::t('main-title', 'ВИДЫ СТРАХОВОЙ ЗАЩИТЫ')?>:
             </a>
         </div>
         <div id="collapseTwo" class="accordion-body collapse p-3">
@@ -442,7 +396,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
         <div class="accordion-heading accordion-heading2" data-toggle="collapse" data-parent="#accordion3"
              href="#collapseTwo">
             <a class="accordion-toggle">
-                ВИДЫ СТРАХОВОЙ ЗАЩИТЫ:
+                <?=Yii::t('main-title', 'ВИДЫ СТРАХОВОЙ ЗАЩИТЫ')?>:
             </a>
         </div>
         <div id="collapseTwo" class="accordion-body collapse">
@@ -451,8 +405,8 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
                 <? if($blog->additionalInsuranceCoverage){ ?>
                     <div class="first-table d-flex flex-column mt-5">
                         <div class="d-flex align-items-center">
-                            <h5 class="text-uppercase p-3 mb-0 w-50">ОСНОВНАЯ СТРАХОВАЯ ЗАЩИТА</h5>
-                            <h5 class="text-uppercase p-3 mb-0 w-50">РАЗМЕР ВЫПЛАТЫ</h5>
+                            <h5 class="text-uppercase p-3 mb-0 w-50"><?=Yii::t('main-title', 'ОСНОВНАЯ СТРАХОВАЯ ЗАЩИТА')?></h5>
+                            <h5 class="text-uppercase p-3 mb-0 w-50"><?=Yii::t('main-title', 'РАЗМЕР ВЫПЛАТЫ')?></h5>
                         </div>
                         <? foreach($blog->additionalInsuranceCoverage as $v){ ?>
                             <? if($v->text){ ?>
@@ -473,9 +427,9 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
                 <? if($blog->basicInsuranceCoverage){ ?>
                     <div class="first-table d-flex flex-column mt-5">
                         <div class="d-flex align-items-center">
-                            <h5 class="text-uppercase p-3 mb-0 w-50">ДОПОЛНИТЕЛЬНЫЕ ВИДЫ СТРАХОВОЙ ЗАЩИТЫ
+                            <h5 class="text-uppercase p-3 mb-0 w-50"><?=Yii::t('main-title', 'ДОПОЛНИТЕЛЬНЫЕ ВИДЫ СТРАХОВОЙ ЗАЩИТЫ')?>
                             </h5>
-                            <h5 class="text-uppercase p-3 mb-0 w-50">РАЗМЕР ВЫПЛАТЫ
+                            <h5 class="text-uppercase p-3 mb-0 w-50"><?=Yii::t('main-title', 'РАЗМЕР ВЫПЛАТЫ')?>
                             </h5>
                         </div>
                         <? foreach($blog->basicInsuranceCoverage as $v){ ?>
@@ -490,8 +444,8 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
                 <? if($blog->childsInsuranceCoverage){ ?>
                     <div class="first-table d-flex flex-column mt-5">
                         <div class="d-flex align-items-center">
-                            <h5 class="text-uppercase p-3 mb-0 w-50">ДОПОЛНИТЕЛЬНАЯ ЗАЩИТА ДЛЯ РЕБЕНКА</h5>
-                            <h5 class="text-uppercase p-3 mb-0 w-50">РАЗМЕР ВЫПЛАТЫ</h5>
+                            <h5 class="text-uppercase p-3 mb-0 w-50"><?=Yii::t('main-title', 'ДОПОЛНИТЕЛЬНАЯ ЗАЩИТА ДЛЯ РЕБЕНКА')?></h5>
+                            <h5 class="text-uppercase p-3 mb-0 w-50"><?=Yii::t('main-title', 'РАЗМЕР ВЫПЛАТЫ')?></h5>
                         </div>
                         <? foreach($blog->childsInsuranceCoverage as $v){ ?>
                             <div class="d-flex align-items-center">
@@ -505,8 +459,8 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
                 <? if($blog->additionalProtectionInsurer){ ?>
                     <div class="first-table d-flex flex-column mt-5">
                         <div class="d-flex align-items-center">
-                            <h5 class="text-uppercase p-3 mb-0 w-50">ДОПОЛНИТЕЛЬНАЯ ЗАЩИТА ДЛЯ СТРАХОВАТЕЛЯ</h5>
-                            <h5 class="text-uppercase p-3 mb-0 w-50">РАЗМЕР ВЫПЛАТЫ</h5>
+                            <h5 class="text-uppercase p-3 mb-0 w-50"><?=Yii::t('main-title', 'ДОПОЛНИТЕЛЬНАЯ ЗАЩИТА ДЛЯ СТРАХОВАТЕЛЯ')?></h5>
+                            <h5 class="text-uppercase p-3 mb-0 w-50"><?=Yii::t('main-title', 'РАЗМЕР ВЫПЛАТЫ')?></h5>
                         </div>
                         <? foreach($blog->additionalProtectionInsurer as $v){ ?>
                             <div class="d-flex align-items-center">
@@ -524,7 +478,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
 
 <?if($blog->kase){?>
     <div data-aos="fade-up" class="mechanism d-flex flex-column mt-5">
-        <h3 class="text-uppercase mb-3">Информация по Фондам:</h3>
+        <h3 class="text-uppercase mb-3"><?=Yii::t('main-title', 'Информация по Фондам')?>:</h3>
     </div>
     <div data-aos="fade-up" class="accordion accordion-second mt-4" id="accordion3">
         <div class="accordion-group">
@@ -567,8 +521,8 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
             <div class="accordion-heading accordion-heading1" data-toggle="collapse" data-parent="#accordion2"
                  href="#collapseOne1">
                 <a class="accordion-toggle">
-                    Минимальный возраст и сумма пенсионных накоплений<br>
-                    для заключения договора пенсионного аннуитета:
+                    <?=Yii::t('main-title', 'Минимальный возраст и сумма пенсионных накоплений')?><br>
+                    <?=Yii::t('main-title', 'для заключения договора пенсионного аннуитета')?>:
                 </a>
             </div>
             <div id="collapseOne1" class="accordion-body collapse p-3">
@@ -602,13 +556,7 @@ $this->registerCssFile('/frontend/web/css/ob_st_sotr/style.css');
     <button>оформить сейчас</button>
     <p class="text-left w-100">
         <?php
-            if(\Yii::$app->session->get('lang')=='ru'){
-                echo $blog->note;
-            } else if(\Yii::$app->session->get('lang')=='en'){
-                echo $blog->note_en;
-            } else if(\Yii::$app->session->get('lang')=='kz'){
-                echo $blog->note_kz;
-            }
+            echo $blog->setLang('note');
         ?>
     </p>
 </div>

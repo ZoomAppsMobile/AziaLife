@@ -152,3 +152,94 @@ $("#newsbut").click(function() {
     });
     return false;
 });
+$('.block1-link.edit').click(function () {
+    $('.message').text('');
+    $('.block1__row2 .edit').show();
+    $('.block1__row2 .password').hide();
+    $('.block1__row2 .personal_data').hide();
+});
+$('.block1-link.password').click(function () {
+    $('.message').text('');
+    $('.block1__row2 .password').show();
+    $('.block1__row2 .edit').hide();
+    $('.block1__row2 .personal_data').hide();
+});
+$( ".edit-form" ).on( "submit", function( event ) {
+    event.preventDefault();
+    $.ajax({
+        type: "GET",
+        url: "/cabinet/edit",
+        dataType: 'json',
+        data: $(this).serialize(),
+        success: function(response){
+            if(response) {
+                $('.block1__row2 .personal_data').show();
+                $('.block1__row2 .edit').hide();
+                $('.block1__row2 .password').hide();
+                $('.message').text('Данные успешно изменены!').css('color', 'green');
+
+                $('.personal_data .iin').text(response.iin);
+                $('.personal_data .fio').text(response.fio);
+                $('.personal_data .phone').text(response.phone);
+                $('.personal_data .email').text(response.email);
+            }else{
+                $('.message').text('Что то пошло не так. Попробуйте снова.').css('color', 'red');
+            }
+        }
+    });
+});
+$( ".password-form" ).on( "submit", function( event ) {
+    event.preventDefault();
+    $.ajax({
+        type: "GET",
+        url: "/cabinet/password",
+        dataType: 'json',
+        data: $(this).serialize(),
+        success: function(response){
+            if(response.error == 0) {
+                $('.block1__row2 .personal_data').show();
+                $('.block1__row2 .edit').hide();
+                $('.block1__row2 .password').hide();
+                $('.message').text(response.message).css('color', 'green');
+            }else{
+                $('.message').text(response.message).css('color', 'red');
+            }
+        }
+    });
+});
+$('.callback').click(function(event){
+    event.preventDefault();
+    swal({
+            title: 'Обратный звонок',
+            html: '<input type="text" class="callback-name" placeholder="Ваше имя *" /><br /><input type="text" class="callback-phone" placeholder="Телефон *" /><div class="callback-error" style="color:red;"></div>',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonText: 'Отправить',
+            confirmButtonColor: '#3cd3e3',
+            cancelButtonText: 'Отмена'
+        },
+        function(){
+            if ($('.callback-name').val() == '' || $('.callback-phone').val() == ''){
+                var val = '';
+                if($('.callback-name').val()=='')
+                    val = 'Пожалуйста, заполните Ваше имя.<br />';
+                if($('.callback-phone').val()=='')
+                    val = val + 'Пожалуйста, заполните Ваш телефон.<br />';
+
+                $('.callback-error').html(val);
+            } else {
+                $.ajax({
+                    type: 'GET',
+                    url: "/site/contact-phone",
+                    data: {name: $('.callback-name').val(), phone: $('.callback-phone').val()},
+                    cache: false,
+                    success: function(responce){
+                        if (responce == 'done') {
+                            swal('Заявка успешно отправлена!', 'В ближайшее время мы свяжемся с вами.', 'success');
+                        }
+                    }
+                });
+            }
+        });
+    $('.callback-phone').mask('+7 (999) 999-99-99');
+});

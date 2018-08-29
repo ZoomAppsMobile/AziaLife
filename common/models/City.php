@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property string $name
  */
-class City extends \yii\db\ActiveRecord
+class City extends \common\models\CommonModel
 {
     /**
      * {@inheritdoc}
@@ -27,7 +27,7 @@ class City extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'string', 'max' => 255],
+            [['name', 'name_kz', 'name_en'], 'string', 'max' => 255],
         ];
     }
 
@@ -38,7 +38,9 @@ class City extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Название',
+            'name_kz' => 'Название на казахском',
+            'name_en' => 'Название на английском',
         ];
     }
 }

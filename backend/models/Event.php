@@ -17,7 +17,7 @@ use Yii;
  * @property integer $order
  * @property string $status
  */
-class Event extends \yii\db\ActiveRecord
+class Event extends \common\models\CommonModel
 {
     /**
      * @inheritdoc

@@ -37,8 +37,6 @@ use iutbay\yii2kcfinder\KCFinderInputWidget;
         'multiple' => false,
     ]); ?>
 
-    <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>

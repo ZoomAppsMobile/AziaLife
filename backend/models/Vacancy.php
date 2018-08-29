@@ -4,7 +4,7 @@ namespace backend\models;
 
 use Yii;
 
-class Vacancy extends \yii\db\ActiveRecord
+class Vacancy extends \common\models\CommonModel
 {
     public static function tableName()
     {
